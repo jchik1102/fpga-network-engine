@@ -1,0 +1,9 @@
+.venv/
+build/
+__pycache__/
+.pytest_cache/
+*.jou
+*.log
+*.pb
+xsim.dir/
+.Xil/

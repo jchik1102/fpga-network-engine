@@ -1,0 +1,50 @@
+[
+  {
+    "seed": 0,
+    "queue": 0,
+    "sequence": 0,
+    "word": 0
+  },
+  {
+    "seed": 1,
+    "queue": 0,
+    "sequence": 0,
+    "word": 270369
+  },
+  {
+    "seed": 4294967295,
+    "queue": 0,
+    "sequence": 0,
+    "word": 253983
+  },
+  {
+    "seed": 0,
+    "queue": 1,
+    "sequence": 0,
+    "word": 1752978232
+  },
+  {
+    "seed": 0,
+    "queue": 0,
+    "sequence": 1,
+    "word": 1359758873
+  },
+  {
+    "seed": 305419896,
+    "queue": 3,
+    "sequence": 4294967295,
+    "word": 1775801430
+  },
+  {
+    "seed": 17,
+    "queue": 2,
+    "sequence": 31,
+    "word": 3973278666
+  },
+  {
+    "seed": 29,
+    "queue": 1,
+    "sequence": 2147483648,
+    "word": 3892555940
+  }
+]
