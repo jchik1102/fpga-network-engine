@@ -1,0 +1,89 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/rtl/axi_burst_master.sv" into library work
+INFO: [VRFC 10-311] analyzing module axi_burst_master
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/rtl/descriptor_validator.sv" into library work
+INFO: [VRFC 10-311] analyzing module descriptor_validator
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/rtl/sg_transfer.sv" into library work
+INFO: [VRFC 10-311] analyzing module sg_transfer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/interfaces.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/axi_memory_agent_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/sg_test.sv" into library work
+INFO: [VRFC 10-311] analyzing module sg_tb
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe sg_tb -L uvm -s sg_tb -timescale 1ns/1ps -debug typical -mt off 
+Turned off multi-threading.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling package work.sg_test_pkg
+Compiling package work.axi_memory_agent_pkg
+Compiling module work.sg_test_if_default
+Compiling module work.axi_memory_if_default
+Compiling module work.descriptor_validator
+Compiling module work.sg_transfer
+Compiling module work.axi_burst_master
+Compiling module work.sg_tb
+Built simulation snapshot sg_tb
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 01:14:25 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/sg_tb/xsim_script.tcl
+# xsim {sg_tb} -testplusarg FIXTURE=packets.txt -cov_db_name seed29 -autoloadwcfg -runall -sv_seed 29
+Time resolution is 1 ps
+run -all
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test sg_test...
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO C:/projects/fpga-network-engine/tb/sg_test.sv(88) @ 430060000: uvm_test_top [RESULT] SG_PASS cases=76 invalid=20 errors=4 checked_bytes=23328
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 430060000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 430060000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    5
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RESULT]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+
+WARNING: The Functional Coverage Database has not been updated during simulation. Please recheck testbench to confirm that covergroups are being instantiated correctly and rerun simulation.
+$finish called at time : 430060 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Oct 15 01:14:27 2026...
+PASS: XSim log checked

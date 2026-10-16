@@ -1,0 +1,24 @@
+# pcie_requester: tag allocation and completion matching.
+# prove: unbounded proof (ABC PDR), with TIMEOUT=8 (see pcie_requester_formal.sv)
+# cover: reachability of multi-tag, completion, quarantine and tag reuse
+[tasks]
+prove
+cover
+
+[options]
+prove: mode prove
+cover: mode cover
+cover: depth 40
+
+[engines]
+prove: abc pdr
+cover: smtbmc yices
+
+[script]
+plugin -i slang
+read_slang -D FORMAL pcie_requester.sv pcie_requester_formal.sv --top pcie_requester_formal
+prep -top pcie_requester_formal
+
+[files]
+../rtl/pcie_requester.sv
+pcie_requester_formal.sv

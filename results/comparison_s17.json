@@ -1,0 +1,346 @@
+{
+ "axi": {
+  "platform": "AXI",
+  "phase_ticks": {
+   "capture": 95876,
+   "replay0": 68923,
+   "replay1": 88331,
+   "drop_on_full": 2716,
+   "abort": 55839,
+   "fault_recovery": 5310,
+   "throughput_capture": 38432,
+   "throughput_replay": 25969
+  },
+  "throughput": {
+   "capture": {
+    "frames": 16,
+    "bytes": 24224,
+    "span_ticks": 7784,
+    "mbytes_per_s": 155.6,
+    "bytes_per_tick": 3.112
+   },
+   "replay": {
+    "frames": 16,
+    "bytes": 24224,
+    "span_ticks": 23941,
+    "mbytes_per_s": 50.59,
+    "bytes_per_tick": 1.012,
+    "lateness_max": 23565
+   }
+  },
+  "capture": {
+   "frames": 47,
+   "offered_bytes": 19144,
+   "captured_record_bytes": 16764,
+   "input_span_ticks": 95550,
+   "input_mbytes_per_s": 10.02,
+   "fixture_drop_causes": {
+    "1": 1,
+    "2": 1,
+    "3": 1,
+    "4": 1,
+    "5": 1
+   }
+  },
+  "replay_rounds": {
+   "0": {
+    "outputs": 29,
+    "bytes": 12311,
+    "span_ticks": 28623,
+    "mbytes_per_s": 21.51,
+    "lateness_min": 3,
+    "lateness_median": 798,
+    "lateness_max": 6654,
+    "lateness_p95": 6336
+   },
+   "1": {
+    "outputs": 10,
+    "bytes": 804,
+    "span_ticks": 36154,
+    "mbytes_per_s": 1.11,
+    "lateness_min": 3,
+    "lateness_median": 3,
+    "lateness_max": 5,
+    "lateness_p95": 5
+   },
+   "2": {
+    "outputs": 2,
+    "bytes": 3027,
+    "span_ticks": 5060,
+    "mbytes_per_s": 29.91,
+    "lateness_min": 7,
+    "lateness_median": 56,
+    "lateness_max": 56,
+    "lateness_p95": 56
+   },
+   "3": {
+    "outputs": 16,
+    "bytes": 24224,
+    "span_ticks": 23941,
+    "mbytes_per_s": 50.59,
+    "lateness_min": 3,
+    "lateness_median": 12486,
+    "lateness_max": 23565,
+    "lateness_p95": 23565
+   }
+  },
+  "record_status": {
+   "0": 134,
+   "3": 2,
+   "5": 1,
+   "1": 6,
+   "4": 1,
+   "2": 13
+  },
+  "transport": {
+   "write_bursts": 767,
+   "write_beats": 8549,
+   "read_bursts": 827,
+   "read_beats": 6824,
+   "mean_write_burst_beats": 11.15,
+   "mean_read_burst_beats": 8.25,
+   "write_strobed_bytes": 68067,
+   "write_byte_efficiency": 0.9952
+  }
+ },
+ "pcie": [
+  {
+   "platform": "PCIe",
+   "phase_ticks": {
+    "capture": 110999,
+    "replay0": 83500,
+    "replay1": 88588,
+    "drop_on_full": 4751,
+    "abort": 56714,
+    "fault_recovery": 7400,
+    "throughput_capture": 39556,
+    "throughput_replay": 48543
+   },
+   "throughput": {
+    "capture": {
+     "frames": 16,
+     "bytes": 24224,
+     "span_ticks": 7735,
+     "mbytes_per_s": 156.59,
+     "bytes_per_tick": 3.132
+    },
+    "replay": {
+     "frames": 16,
+     "bytes": 24224,
+     "span_ticks": 44934,
+     "mbytes_per_s": 26.96,
+     "bytes_per_tick": 0.539,
+     "lateness_max": 46011
+    }
+   },
+   "capture": {
+    "frames": 47,
+    "offered_bytes": 19144,
+    "captured_record_bytes": 17364,
+    "input_span_ticks": 110379,
+    "input_mbytes_per_s": 8.67,
+    "fixture_drop_causes": {
+     "1": 1,
+     "2": 1,
+     "3": 1,
+     "4": 1,
+     "5": 1
+    }
+   },
+   "replay_rounds": {
+    "0": {
+     "outputs": 29,
+     "bytes": 12311,
+     "span_ticks": 42790,
+     "mbytes_per_s": 14.39,
+     "lateness_min": 3,
+     "lateness_median": 3649,
+     "lateness_max": 15355,
+     "lateness_p95": 13028
+    },
+    "1": {
+     "outputs": 10,
+     "bytes": 804,
+     "span_ticks": 36145,
+     "mbytes_per_s": 1.11,
+     "lateness_min": 3,
+     "lateness_median": 5,
+     "lateness_max": 8,
+     "lateness_p95": 8
+    },
+    "2": {
+     "outputs": 2,
+     "bytes": 3027,
+     "span_ticks": 5089,
+     "mbytes_per_s": 29.74,
+     "lateness_min": 9,
+     "lateness_median": 108,
+     "lateness_max": 108,
+     "lateness_p95": 108
+    },
+    "3": {
+     "outputs": 16,
+     "bytes": 24224,
+     "span_ticks": 44934,
+     "mbytes_per_s": 26.96,
+     "lateness_min": 1456,
+     "lateness_median": 25078,
+     "lateness_max": 46011,
+     "lateness_p95": 46011
+    }
+   },
+   "record_status": {
+    "0": 138,
+    "3": 2,
+    "1": 6,
+    "4": 1,
+    "2": 13
+   },
+   "transport": {
+    "mwr": 930,
+    "mrd": 837,
+    "msi": 147,
+    "device_cpl": 1006,
+    "bar_requests": 12865,
+    "bar_cpl": 8533,
+    "header_dw": 30900,
+    "payload_dw": 25976,
+    "splits": 169,
+    "reordered": 0,
+    "max_outstanding_tags": 1,
+    "visibility_max": 289,
+    "visibility_mean": 148,
+    "device_max_tags": 1,
+    "device_to_host_header_overhead": 0.5433
+   },
+   "run": "build/engine_pcie_s17"
+  },
+  {
+   "platform": "PCIe",
+   "phase_ticks": {
+    "capture": 113629,
+    "replay0": 85944,
+    "replay1": 88714,
+    "drop_on_full": 5209,
+    "abort": 56990,
+    "fault_recovery": 8450,
+    "throughput_capture": 39982,
+    "throughput_replay": 54434
+   },
+   "throughput": {
+    "capture": {
+     "frames": 16,
+     "bytes": 24224,
+     "span_ticks": 7839,
+     "mbytes_per_s": 154.51,
+     "bytes_per_tick": 3.09
+    },
+    "replay": {
+     "frames": 16,
+     "bytes": 24224,
+     "span_ticks": 50283,
+     "mbytes_per_s": 24.09,
+     "bytes_per_tick": 0.482,
+     "lateness_max": 51856
+    }
+   },
+   "capture": {
+    "frames": 47,
+    "offered_bytes": 19144,
+    "captured_record_bytes": 17364,
+    "input_span_ticks": 112901,
+    "input_mbytes_per_s": 8.48,
+    "fixture_drop_causes": {
+     "1": 1,
+     "2": 1,
+     "3": 1,
+     "4": 1,
+     "5": 1
+    }
+   },
+   "replay_rounds": {
+    "0": {
+     "outputs": 29,
+     "bytes": 12311,
+     "span_ticks": 45380,
+     "mbytes_per_s": 13.56,
+     "lateness_min": 3,
+     "lateness_median": 4234,
+     "lateness_max": 15567,
+     "lateness_p95": 14261
+    },
+    "1": {
+     "outputs": 10,
+     "bytes": 804,
+     "span_ticks": 36150,
+     "mbytes_per_s": 1.11,
+     "lateness_min": 3,
+     "lateness_median": 5,
+     "lateness_max": 10,
+     "lateness_p95": 10
+    },
+    "2": {
+     "outputs": 2,
+     "bytes": 3027,
+     "span_ticks": 5121,
+     "mbytes_per_s": 29.55,
+     "lateness_min": 7,
+     "lateness_median": 125,
+     "lateness_max": 125,
+     "lateness_p95": 125
+    },
+    "3": {
+     "outputs": 16,
+     "bytes": 24224,
+     "span_ticks": 50283,
+     "mbytes_per_s": 24.09,
+     "lateness_min": 1952,
+     "lateness_median": 28080,
+     "lateness_max": 51856,
+     "lateness_p95": 51856
+    }
+   },
+   "record_status": {
+    "0": 138,
+    "3": 2,
+    "1": 6,
+    "4": 1,
+    "2": 13
+   },
+   "transport": {
+    "mwr": 926,
+    "mrd": 1965,
+    "msi": 143,
+    "device_cpl": 2042,
+    "bar_requests": 11680,
+    "bar_cpl": 7744,
+    "header_dw": 34796,
+    "payload_dw": 25183,
+    "splits": 77,
+    "reordered": 594,
+    "max_outstanding_tags": 4,
+    "visibility_max": 292,
+    "visibility_mean": 154,
+    "device_max_tags": 4,
+    "device_to_host_header_overhead": 0.5801
+   },
+   "run": "build/engine_pcie_stress_s17"
+  }
+ ],
+ "comparisons": [
+  {
+   "run": "build/engine_pcie_s17",
+   "problems": [],
+   "seeded_losses": 13,
+   "excluded": "abort phase, AXI WRITE_ERROR row, PCIe MSI phase",
+   "replay_outputs": 57
+  },
+  {
+   "run": "build/engine_pcie_stress_s17",
+   "problems": [],
+   "seeded_losses": 13,
+   "excluded": "abort phase, AXI WRITE_ERROR row, PCIe MSI phase",
+   "replay_outputs": 57
+  }
+ ]
+}

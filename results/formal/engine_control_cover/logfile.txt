@@ -1,0 +1,57 @@
+SBY  2:43:50 [engine_control_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/engine_control_prove'.
+SBY  2:43:50 [engine_control_cover] Removing directory '/mnt/c/projects/fpga-network-engine/formal/engine_control_cover'.
+SBY  2:43:50 [engine_control_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/engine_control.sv' to '/mnt/c/projects/fpga-network-engine/formal/engine_control_cover/src/engine_control.sv'.
+SBY  2:43:50 [engine_control_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/engine_control_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/engine_control_cover/src/engine_control_formal.sv'.
+SBY  2:43:50 [engine_control_cover] engine_0: smtbmc yices
+SBY  2:43:50 [engine_control_cover] base: starting process "cd engine_control_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:43:54 [engine_control_cover] base: finished (returncode=0)
+SBY  2:43:54 [engine_control_cover] prep: starting process "cd engine_control_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY  2:43:54 [engine_control_cover] prep: finished (returncode=0)
+SBY  2:43:54 [engine_control_cover] smt2: starting process "cd engine_control_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  2:43:54 [engine_control_cover] smt2: finished (returncode=0)
+SBY  2:43:54 [engine_control_cover] engine_0: starting process "cd engine_control_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 24  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY  2:43:54 [engine_control_cover] engine_0: ##   0:00:00  Solver: yices
+SBY  2:43:54 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY  2:43:54 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY  2:43:54 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Reached cover statement in step 4 at engine_control_formal: cp_read_ring
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Reached cover statement in step 5 at engine_control_formal: cp_write_ok
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace1.smtc
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Reached cover statement in step 5 at engine_control_formal: cp_write_slverr
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace2.vcd
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace2.smtc
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Checking cover reachability in step 5..
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Reached cover statement in step 5 at engine_control_formal: cp_claim_commit
+SBY  2:43:55 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace3.vcd
+SBY  2:43:56 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY  2:43:56 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace3.smtc
+SBY  2:43:56 [engine_control_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY  2:43:56 [engine_control_cover] engine_0: ##   0:00:01  Status: passed
+SBY  2:43:56 [engine_control_cover] engine_0: finished (returncode=0)
+SBY  2:43:56 [engine_control_cover] engine_0: Status returned by engine: pass
+SBY  2:43:56 [engine_control_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:05 (5)
+SBY  2:43:56 [engine_control_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:09 (9)
+SBY  2:43:56 [engine_control_cover] summary: engine_0 (smtbmc yices) returned pass
+SBY  2:43:56 [engine_control_cover] summary: cover trace: engine_control_cover/engine_0/trace0.vcd
+SBY  2:43:56 [engine_control_cover] summary:   reached cover statement engine_control_formal.cp_read_ring at engine_control_formal.sv:139.5-139.69 step 4
+SBY  2:43:56 [engine_control_cover] summary: cover trace: engine_control_cover/engine_0/trace1.vcd
+SBY  2:43:56 [engine_control_cover] summary:   reached cover statement engine_control_formal.cp_write_ok at engine_control_formal.sv:137.5-137.61 step 5
+SBY  2:43:56 [engine_control_cover] summary: cover trace: engine_control_cover/engine_0/trace2.vcd
+SBY  2:43:56 [engine_control_cover] summary:   reached cover statement engine_control_formal.cp_write_slverr at engine_control_formal.sv:138.5-138.65 step 5
+SBY  2:43:56 [engine_control_cover] summary: cover trace: engine_control_cover/engine_0/trace3.vcd
+SBY  2:43:56 [engine_control_cover] summary:   reached cover statement engine_control_formal.cp_claim_commit at engine_control_formal.sv:140.5-140.54 step 5
+SBY  2:43:56 [engine_control_cover] DONE (PASS, rc=0)

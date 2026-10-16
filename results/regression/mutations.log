@@ -1,0 +1,10 @@
+BAD_FINAL_STROBE       engine_axi   exit=1 DETECTED :: @ 20020000: reporter [OWNERSHIP] device wrote non-owned host memory address 400fc
+WRONG_SG_BYTE          engine_axi   exit=1 DETECTED :: @ 23200000: reporter [HOST_ORACLE] captured byte frame=0 offset=8
+EARLY_DEPARTURE        engine_axi   exit=1 DETECTED :: @ 1943130000: reporter [HOST_ORACLE] replay departed early queue=1 seq=0 due=136775 departure=97116
+EARLY_COMPLETION       engine_axi   exit=1 DETECTED :: @ 1942220000: reporter [HOST_ORACLE] ring 4 seq 0 record tick=0 expected=136591
+LOSS_IGNORES_QUEUE     engine_axi   exit=1 DETECTED :: @ 2738700000: reporter [HOST_ORACLE] ring 5 seq 0 record status=2/0 queue=1/1 aux=00000000/00000000 length=60/60
+WRONG_BE               engine_pcie  exit=1 DETECTED :: @ 97470000: reporter [HOST_ORACLE] capture capacity/BAD_DESC byte unchanged frame=4 offset=61 kind=0
+WRONG_TAG              engine_pcie  exit=1 DETECTED :: @ 41270000: uvm_test_top.rc [PCIE_HOST] device reused tag 0 before its completions were delivered
+EARLY_TAG_REUSE        pcie         exit=1 DETECTED :: @ 43011000: uvm_test_top [PCIE_ORACLE] read-after-write byte 8 offset=95738 bytes=13
+PREMATURE_PUBLICATION  engine_pcie  exit=1 DETECTED :: @ 111130000: reporter [HOST_ORACLE] PCIe ring 1 producer covers record 1 before it is host visible
+BYPASS_BYTE_CHECK      engine_axi   exit=1 DETECTED :: @ 7702570000: reporter [HOST_ORACLE] byte checker compared 0 of 62347 captured bytes

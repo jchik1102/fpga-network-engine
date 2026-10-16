@@ -30,6 +30,7 @@ module engine_control(
  SQ_BASE,CQ_BASE,SQ_DOORBELL,CQ_ACK,RING_RECOVER,COUNTER_ORIGIN} write_kind_t;
  write_kind_t kind;
  write_kind_t d_kind;logic [2:0] d_ring,d_rule;logic [1:0] d_queue;logic [31:0] d_candidate;logic decoded;
+ // ar_address holds the AR-handshake address; the master may change s_araddr afterwards.
  logic [31:0] ar_address;logic r_pending;logic [7:0] claim_eligible;
  function automatic logic base_legal(input logic [31:0] value,input integer ring_index,input logic completion_base);
    logic good;
@@ -75,27 +76,27 @@ module engine_control(
      default:begin
        read_valid=0;
        for(integer q=0;q<4;q++) begin
-         if(s_araddr==32'h140+q*8) begin read_value=queue_delay[q][31:0];read_valid=1;end
-         if(s_araddr==32'h144+q*8) begin read_value=queue_delay[q][63:32];read_valid=1;end
+         if(ar_address==32'h140+q*8) begin read_value=queue_delay[q][31:0];read_valid=1;end
+         if(ar_address==32'h144+q*8) begin read_value=queue_delay[q][63:32];read_valid=1;end
        end
        for(integer r=0;r<8;r++) begin
-         if(s_araddr==32'h200+r*32) begin read_value={27'b0,rule_control[r]};read_valid=1;end
-         if(s_araddr==32'h204+r*32) begin read_value=rule_src[r];read_valid=1;end
-         if(s_araddr==32'h208+r*32) begin read_value=rule_src_mask[r];read_valid=1;end
-         if(s_araddr==32'h20c+r*32) begin read_value=rule_dst[r];read_valid=1;end
-         if(s_araddr==32'h210+r*32) begin read_value=rule_dst_mask[r];read_valid=1;end
-         if(s_araddr==32'h214+r*32) begin read_value=rule_ports[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h400:32'h800)+(r%4)*64)) begin read_value=sq_base[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h404:32'h804)+(r%4)*64)) begin read_value=cq_base[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h408:32'h808)+(r%4)*64)) begin read_value=sq_producer[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h40c:32'h80c)+(r%4)*64)) begin read_value=sq_consumer[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h410:32'h810)+(r%4)*64)) begin read_value=cq_producer[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h414:32'h814)+(r%4)*64)) begin read_value=cq_consumer[r];read_valid=1;end
-         if(s_araddr==((r<4?32'h418:32'h818)+(r%4)*64)) begin read_value={30'b0,halted[r],reserved[r]};read_valid=1;end
+         if(ar_address==32'h200+r*32) begin read_value={27'b0,rule_control[r]};read_valid=1;end
+         if(ar_address==32'h204+r*32) begin read_value=rule_src[r];read_valid=1;end
+         if(ar_address==32'h208+r*32) begin read_value=rule_src_mask[r];read_valid=1;end
+         if(ar_address==32'h20c+r*32) begin read_value=rule_dst[r];read_valid=1;end
+         if(ar_address==32'h210+r*32) begin read_value=rule_dst_mask[r];read_valid=1;end
+         if(ar_address==32'h214+r*32) begin read_value=rule_ports[r];read_valid=1;end
+         if(ar_address==((r<4?32'h400:32'h800)+(r%4)*64)) begin read_value=sq_base[r];read_valid=1;end
+         if(ar_address==((r<4?32'h404:32'h804)+(r%4)*64)) begin read_value=cq_base[r];read_valid=1;end
+         if(ar_address==((r<4?32'h408:32'h808)+(r%4)*64)) begin read_value=sq_producer[r];read_valid=1;end
+         if(ar_address==((r<4?32'h40c:32'h80c)+(r%4)*64)) begin read_value=sq_consumer[r];read_valid=1;end
+         if(ar_address==((r<4?32'h410:32'h810)+(r%4)*64)) begin read_value=cq_producer[r];read_valid=1;end
+         if(ar_address==((r<4?32'h414:32'h814)+(r%4)*64)) begin read_value=cq_consumer[r];read_valid=1;end
+         if(ar_address==((r<4?32'h418:32'h818)+(r%4)*64)) begin read_value={30'b0,halted[r],reserved[r]};read_valid=1;end
        end
        for(integer d=0;d<6;d++) begin
-         if(s_araddr==32'hc00+d*8) begin read_value=snapshot_drop[d][31:0];read_valid=1;end
-         if(s_araddr==32'hc04+d*8) begin read_value=snapshot_drop[d][63:32];read_valid=1;end
+         if(ar_address==32'hc00+d*8) begin read_value=snapshot_drop[d][31:0];read_valid=1;end
+         if(ar_address==32'hc04+d*8) begin read_value=snapshot_drop[d][63:32];read_valid=1;end
        end
      end
    endcase

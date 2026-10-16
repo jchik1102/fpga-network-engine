@@ -7,3 +7,10 @@ __pycache__/
 *.pb
 xsim.dir/
 .Xil/
+
+# Committed evidence: logs and reports that back README numbers
+!results/
+!results/**
+
+# SymbiYosys work directories (logs are copied to results/formal/)
+formal/*/

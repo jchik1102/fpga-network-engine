@@ -1,0 +1,44 @@
+SBY  2:43:50 [engine_control_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/engine_control_prove'.
+SBY  2:43:50 [engine_control_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/engine_control.sv' to '/mnt/c/projects/fpga-network-engine/formal/engine_control_prove/src/engine_control.sv'.
+SBY  2:43:50 [engine_control_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/engine_control_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/engine_control_prove/src/engine_control_formal.sv'.
+SBY  2:43:50 [engine_control_prove] engine_0: smtbmc yices
+SBY  2:43:50 [engine_control_prove] base: starting process "cd engine_control_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  2:43:53 [engine_control_prove] base: finished (returncode=0)
+SBY  2:43:54 [engine_control_prove] prep: starting process "cd engine_control_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  2:43:54 [engine_control_prove] prep: finished (returncode=0)
+SBY  2:43:54 [engine_control_prove] smt2: starting process "cd engine_control_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  2:43:54 [engine_control_prove] smt2: finished (returncode=0)
+SBY  2:43:54 [engine_control_prove] engine_0.basecase: starting process "cd engine_control_prove; yosys-smtbmc -s yices --presat --unroll --noprogress -t 6  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  2:43:54 [engine_control_prove] engine_0.induction: starting process "cd engine_control_prove; yosys-smtbmc -s yices --presat --unroll -i --noprogress -t 6  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  2:43:54 [engine_control_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY  2:43:54 [engine_control_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY  2:43:54 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  2:43:54 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  2:43:54 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 5..
+SBY  2:43:55 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 5..
+SBY  2:43:55 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY  2:43:55 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY  2:43:56 [engine_control_prove] engine_0.basecase: ##   0:00:01  Status: passed
+SBY  2:43:56 [engine_control_prove] engine_0.basecase: finished (returncode=0)
+SBY  2:43:56 [engine_control_prove] engine_0.basecase: Status returned by engine for basecase: pass
+SBY  2:43:56 [engine_control_prove] engine_0.induction: ##   0:00:01  Trying induction in step 3..
+SBY  2:44:30 [engine_control_prove] engine_0.induction: ##   0:00:36  Temporal induction successful.
+SBY  2:44:30 [engine_control_prove] engine_0.induction: ##   0:00:36  Status: passed
+SBY  2:44:30 [engine_control_prove] engine_0.induction: finished (returncode=0)
+SBY  2:44:30 [engine_control_prove] engine_0.induction: Status returned by engine for induction: pass
+SBY  2:44:31 [engine_control_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:40 (40)
+SBY  2:44:31 [engine_control_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:47 (47)
+SBY  2:44:31 [engine_control_prove] summary: engine_0 (smtbmc yices) returned pass for basecase
+SBY  2:44:31 [engine_control_prove] summary: engine_0 (smtbmc yices) returned pass for induction
+SBY  2:44:31 [engine_control_prove] summary: engine_0 did not produce any traces
+SBY  2:44:31 [engine_control_prove] summary: successful proof by k-induction.
+SBY  2:44:31 [engine_control_prove] DONE (PASS, rc=0)

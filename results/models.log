@@ -1,0 +1,50 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- /mnt/c/projects/fpga-network-engine/.venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/projects/fpga-network-engine
+collecting ... collected 41 items
+
+tests/test_models.py::test_bytes_lanes_and_padding[60] PASSED            [  2%]
+tests/test_models.py::test_bytes_lanes_and_padding[61] PASSED            [  4%]
+tests/test_models.py::test_bytes_lanes_and_padding[62] PASSED            [  7%]
+tests/test_models.py::test_bytes_lanes_and_padding[63] PASSED            [  9%]
+tests/test_models.py::test_bytes_lanes_and_padding[64] PASSED            [ 12%]
+tests/test_models.py::test_bytes_lanes_and_padding[1513] PASSED          [ 14%]
+tests/test_models.py::test_bytes_lanes_and_padding[1514] PASSED          [ 17%]
+tests/test_models.py::test_first_match_wildcard_and_unsupported PASSED   [ 19%]
+tests/test_models.py::test_parser_bad_and_unsupported[14-68-5] PASSED    [ 21%]
+tests/test_models.py::test_parser_bad_and_unsupported[14-101-5] PASSED   [ 24%]
+tests/test_models.py::test_parser_bad_and_unsupported[16-255-5] PASSED   [ 26%]
+tests/test_models.py::test_parser_bad_and_unsupported[39-7-5] PASSED     [ 29%]
+tests/test_models.py::test_parser_bad_and_unsupported[39-27-5] PASSED    [ 31%]
+tests/test_models.py::test_parser_bad_and_unsupported[20-32-0] PASSED    [ 34%]
+tests/test_models.py::test_parser_bad_and_unsupported[21-1-0] PASSED     [ 36%]
+tests/test_models.py::test_parser_bad_and_unsupported[23-6-0] PASSED     [ 39%]
+tests/test_models.py::test_error_precedence_and_reservation PASSED       [ 41%]
+tests/test_models.py::test_ipv4_options_structural_check PASSED          [ 43%]
+tests/test_models.py::test_descriptor_known_layout_and_completion PASSED [ 46%]
+tests/test_models.py::test_descriptor_rejections[changes0] PASSED        [ 48%]
+tests/test_models.py::test_descriptor_rejections[changes1] PASSED        [ 51%]
+tests/test_models.py::test_descriptor_rejections[changes2] PASSED        [ 53%]
+tests/test_models.py::test_descriptor_rejections[changes3] PASSED        [ 56%]
+tests/test_models.py::test_descriptor_rejections[changes4] PASSED        [ 58%]
+tests/test_models.py::test_descriptor_rejections[changes5] PASSED        [ 60%]
+tests/test_models.py::test_descriptor_rejections[changes6] PASSED        [ 63%]
+tests/test_models.py::test_descriptor_rejections[changes7] PASSED        [ 65%]
+tests/test_models.py::test_descriptor_rejections[changes8] PASSED        [ 68%]
+tests/test_models.py::test_descriptor_rejections[changes9] PASSED        [ 70%]
+tests/test_models.py::test_descriptor_rejections[changes10] PASSED       [ 73%]
+tests/test_models.py::test_descriptor_rejections[changes11] PASSED       [ 75%]
+tests/test_models.py::test_descriptor_reserved_bytes[27] PASSED          [ 78%]
+tests/test_models.py::test_descriptor_reserved_bytes[28] PASSED          [ 80%]
+tests/test_models.py::test_descriptor_reserved_bytes[38] PASSED          [ 82%]
+tests/test_models.py::test_descriptor_reserved_bytes[40] PASSED          [ 85%]
+tests/test_models.py::test_descriptor_reserved_bytes[63] PASSED          [ 87%]
+tests/test_models.py::test_burst_boundary_and_strobes PASSED             [ 90%]
+tests/test_models.py::test_ownership_and_epoch_recovery PASSED           [ 92%]
+tests/test_models.py::test_cq_reservation_before_claim_and_counter_wrap PASSED [ 95%]
+tests/test_models.py::test_policy_vectors_and_endpoints PASSED           [ 97%]
+tests/test_models.py::test_deadline_wrap_no_drift PASSED                 [100%]
+
+- generated xml file: /mnt/c/projects/fpga-network-engine/build/models/junit.xml -
+============================== 41 passed in 4.68s ==============================

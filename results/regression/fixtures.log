@@ -1,0 +1,4 @@
+Generated 197 independent operations, seed=20261009
+Generated 76 DMA descriptor/payload cases
+Generated 227 replay policy cases
+Generated 96 frames, 91 capture and 81 replay descriptors (16 seeded losses), seed=20261010

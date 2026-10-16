@@ -1,0 +1,115 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/rtl/replay_policy.sv" into library work
+INFO: [VRFC 10-311] analyzing module replay_policy
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/rtl/replay_staging.sv" into library work
+INFO: [VRFC 10-311] analyzing module replay_staging
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/interfaces.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/stream_agent_pkg.sv" into library work
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/projects/fpga-network-engine/tb/replay_test.sv" into library work
+INFO: [VRFC 10-311] analyzing module replay_tb
+Vivado Simulator v2025.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe replay_tb -L uvm -s replay_tb -timescale 1ns/1ps -debug typical -mt off 
+Turned off multi-threading.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package uvm.uvm_pkg
+Compiling package std.std
+Compiling package work.stream_agent_pkg
+Compiling package work.replay_test_pkg
+Compiling module work.replay_test_if_default
+Compiling module work.stream_if_default
+Compiling module work.replay_policy
+Compiling module work.replay_staging
+Compiling module work.replay_tb
+Built simulation snapshot replay_tb
+
+****** xsim v2025.2 (64-bit)
+  **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+  **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+  **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+  **** Start of session at: Thu Oct 15 01:16:59 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source xsim.dir/replay_tb/xsim_script.tcl
+# xsim {replay_tb} -testplusarg FIXTURE=packets.txt -cov_db_name seed29 -autoloadwcfg -runall -sv_seed 29
+Time resolution is 1 ps
+run -all
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(18601) @ 0: reporter [UVM/RELNOTES] 
+----------------------------------------------------------------
+UVM-1.2
+(C) 2007-2014 Mentor Graphics Corporation
+(C) 2007-2014 Cadence Design Systems, Inc.
+(C) 2006-2014 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+(C) 2013-2014 NVIDIA Corporation
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+UVM_INFO @ 0: reporter [RNTST] Running test replay_test...
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
+UVM_INFO C:/projects/fpga-network-engine/tb/replay_test.sv(127) @ 1645000000: uvm_test_top [RESULT] REPLAY_PASS policies=227 invalid_horizons=36 frames=61 lost=8 checked_bytes=30720 max_lateness=1207 coverage=100.000000 policy_coverage=100.000000
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 1645000000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 1645000000: reporter [UVM/REPORT/SERVER] 
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :    5
+UVM_WARNING :    0
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RESULT]     1
+[RNTST]     1
+[TEST_DONE]     1
+[UVM/COMP/NAMECHECK]     1
+[UVM/RELNOTES]     1
+
+$finish called at time : 1645 us : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Oct 15 01:17:02 2026...
+PASS: XSim log checked
+
+ Options Set are : 
+
+   Command Line               : xcrg -cov_db_dir . -cov_db_name seed29 -report_format all -report_dir coverage29
+   Report Format              : all
+   Log File                   : xcrg.log
+   Functional Coverage Dir[s] : .
+   Functional Coverage DB[s]  : seed29
+
+
+
+********************************************************
+                  Functional Coverage Report 
+********************************************************
+
+ Restoring Functional Coverage DB[s] from : 
+  1	./xsim.covdb/seed29/xsim.covinfo
+
+ Creating CSV+Text Report at          : coverage29/functionalCoverageReport/xcrg_func_cov_report.txt
+
+ Functional Coverage HTML Report directory        : coverage29/functionalCoverageReport
+
+ Creating dashboard.html 
+
+ Creating groups.html 
+
+ Creating grp0.html 
+
+ Creating grp1.html 
+

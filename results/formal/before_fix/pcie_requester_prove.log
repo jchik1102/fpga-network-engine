@@ -1,0 +1,250 @@
+SBY  1:45:34 [pcie_requester_prove] Removing directory '/tmp/tmp.67WtiztBq0/pcie_requester_prove'.
+SBY  1:45:34 [pcie_requester_prove] Copy '/tmp/tmp.67WtiztBq0/pcie_requester.sv' to '/tmp/tmp.67WtiztBq0/pcie_requester_prove/src/pcie_requester.sv'.
+SBY  1:45:34 [pcie_requester_prove] Copy '/tmp/tmp.67WtiztBq0/pcie_requester_formal.sv' to '/tmp/tmp.67WtiztBq0/pcie_requester_prove/src/pcie_requester_formal.sv'.
+SBY  1:45:34 [pcie_requester_prove] engine_0: abc pdr
+SBY  1:45:34 [pcie_requester_prove] base: starting process "cd pcie_requester_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  1:45:34 [pcie_requester_prove] base: finished (returncode=0)
+SBY  1:45:34 [pcie_requester_prove] prep: starting process "cd pcie_requester_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  1:45:34 [pcie_requester_prove] prep: finished (returncode=0)
+SBY  1:45:34 [pcie_requester_prove] aig: starting process "cd pcie_requester_prove/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\clk like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rst like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_valid like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [0] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [1] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [2] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [3] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [4] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [5] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [6] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_bytes [7] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [0] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [1] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [2] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [3] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [4] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [5] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [6] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [7] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [8] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [9] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [10] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [11] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [12] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [13] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [14] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [15] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [16] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [17] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [18] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [19] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [20] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [21] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [22] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [23] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [24] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [25] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [26] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [27] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [28] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [29] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [30] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\rd_address [31] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\r_ready like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\four_tag like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\drain_reset like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [0] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [1] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [2] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [3] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [4] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [5] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [6] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [7] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [8] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [9] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [10] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [11] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [12] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [13] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [14] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_requester_id [15] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_rcb128 like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\cfg_bus_master_enable like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_valid like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_sop like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_eop like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [0] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [1] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [2] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [3] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [4] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [5] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [6] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [7] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [8] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [9] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [10] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [11] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [12] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [13] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [14] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [15] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [16] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [17] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [18] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [19] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [20] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [21] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [22] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [23] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [24] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [25] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [26] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [27] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [28] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [29] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [30] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\c_data [31] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [0] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [1] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [2] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [3] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [4] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [5] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [6] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [7] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [8] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [9] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [10] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [11] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [12] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [13] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [14] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [15] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [16] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [17] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [18] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [19] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [20] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [21] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [22] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [23] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [24] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [25] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [26] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [27] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [28] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [29] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [30] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [31] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [32] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [33] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [34] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [35] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [36] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [37] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [38] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [39] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [40] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [41] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [42] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [43] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [44] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [45] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [46] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [47] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [48] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [49] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [50] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [51] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [52] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [53] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [54] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [55] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [56] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [57] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [58] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [59] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [60] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [61] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [62] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating undriven bit pcie_requester_formal.\aperture_base [63] like $anyseq.
+SBY  1:45:34 [pcie_requester_prove] aig: Warning: Treating a total of 163 undriven bits in pcie_requester_formal like $anyseq.
+SBY  1:45:35 [pcie_requester_prove] aig: finished (returncode=0)
+SBY  1:45:35 [pcie_requester_prove] engine_0: starting process "cd pcie_requester_prove; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY  1:45:35 [pcie_requester_prove] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY  1:45:35 [pcie_requester_prove] engine_0: Warning: The last 5 outputs are interpreted as constraints.
+SBY  1:45:35 [pcie_requester_prove] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 179. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY  1:45:35 [pcie_requester_prove] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY  1:45:35 [pcie_requester_prove] engine_0: 1 : 0 4                                                                 1     4      0.01 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 2 : 0 7 7                                                               4    12      0.01 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 3 : 0 8 6 9 ~1                                                           4    19      0.02 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 4 : 0 8 5 13 12 ~1                                                       5    30      0.03 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 5 : 0 9 6 11 15 31 ~2                                                    7    52      0.07 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 5 : 0 9 6 12 18 61 ~2                                                    8    64      0.10 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 6 : 0 9 7 9 17 34 60 ~8                                                 12    87      0.16 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 6 : 0 9 7 12 23 43 78 ~8                                                18    89      0.19 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 7 : 0 9 6 9 17 18 17 105 ~10                                             9   128      0.27 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 7 : 0 9 6 9 19 18 20 139 ~10                                             7   136      0.30 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 8 : 0 9 6 8 12 20 22 30 77 ~70                                          11   136      0.43 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 8 : 0 9 6 8 13 22 23 39 100 ~70                                         20   176      0.51 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 8 : 0 9 6 8 14 23 30 43 104 ~70                                         26   181      0.54 sec  T/O =  0  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: Timing out on output 2 in frame 8 (retrying in next anytime pass).
+SBY  1:45:35 [pcie_requester_prove] engine_0: 8 : 0 9 6 8 14 23 30 43 105 ~70                                          1   181      0.54 sec  T/O =  1  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 9 : 0 9 6 8 12 17 18 42 27 60 ~81                                        6   181      0.61 sec  T/O =  1  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 10 : 0 9 6 8 12 17 16 38 28 10 50 ~84                                     5   181      0.66 sec  T/O =  1  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 11 : 0 9 6 8 12 17 16 37 27 9 11 39 ~84                                   0   181      0.69 sec  T/O =  1  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: 12 : 0 9 6 8 12 17 18 40 31 10 15 13 37 ~84                              19   184      0.75 sec  T/O =  1  PRV =  0
+SBY  1:45:35 [pcie_requester_prove] engine_0: Block =   29  Oblig =   976  Clause =   437  Call =  5757 (sat=57.7%)  Cex =   0  Start =  13
+SBY  1:45:35 [pcie_requester_prove] engine_0: SAT solving =     0.43 sec ( 56.88 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: unsat     =     0.04 sec (  4.97 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: sat       =     0.39 sec ( 51.91 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Generalize  =     0.35 sec ( 46.96 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Push clause =     0.11 sec ( 14.58 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Ternary sim =     0.05 sec (  7.13 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Containment =     0.00 sec (  0.44 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: CNF compute =     0.05 sec (  5.99 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Refinement  =     0.00 sec (  0.03 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: TOTAL       =     0.76 sec (100.00 %)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Output 1 of miter "model/design_aiger" was asserted in frame 14.  Time =     0.76 sec
+SBY  1:45:35 [pcie_requester_prove] engine_0: finished (returncode=0)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Status returned by engine: FAIL
+SBY  1:45:35 [pcie_requester_prove] smt2: starting process "cd pcie_requester_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  1:45:35 [pcie_requester_prove] engine_0: starting process "cd pcie_requester_prove; yosys-witness aiw2yw engine_0/trace.aiw model/design_aiger.ywa engine_0/trace_aiw.yw"
+SBY  1:45:35 [pcie_requester_prove] smt2: finished (returncode=0)
+SBY  1:45:35 [pcie_requester_prove] engine_0: Converting AIGER witness trace 'engine_0/trace.aiw' to Yosys witness trace 'engine_0/trace_aiw.yw'...
+SBY  1:45:35 [pcie_requester_prove] engine_0: Using Yosys witness AIGER map file 'model/design_aiger.ywa'
+SBY  1:45:35 [pcie_requester_prove] engine_0: Converted 15 time steps.
+SBY  1:45:35 [pcie_requester_prove] engine_0: finished (returncode=0)
+SBY  1:45:35 [pcie_requester_prove] engine_0: starting process "cd pcie_requester_prove; yosys-smtbmc -s yices --noprogress --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc --yw engine_0/trace_aiw.yw model/design_smt2.smt2"
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Solver: yices
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 0..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 1..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 2..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 3..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 4..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 5..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 6..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 7..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 8..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 9..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 10..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 11..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 12..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Skipping step 13..
+SBY  1:45:35 [pcie_requester_prove] engine_0: ##   0:00:00  Checking assertions in step 14..
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  BMC failed!
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Assert failed in pcie_requester_formal: ap_mrd_framing
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  1:45:36 [pcie_requester_prove] engine_0: ##   0:00:00  Status: FAILED
+SBY  1:45:36 [pcie_requester_prove] engine_0: finished (returncode=1)
+SBY  1:45:36 [pcie_requester_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  1:45:36 [pcie_requester_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  1:45:36 [pcie_requester_prove] summary: engine_0 (abc pdr) returned FAIL
+SBY  1:45:36 [pcie_requester_prove] summary: counterexample trace: pcie_requester_prove/engine_0/trace.vcd
+SBY  1:45:36 [pcie_requester_prove] summary:   failed assertion pcie_requester_formal.ap_mrd_framing at pcie_requester_formal.sv:118.27-118.67 step 14
+SBY  1:45:36 [pcie_requester_prove] DONE (FAIL, rc=2)

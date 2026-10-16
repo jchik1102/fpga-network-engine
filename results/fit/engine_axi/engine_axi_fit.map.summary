@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Thu Oct 15 01:40:22 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : engine_axi_fit
+Top-level Entity Name : engine_axi_fit
+Family : MAX 10
+Total logic elements : 31,317
+    Total combinational functions : 24,354
+    Dedicated logic registers : 15,098
+Total registers : 15098
+Total pins : 1
+Total virtual pins : 534
+Total memory bits : 327,680
+Embedded Multiplier 9-bit elements : 10
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

@@ -1,0 +1,5 @@
+# <file>.sby <task>: run by scripts/run-formal.sh (make formal)
+engine_control.sby prove
+engine_control.sby cover
+pcie_requester.sby prove
+pcie_requester.sby cover

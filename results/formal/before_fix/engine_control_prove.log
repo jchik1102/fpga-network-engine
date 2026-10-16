@@ -1,0 +1,43 @@
+SBY  1:45:30 [engine_control_prove] Removing directory '/tmp/tmp.s8LuJedMIv/engine_control_prove'.
+SBY  1:45:30 [engine_control_prove] Copy '/tmp/tmp.s8LuJedMIv/engine_control.sv' to '/tmp/tmp.s8LuJedMIv/engine_control_prove/src/engine_control.sv'.
+SBY  1:45:30 [engine_control_prove] Copy '/tmp/tmp.s8LuJedMIv/engine_control_formal.sv' to '/tmp/tmp.s8LuJedMIv/engine_control_prove/src/engine_control_formal.sv'.
+SBY  1:45:30 [engine_control_prove] engine_0: smtbmc yices
+SBY  1:45:30 [engine_control_prove] base: starting process "cd engine_control_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  1:45:32 [engine_control_prove] base: finished (returncode=0)
+SBY  1:45:32 [engine_control_prove] prep: starting process "cd engine_control_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY  1:45:33 [engine_control_prove] prep: finished (returncode=0)
+SBY  1:45:33 [engine_control_prove] smt2: starting process "cd engine_control_prove/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  1:45:33 [engine_control_prove] smt2: finished (returncode=0)
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: starting process "cd engine_control_prove; yosys-smtbmc -s yices --presat --unroll --noprogress -t 6  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  1:45:33 [engine_control_prove] engine_0.induction: starting process "cd engine_control_prove; yosys-smtbmc -s yices --presat --unroll -i --noprogress -t 6  --append 0 --dump-vcd engine_0/trace_induct.vcd --dump-yw engine_0/trace_induct.yw --dump-vlogtb engine_0/trace_induct_tb.v --dump-smtc engine_0/trace_induct.smtc model/design_smt2.smt2"
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Solver: yices
+SBY  1:45:33 [engine_control_prove] engine_0.induction: ##   0:00:00  Solver: yices
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 0..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 0..
+SBY  1:45:33 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 6..
+SBY  1:45:33 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 5..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 1..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 1..
+SBY  1:45:33 [engine_control_prove] engine_0.induction: ##   0:00:00  Trying induction in step 4..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 2..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 2..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 3..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 3..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assumptions in step 4..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Checking assertions in step 4..
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  BMC failed!
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Assert failed in engine_control_formal: ap_read_sq_producer0
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Writing trace to VCD file: engine_0/trace.vcd
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace_tb.v
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Writing trace to constraints file: engine_0/trace.smtc
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace.yw
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: ##   0:00:00  Status: failed
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: finished (returncode=1)
+SBY  1:45:33 [engine_control_prove] engine_0.basecase: Status returned by engine for basecase: FAIL
+SBY  1:45:33 [engine_control_prove] engine_0.induction: terminating process
+SBY  1:45:33 [engine_control_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:02 (2)
+SBY  1:45:33 [engine_control_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY  1:45:33 [engine_control_prove] summary: engine_0 (smtbmc yices) returned FAIL for basecase
+SBY  1:45:33 [engine_control_prove] summary: counterexample trace [basecase]: engine_control_prove/engine_0/trace.vcd
+SBY  1:45:33 [engine_control_prove] summary:   failed assertion engine_control_formal.ap_read_sq_producer0 at engine_control_formal.sv:105.52-105.135 step 4
+SBY  1:45:33 [engine_control_prove] DONE (FAIL, rc=2)

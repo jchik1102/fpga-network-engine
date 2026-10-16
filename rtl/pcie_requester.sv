@@ -163,7 +163,10 @@ module pcie_requester #(parameter integer TIMEOUT=65536)(
      endcase
      if(read_state==R_SEND || read_state==R_WAIT) begin
        timer<=timer+1'b1;
-       if(timer>=TIMEOUT-1 && pending!=0) begin
+       // Never abandon an MRd part-way through: wait while a TLP is in progress
+       // or its first beat is being accepted. The timer keeps counting, so the
+       // timeout fires as soon as the current TLP has been sent.
+       if(timer>=TIMEOUT-1 && pending!=0 && !(read_state==R_SEND && (read_beat!=0 || r_ready))) begin
          // unfinished tags can still get completions, so quarantine instead of reuse
          quarantined<=quarantined|pending;active<=active&~pending;pending<=0;timed_out<=1;timeout_pulse<=1;read_state<=R_DONE;
        end
