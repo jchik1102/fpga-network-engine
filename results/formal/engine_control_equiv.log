@@ -1,0 +1,57 @@
+gold: engine_control.sv at 219866b; gate: working tree
+== working_tree
+Found 4508 unproven $equiv cells (72 groups) in equiv:
+Proved 4508 previously unproven $equiv cells.
+No selected unproven $equiv cells found in equiv.
+Proved 0 previously unproven $equiv cells.
+  Of those cells 4508 are proven and 0 are unproven.
+  Equivalence successfully proven!
+EQUIV_PASS
+== mutant_fault_clear_ignores_lock
+Found 4508 unproven $equiv cells (72 groups) in equiv:
+Proved 4469 previously unproven $equiv cells.
+Found 39 unproven $equiv cells in module equiv:
+Proved 0 previously unproven $equiv cells.
+  Of those cells 4469 are proven and 39 are unproven.
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38849: \sticky_fault_gold [3] \sticky_fault_gate [3]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38848: \sticky_fault_gold [2] \sticky_fault_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38847: \sticky_fault_gold [1] \sticky_fault_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38846: \sticky_fault_gold [0] \sticky_fault_gate [0]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38845: \sticky_ring_gold [2] \sticky_ring_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38844: \sticky_ring_gold [1] \sticky_ring_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38843: \sticky_ring_gold [0] \sticky_ring_gate [0]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38842: \sticky_sequence_gold [31] \sticky_sequence_gate [31]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38841: \sticky_sequence_gold [30] \sticky_sequence_gate [30]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38840: \sticky_sequence_gold [29] \sticky_sequence_gate [29]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38839: \sticky_sequence_gold [28] \sticky_sequence_gate [28]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38838: \sticky_sequence_gold [27] \sticky_sequence_gate [27]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38837: \sticky_sequence_gold [26] \sticky_sequence_gate [26]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38836: \sticky_sequence_gold [25] \sticky_sequence_gate [25]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38835: \sticky_sequence_gold [24] \sticky_sequence_gate [24]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38834: \sticky_sequence_gold [23] \sticky_sequence_gate [23]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38833: \sticky_sequence_gold [22] \sticky_sequence_gate [22]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38832: \sticky_sequence_gold [21] \sticky_sequence_gate [21]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38831: \sticky_sequence_gold [20] \sticky_sequence_gate [20]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38830: \sticky_sequence_gold [19] \sticky_sequence_gate [19]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38829: \sticky_sequence_gold [18] \sticky_sequence_gate [18]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38828: \sticky_sequence_gold [17] \sticky_sequence_gate [17]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38827: \sticky_sequence_gold [16] \sticky_sequence_gate [16]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38826: \sticky_sequence_gold [15] \sticky_sequence_gate [15]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38825: \sticky_sequence_gold [14] \sticky_sequence_gate [14]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38824: \sticky_sequence_gold [13] \sticky_sequence_gate [13]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38823: \sticky_sequence_gold [12] \sticky_sequence_gate [12]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38822: \sticky_sequence_gold [11] \sticky_sequence_gate [11]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38821: \sticky_sequence_gold [10] \sticky_sequence_gate [10]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38820: \sticky_sequence_gold [9] \sticky_sequence_gate [9]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38819: \sticky_sequence_gold [8] \sticky_sequence_gate [8]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38818: \sticky_sequence_gold [7] \sticky_sequence_gate [7]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38817: \sticky_sequence_gold [6] \sticky_sequence_gate [6]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38816: \sticky_sequence_gold [5] \sticky_sequence_gate [5]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38815: \sticky_sequence_gold [4] \sticky_sequence_gate [4]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38814: \sticky_sequence_gold [3] \sticky_sequence_gate [3]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38813: \sticky_sequence_gold [2] \sticky_sequence_gate [2]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38812: \sticky_sequence_gold [1] \sticky_sequence_gate [1]
+  Unproven $equiv $auto$equiv_make.cc:295:find_same_wires$38811: \sticky_sequence_gold [0] \sticky_sequence_gate [0]
+Found a total of 39 unproven $equiv cells.
+ERROR: Found 39 unproven $equiv cells in 'equiv_status -assert'.
+EQUIV_MUTANT_DETECTED fault_clear_ignores_lock

@@ -1,0 +1,95 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-9.1.1, pluggy-1.7.0 -- C:\Users\jonat\.venvs\cocotb-win\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\projects\fpga-network-engine
+collecting ... collected 1 item
+
+tb/cocotb/test_cocotb.py::test_cdc_fifo ** Warning: (vlib-34) Library already exists at "top".
+Errors: 0, Warnings: 1
+Reading pref.tcl
+
+# 2024.3
+
+# vsim -quiet -c -onfinish exit -pli "C:/Users/jonat/.venvs/cocotb-win/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" top.stream_cdc_fifo -do "run -all; quit" 
+# Start time: 15:12:14 on Oct 17,2026
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# ** Warning: (vsim-3865) Due to PLI being present, global +acc is being enabled automatically. This will cause your simulation to run very slowly. Please use vsim -no_autoacc to disable this feature. This feature is now deprecated and will be removed from future releases.
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: 'C:\Users\jonat\AppData\Local\Programs\Python\Python313\python313.dll'
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:234  in gpi_load_users                  Running entry func 'initialize' from loaded library 'C:\Users\jonat\.venvs\cocotb-win\Lib\site-packages\cocotb\simulator.cp313-win_amd64.pyd'
+#      -.--ns INFO     pygpi                              ..ib\pygpi\embed.cpp:115  in initialize                      Using Python 3.13.8 interpreter at C:\Users\jonat\.venvs\cocotb-win\Scripts\python.exe
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: FLI support registered
+# run -all
+#      0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792275136
+# 
+#      0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from C:\Users\jonat\.venvs\cocotb-win\Lib\site-packages\cocotb
+# 
+#      0.00ns INFO     cocotb.initialize                  Running on ModelSim for Questa Intel Starter FPGA Edition-64 version 2024.1 2024.09
+# 
+#      0.00ns INFO     cocotb.regression                  Running tests
+# 
+#      0.00ns INFO     cocotb.regression                  running cdc_fifo_tests.similar_rates (1/3)
+# 
+#                                                             10 ns write clock, 13 ns read clock, bursty on both sides.
+# 
+#  68110.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=10ns m_clk=13ns words=3000 full_cycles=25 empty_cycles=215
+# 
+#  68110.00ns INFO     cocotb.regression                  cdc_fifo_tests.similar_rates passed
+# 
+#  68110.00ns INFO     cocotb.regression                  running cdc_fifo_tests.slow_reader (2/3)
+# 
+#                                                             7 ns write, 31 ns read: the FIFO fills and the writer is held off.
+# 
+# 119288.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=7ns m_clk=31ns words=1500 full_cycles=4031 empty_cycles=0
+# 
+# 119288.00ns INFO     cocotb.regression                  cdc_fifo_tests.slow_reader passed
+# 
+# 119288.00ns INFO     cocotb.regression                  running cdc_fifo_tests.fast_reader (3/3)
+# 
+#                                                             29 ns write, 6 ns read: the FIFO runs empty between words.
+# 
+# 210362.50ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=29ns m_clk=6ns words=1500 full_cycles=0 empty_cycles=12999
+# 
+# 210362.50ns INFO     cocotb.regression                  cdc_fifo_tests.fast_reader passed
+# 
+# 210362.50ns INFO     cocotb.regression                  **************************************************************************************
+# 
+#                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+# 
+#                                                         **************************************************************************************
+# 
+#                                                         ** cdc_fifo_tests.similar_rates   PASS       68110.00           7.05       9659.83  **
+# 
+#                                                         ** cdc_fifo_tests.slow_reader     PASS       51178.00          10.17       5034.04  **
+# 
+#                                                         ** cdc_fifo_tests.fast_reader     PASS       91074.50          45.03       2022.55  **
+# 
+#                                                         **************************************************************************************
+# 
+#                                                         ** TESTS=3 PASS=3 FAIL=0 SKIP=0             210362.50          62.55       3363.30  **
+# 
+#                                                         **************************************************************************************
+# 
+# ** Note: $finish
+#    Time: 210362502 ps  Iteration: 2  Instance: /stream_cdc_fifo File: C:/projects/fpga-network-engine/rtl/stream_cdc_fifo.sv
+# End time: 15:13:19 on Oct 17,2026, Elapsed time: 0:01:05
+# Errors: 0, Warnings: 2
+PASSED
+
+======================== 1 passed in 66.22s (0:01:06) =========================

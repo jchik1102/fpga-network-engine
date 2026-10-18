@@ -1,0 +1,117 @@
+EQY 15:11:01 [stream_cdc_fifo] read_gold: starting process "yosys -ql stream_cdc_fifo/gold.log stream_cdc_fifo/gold.ys"
+EQY 15:11:01 [stream_cdc_fifo] read_gold: finished (returncode=0)
+EQY 15:11:01 [stream_cdc_fifo] read_gate: starting process "yosys -ql stream_cdc_fifo/gate.log stream_cdc_fifo/gate.ys"
+EQY 15:11:01 [stream_cdc_fifo] read_gate: stream_cdc_fifo.vhd:48:10:note: found RAM "mem", width: 37 bits, depth: 16
+EQY 15:11:01 [stream_cdc_fifo] read_gate: signal mem : mem_t;
+EQY 15:11:01 [stream_cdc_fifo] read_gate: ^
+EQY 15:11:01 [stream_cdc_fifo] read_gate: finished (returncode=0)
+EQY 15:11:01 [stream_cdc_fifo] combine: starting process "yosys -ql stream_cdc_fifo/combine.log stream_cdc_fifo/combine.ys"
+EQY 15:11:01 [stream_cdc_fifo] combine: finished (returncode=0)
+EQY 15:11:01 [stream_cdc_fifo] partition: starting process "cd stream_cdc_fifo; yosys -ql partition.log partition.ys"
+EQY 15:11:03 [stream_cdc_fifo] partition: finished (returncode=0)
+EQY 15:11:04 [stream_cdc_fifo] run: starting process "make -j8 -C stream_cdc_fifo -f strategies.mk"
+EQY 15:11:04 [stream_cdc_fifo] run: make[1]: Entering directory '/mnt/c/projects/fpga-network-engine/build/vhdl/eqy-vhdl_vs_sv/stream_cdc_fifo'
+EQY 15:11:04 [stream_cdc_fifo] run: make[1]: Warning: File 'strategies.mk' has modification time 0.13 s in the future
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.empty'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.full'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.m_data'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.m_valid'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.0'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.1'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.10'..
+EQY 15:11:04 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.11'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.full' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.12'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.empty' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.13'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.m_valid' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.14'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.m_data' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.15'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.10' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.2'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.1' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.3'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.0' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.4'..
+EQY 15:11:06 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.11' using strategy 'sby'
+EQY 15:11:06 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.5'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.13' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.12' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.6'..
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.7'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.14' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.8'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.15' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.mem.9'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.3' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.2' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.r_bin'..
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.r_bin_next'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.4' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.r_gray'..
+EQY 15:11:08 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.5' using strategy 'sby'
+EQY 15:11:08 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.r_sync1'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.6' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.r_sync2'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.7' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.s_ready'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.r_bin' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.w_bin'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.r_bin_next' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.w_bin_next'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.r_gray' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.w_gray'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.8' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.w_sync1'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.r_sync1' using strategy 'sby'
+EQY 15:11:11 [stream_cdc_fifo] run: Running strategy 'sby' on 'stream_cdc_fifo.w_sync2'..
+EQY 15:11:11 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.mem.9' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.s_ready' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.r_sync2' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.w_bin' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.w_bin_next' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.w_sync2' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.w_gray' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: Proved equivalence of partition 'stream_cdc_fifo.w_sync1' using strategy 'sby'
+EQY 15:11:13 [stream_cdc_fifo] run: make -f strategies.mk summary
+EQY 15:11:13 [stream_cdc_fifo] run: make[2]: Entering directory '/mnt/c/projects/fpga-network-engine/build/vhdl/eqy-vhdl_vs_sv/stream_cdc_fifo'
+EQY 15:11:13 [stream_cdc_fifo] run: make[2]: Leaving directory '/mnt/c/projects/fpga-network-engine/build/vhdl/eqy-vhdl_vs_sv/stream_cdc_fifo'
+EQY 15:11:13 [stream_cdc_fifo] run: make[1]: warning:  Clock skew detected.  Your build may be incomplete.
+EQY 15:11:13 [stream_cdc_fifo] run: make[1]: Leaving directory '/mnt/c/projects/fpga-network-engine/build/vhdl/eqy-vhdl_vs_sv/stream_cdc_fifo'
+EQY 15:11:13 [stream_cdc_fifo] run: finished (returncode=0)
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.w_sync2
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.w_sync1
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.w_gray
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.w_bin_next
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.w_bin
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.s_ready
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.r_sync2
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.r_sync1
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.r_gray
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.r_bin_next
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.r_bin
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.9
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.8
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.7
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.6
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.5
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.4
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.3
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.2
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.1
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.15
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.14
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.13
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.12
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.11
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.10
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.mem.0
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.m_valid
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.m_data
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.full
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved equivalence of partition stream_cdc_fifo.empty
+EQY 15:11:13 [stream_cdc_fifo] Successfully proved designs equivalent
+EQY 15:11:13 [stream_cdc_fifo] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:12 (12)
+EQY 15:11:13 [stream_cdc_fifo] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:11 (11)
+EQY 15:11:13 [stream_cdc_fifo] DONE (PASS, rc=0)

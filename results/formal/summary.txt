@@ -1,5 +1,7 @@
-engine_control_prove                     PASS       40s
-engine_control_cover                     PASS        5s
-pcie_requester_prove                     PASS       31s
-pcie_requester_cover                     PASS        4s
-FORMAL 4 of 4 tasks PASS
+engine_control_prove                     PASS       26s
+engine_control_cover                     PASS        6s
+pcie_requester_prove                     PASS       68s
+pcie_requester_cover                     PASS        3s
+stream_cdc_fifo_prove                    PASS        6s
+stream_cdc_fifo_cover                    PASS        1s
+FORMAL 6 of 6 tasks PASS

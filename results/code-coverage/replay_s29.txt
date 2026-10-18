@@ -1,0 +1,13 @@
+XSim code coverage (replay_s29): statement, branch and condition, merged over every run
+design under test: instances under replay_tb.policy, replay_tb.staging; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+replay_policy                                   1     55/56     98.21%     14/15     93.33%      6/6     100.00%
+replay_staging                                  1     81/82     98.78%     33/35     94.29%     27/28     96.43%
+TOTAL                                                136/138    98.55%     47/50     94.00%     33/34     97.06%
+
+Lines with a statement that never executed:
+replay_policy (rtl/replay_policy.sv): 49
+replay_staging (rtl/replay_staging.sv): 73
+
+CODE_COVERAGE replay_s29 statements=136/138 (98.55%) branches=47/50 (94.00%) conditions=33/34 (97.06%)

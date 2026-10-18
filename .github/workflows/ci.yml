@@ -1,6 +1,7 @@
-# What runs on GitHub-hosted runners: the Python model tests and the
-# SymbiYosys proofs. The XSim/UVM regression and the Quartus fits need the
-# Windows vendor tools and run locally with `make test`.
+# What runs on GitHub-hosted runners: the Python model tests, the SymbiYosys
+# proofs (with the async FIFO mutant check) and the cocotb tests. The XSim/UVM
+# regression and the Quartus fits need the Windows vendor tools and run
+# locally with `make test`.
 name: CI
 on:
   push:
@@ -27,8 +28,23 @@ jobs:
         with:
           version: '2026-10-14'
       - run: FORMAL_JOBS=4 bash scripts/run-formal.sh
+      - run: bash scripts/formal-cdc-mutants.sh
       - if: always()
         uses: actions/upload-artifact@v4
         with:
           name: formal-results
           path: results/formal
+
+  cocotb:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: YosysHQ/setup-oss-cad-suite@v3
+        with:
+          version: '2026-10-14'
+      - run: python -m pip install cocotb==2.1.0 find_libpython==0.5.1 pytest==9.1.1
+      # The async FIFO's two-clock tests, then its 4 mutants must make them fail.
+      - run: make cocotb VENV="$pythonLocation"

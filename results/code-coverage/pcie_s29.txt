@@ -1,0 +1,12 @@
+XSim code coverage (pcie_s29): statement, branch and condition, merged over every run
+design under test: instances under pcie_tb.dut, pcie_tb.arbiter; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+pcie_requester                                  1    269/277    97.11%    105/116    90.52%    170/194    87.63%
+pcie_tx_arbiter                                 1     21/21    100.00%     11/12     91.67%      7/8      87.50%
+TOTAL                                                290/298    97.32%    116/128    90.62%    177/202    87.62%
+
+Lines with a statement that never executed:
+pcie_requester (rtl/pcie_requester.sv): 67, 162, 209, 225
+
+CODE_COVERAGE pcie_s29 statements=290/298 (97.32%) branches=116/128 (90.62%) conditions=177/202 (87.62%)

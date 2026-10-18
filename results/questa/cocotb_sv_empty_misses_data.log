@@ -1,0 +1,253 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+________________________________ test_cdc_fifo ________________________________
+
+    def test_cdc_fifo():
+        source = ROOT / "rtl/stream_cdc_fifo.sv"
+        build = HERE / "sim_build" / ("stream_cdc_fifo" if SIM == "icarus" else f"{SIM}_stream_cdc_fifo")
+        mutant = os.environ.get("CDC_MUTANT")
+        if mutant:
+            old, new = MUTANTS[mutant]
+            text = source.read_text()
+            assert text.count(old) == 1, f"mutant {mutant} does not apply"
+            build.mkdir(parents=True, exist_ok=True)
+            source = build / "stream_cdc_fifo_mutant.sv"
+            source.write_text(text.replace(old, new))
+        runner = get_runner(SIM)
+        runner.build(sources=[source], hdl_toplevel="stream_cdc_fifo", build_dir=build,
+                     build_args=["-g2012"] if SIM == "icarus" else ["-timescale", "1ns/1ps"], timescale=("1ns", "1ps"), always=True)
+        # Questa finds the compiled library in its working directory, so it runs in the build directory.
+>       runner.test(hdl_toplevel="stream_cdc_fifo", test_module="cdc_fifo_tests", test_dir=HERE if SIM == "icarus" else build,
+                    build_dir=build)
+E       SystemExit: 1
+
+tb\cocotb\test_cocotb.py:47: SystemExit
+---------------------------- Captured stdout call -----------------------------
+** Warning: (vlib-34) Library already exists at "top".
+
+Errors: 0, Warnings: 1
+
+Reading pref.tcl
+
+
+
+# 2024.3
+
+
+
+# vsim -quiet -c -onfinish exit -pli "C:/Users/jonat/.venvs/cocotb-win/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll" top.stream_cdc_fifo -do "run -all; quit" 
+
+# Start time: 15:13:22 on Oct 17,2026
+
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+
+# ** Warning: (vsim-3865) Due to PLI being present, global +acc is being enabled automatically. This will cause your simulation to run very slowly. Please use vsim -no_autoacc to disable this feature. This feature is now deprecated and will be removed from future releases.
+
+# ** Warning: (vopt-10908) Some optimizations are turned off because the +acc switch is in effect.
+
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=2.
+
+# //  Questa Intel Starter FPGA Edition-64
+
+# //  Version 2024.3 win64 Sep 10 2024
+
+# //
+
+# // Unpublished work. Copyright 2024 Siemens
+
+# //
+
+# // This material contains trade secrets or otherwise confidential information
+
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+
+# // limited as set forth in the Customer's applicable agreements with SISW.
+
+# //
+
+# // This material may not be copied, distributed, or otherwise disclosed outside
+
+# // of the Customer's facilities without the express written permission of SISW,
+
+# // and may not be used in any way not expressly authorized by SISW.
+
+# //
+
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: 'C:\Users\jonat\AppData\Local\Programs\Python\Python313\python313.dll'
+
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:234  in gpi_load_users                  Running entry func 'initialize' from loaded library 'C:\Users\jonat\.venvs\cocotb-win\Lib\site-packages\cocotb\simulator.cp313-win_amd64.pyd'
+
+#      -.--ns INFO     pygpi                              ..ib\pygpi\embed.cpp:115  in initialize                      Using Python 3.13.8 interpreter at C:\Users\jonat\.venvs\cocotb-win\Scripts\python.exe
+
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+
+#      -.--ns INFO     gpi                                ..\gpi\GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: FLI support registered
+
+# run -all
+
+#      0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792275204
+
+# 
+
+#      0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from C:\Users\jonat\.venvs\cocotb-win\Lib\site-packages\cocotb
+
+# 
+
+#      0.00ns INFO     cocotb.initialize                  Running on ModelSim for Questa Intel Starter FPGA Edition-64 version 2024.1 2024.09
+
+# 
+
+#      0.00ns INFO     cocotb.regression                  Running tests
+
+# 
+
+#      0.00ns INFO     cocotb.regression                  running cdc_fifo_tests.similar_rates (1/3)
+
+# 
+
+#                                                             10 ns write clock, 13 ns read clock, bursty on both sides.
+
+# 
+
+#  68275.00ns WARNING  cocotb.regression                  cdc_fifo_tests.similar_rates failed
+
+# 
+
+#                                                         Traceback (most recent call last):
+
+# 
+
+#                                                           File "C:\projects\fpga-network-engine\tb\cocotb\cdc_fifo_tests.py", line 88, in similar_rates
+
+# 
+
+#                                                             await stream(dut, 1, 10, 13, 3000, p_valid=0.8, p_ready=0.6, need=("full", "empty"))
+
+# 
+
+#                                                           File "C:\projects\fpga-network-engine\tb\cocotb\cdc_fifo_tests.py", line 78, in stream
+
+# 
+
+#                                                             assert have == want, f"word {i}: got {have:#x}, want {want:#x}"
+
+# 
+
+#                                                         AssertionError: word 45: got 0x78d88348a, want 0x1d803468b6
+
+# 
+
+#                                                         assert 32439284874 == 126704969910
+
+# 
+
+#  68275.00ns INFO     cocotb.regression                  running cdc_fifo_tests.slow_reader (2/3)
+
+# 
+
+#                                                             7 ns write, 31 ns read: the FIFO fills and the writer is held off.
+
+# 
+
+# 120476.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=7ns m_clk=31ns words=1500 full_cycles=4211 empty_cycles=0
+
+# 
+
+# 120476.00ns INFO     cocotb.regression                  cdc_fifo_tests.slow_reader passed
+
+# 
+
+# 120476.00ns INFO     cocotb.regression                  running cdc_fifo_tests.fast_reader (3/3)
+
+# 
+
+#                                                             29 ns write, 6 ns read: the FIFO runs empty between words.
+
+# 
+
+# 214015.50ns WARNING  cocotb.regression                  cdc_fifo_tests.fast_reader failed
+
+# 
+
+#                                                         Traceback (most recent call last):
+
+# 
+
+#                                                           File "C:\projects\fpga-network-engine\tb\cocotb\cdc_fifo_tests.py", line 100, in fast_reader
+
+# 
+
+#                                                             await stream(dut, 3, 29, 6, 1500, p_valid=0.9, p_ready=0.7, need=("empty",))
+
+# 
+
+#                                                           File "C:\projects\fpga-network-engine\tb\cocotb\cdc_fifo_tests.py", line 78, in stream
+
+# 
+
+#                                                             assert have == want, f"word {i}: got {have:#x}, want {want:#x}"
+
+# 
+
+#                                                         AssertionError: word 0: got 0x3eb89569f, want 0x1197b75092
+
+# 
+
+#                                                         assert 16836548255 == 75559817362
+
+# 
+
+# 214015.50ns INFO     cocotb.regression                  **************************************************************************************
+
+# 
+
+#                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+
+# 
+
+#                                                         **************************************************************************************
+
+# 
+
+#                                                         ** cdc_fifo_tests.similar_rates   FAIL       68275.00           7.39       9241.21  **
+
+# 
+
+#                                                         ** cdc_fifo_tests.slow_reader     PASS       52201.00          10.64       4905.73  **
+
+# 
+
+#                                                         ** cdc_fifo_tests.fast_reader     FAIL       93539.50          11.26       8306.05  **
+
+# 
+
+#                                                         **************************************************************************************
+
+# 
+
+#                                                         ** TESTS=3 PASS=1 FAIL=2 SKIP=0             214015.50          29.44       7269.97  **
+
+# 
+
+#                                                         **************************************************************************************
+
+# 
+
+# ** Note: $finish
+
+#    Time: 214015502 ps  Iteration: 2  Instance: /stream_cdc_fifo File: C:/projects/fpga-network-engine/tb/cocotb/sim_build/questa_stream_cdc_fifo/stream_cdc_fifo_mutant.sv
+
+# End time: 15:13:53 on Oct 17,2026, Elapsed time: 0:00:31
+
+# Errors: 0, Warnings: 2
+
+------------------------------ Captured log call ------------------------------
+INFO     Questa:runner.py:734 Running command vlib top in directory C:\projects\fpga-network-engine\tb\cocotb\sim_build\questa_stream_cdc_fifo
+INFO     Questa:runner.py:734 Running command vlog -quiet -work top -sv -timescale 1ns/1ps 'C:\projects\fpga-network-engine\tb\cocotb\sim_build\questa_stream_cdc_fifo\stream_cdc_fifo_mutant.sv' in directory C:\projects\fpga-network-engine\tb\cocotb\sim_build\questa_stream_cdc_fifo
+INFO     Questa:runner.py:734 Running command vsim -quiet -c -onfinish exit -pli C:/Users/jonat/.venvs/cocotb-win/Lib/site-packages/cocotb/libs/cocotbvpi_modelsim.dll top.stream_cdc_fifo -do 'run -all; quit' in directory C:\projects\fpga-network-engine\tb\cocotb\sim_build\questa_stream_cdc_fifo
+ERROR    Questa:runner.py:674 ERROR: Failed 2 of 3 tests.
+=========================== short test summary info ===========================
+FAILED tb/cocotb/test_cocotb.py::test_cdc_fifo - SystemExit: 1
+1 failed in 33.92s

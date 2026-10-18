@@ -1,0 +1,1106 @@
+#-----------------------------------------------------------
+# Vivado v2025.2 (64-bit)
+# SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
+# IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
+# SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
+# Start of session at: Fri Oct 16 00:44:53 2026
+# Process ID         : 61524
+# Current directory  : C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc
+# Command line       : vivado.exe -mode batch -nojournal -log vivado.log -source C:/projects/fpga-network-engine/scripts/vivado-impl.tcl -tclargs engine_axi_cdc_fit xc7a100tcsg324-1 20.0 C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc none C:/projects/fpga-network-engine/constraints/engine_cdc.xdc C:/projects/fpga-network-engine/rtl/packet_classifier.sv C:/projects/fpga-network-engine/rtl/capture_ingress.sv C:/projects/fpga-network-engine/rtl/descriptor_validator.sv C:/projects/fpga-network-engine/rtl/sg_transfer.sv C:/projects/fpga-network-engine/rtl/engine_control.sv C:/projects/fpga-network-engine/rtl/replay_policy.sv C:/projects/fpga-network-engine/rtl/replay_staging.sv C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv C:/projects/fpga-network-engine/rtl/capture_dma.sv C:/projects/fpga-network-engine/rtl/replay_dma.sv C:/projects/fpga-network-engine/rtl/engine_core.sv C:/projects/fpga-network-engine/rtl/axi_burst_master.sv C:/projects/fpga-network-engine/rtl/stream_cdc_fifo.sv C:/projects/fpga-network-engine/constraints/engine_fit.sv C:/projects/fpga-network-engine/constraints/engine_cdc_fit.sv
+# Log file           : C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc/vivado.log
+# Journal file       : 
+# Running On         : Jonathan
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26300
+# Processor Detail   : Intel(R) Core(TM) i9-14900HX
+# CPU Frequency      : 2419 MHz
+# CPU Physical cores : 24
+# CPU Logical cores  : 32
+# Host memory        : 34053 MB
+# Swap memory        : 6140 MB
+# Total Virtual      : 40194 MB
+# Available Virtual  : 6713 MB
+#-----------------------------------------------------------
+source C:/projects/fpga-network-engine/scripts/vivado-impl.tcl
+# lassign $argv top part period out generics xdc
+# set sources [lrange $argv 6 end]
+# file mkdir $out
+# set_part $part
+INFO: [Coretcl 2-1500] The part has been set to 'xc7a100tcsg324-1' for the current project only. Run set_part -help for more details. To evaluate different speed grades in the current design, use the set_speed_grade command, or use the open_checkpoint -part command to change the part used by an existing checkpoint design.
+set_part: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 530.551 ; gain = 223.250
+# read_verilog -sv $sources
+# if {$xdc ne "none"} {
+#   read_xdc -mode out_of_context $xdc
+# } else {
+#   set f [open $out/clock.xdc w]
+#   puts $f "create_clock -name clk -period $period \[get_ports clk\]"
+#   close $f
+#   read_xdc -mode out_of_context $out/clock.xdc
+# }
+# set g {}
+# if {$generics ne "none"} { foreach kv [split $generics ,] { lappend g -generic [string map {: =} $kv] } }
+# synth_design -top $top -part $part -mode out_of_context {*}$g
+Command: synth_design -top engine_axi_cdc_fit -part xc7a100tcsg324-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 62016
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1272.770 ; gain = 541.133
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'engine_axi_cdc_fit' [C:/projects/fpga-network-engine/constraints/engine_cdc_fit.sv:5]
+INFO: [Synth 8-6157] synthesizing module 'stream_cdc_fifo' [C:/projects/fpga-network-engine/rtl/stream_cdc_fifo.sv:16]
+	Parameter WIDTH bound to: 32'sb00000000000000000000000000100101 
+	Parameter ADDR bound to: 32'sb00000000000000000000000000000100 
+INFO: [Synth 8-6155] done synthesizing module 'stream_cdc_fifo' (0#1) [C:/projects/fpga-network-engine/rtl/stream_cdc_fifo.sv:16]
+INFO: [Synth 8-6157] synthesizing module 'engine_axi_fit' [C:/projects/fpga-network-engine/constraints/engine_fit.sv:2]
+INFO: [Synth 8-6157] synthesizing module 'engine_axi' [C:/projects/fpga-network-engine/rtl/engine_core.sv:112]
+INFO: [Synth 8-6157] synthesizing module 'engine_core' [C:/projects/fpga-network-engine/rtl/engine_core.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'engine_control' [C:/projects/fpga-network-engine/rtl/engine_control.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'engine_control' (0#1) [C:/projects/fpga-network-engine/rtl/engine_control.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'capture_ingress' [C:/projects/fpga-network-engine/rtl/capture_ingress.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'packet_classifier' [C:/projects/fpga-network-engine/rtl/packet_classifier.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'packet_classifier' (0#1) [C:/projects/fpga-network-engine/rtl/packet_classifier.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'capture_ingress' (0#1) [C:/projects/fpga-network-engine/rtl/capture_ingress.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'capture_dma' [C:/projects/fpga-network-engine/rtl/capture_dma.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'descriptor_validator' [C:/projects/fpga-network-engine/rtl/descriptor_validator.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'descriptor_validator' (0#1) [C:/projects/fpga-network-engine/rtl/descriptor_validator.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'sg_transfer' [C:/projects/fpga-network-engine/rtl/sg_transfer.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'sg_transfer' (0#1) [C:/projects/fpga-network-engine/rtl/sg_transfer.sv:1]
+INFO: [Synth 8-226] default block is never used [C:/projects/fpga-network-engine/rtl/capture_dma.sv:61]
+INFO: [Synth 8-6155] done synthesizing module 'capture_dma' (0#1) [C:/projects/fpga-network-engine/rtl/capture_dma.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'replay_dma' [C:/projects/fpga-network-engine/rtl/replay_dma.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'replay_policy' [C:/projects/fpga-network-engine/rtl/replay_policy.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'replay_policy' (0#1) [C:/projects/fpga-network-engine/rtl/replay_policy.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'replay_dma' (0#1) [C:/projects/fpga-network-engine/rtl/replay_dma.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'replay_staging' [C:/projects/fpga-network-engine/rtl/replay_staging.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'replay_staging' (0#1) [C:/projects/fpga-network-engine/rtl/replay_staging.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'dma_command_arbiter' [C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'dma_command_arbiter' (0#1) [C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'engine_core' (0#1) [C:/projects/fpga-network-engine/rtl/engine_core.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'axi_burst_master' [C:/projects/fpga-network-engine/rtl/axi_burst_master.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'axi_burst_master' (0#1) [C:/projects/fpga-network-engine/rtl/axi_burst_master.sv:1]
+INFO: [Synth 8-6155] done synthesizing module 'engine_axi' (0#1) [C:/projects/fpga-network-engine/rtl/engine_core.sv:112]
+INFO: [Synth 8-6155] done synthesizing module 'engine_axi_fit' (0#1) [C:/projects/fpga-network-engine/constraints/engine_fit.sv:2]
+INFO: [Synth 8-6155] done synthesizing module 'engine_axi_cdc_fit' (0#1) [C:/projects/fpga-network-engine/constraints/engine_cdc_fit.sv:5]
+WARNING: [Synth 8-11357] Potential Runtime issue for 3D-RAM or RAM from Record/Structs for RAM  memory_reg with 65536 registers
+WARNING: [Synth 8-7129] Port cq_producer[0][31] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][30] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][29] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][28] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][27] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][26] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][25] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][24] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][23] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][22] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][21] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][20] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][19] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][18] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][17] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][16] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][15] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][14] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][13] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][12] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][11] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][10] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][9] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][8] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][7] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[0][6] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][31] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][30] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][29] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][28] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][27] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][26] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][25] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][24] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][23] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][22] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][21] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][20] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][19] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][18] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][17] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][16] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][15] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][14] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][13] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][12] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][11] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][10] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][9] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][8] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][7] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[1][6] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][31] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][30] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][29] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][28] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][27] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][26] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][25] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][24] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][23] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][22] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][21] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][20] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][19] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][18] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][17] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][16] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][15] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][14] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][13] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][12] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][11] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][10] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][9] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][8] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][7] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[2][6] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][31] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][30] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][29] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][28] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][27] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][26] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][25] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][24] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][23] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][22] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][21] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][20] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][19] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][18] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][17] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][16] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][15] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][14] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][13] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][12] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][11] in module replay_dma is either unconnected or has no load
+WARNING: [Synth 8-7129] Port cq_producer[3][10] in module replay_dma is either unconnected or has no load
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 3047.941 ; gain = 2316.305
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 3047.941 ; gain = 2316.305
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 3047.941 ; gain = 2316.305
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3047.941 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/projects/fpga-network-engine/constraints/engine_cdc.xdc]
+Finished Parsing XDC File [C:/projects/fpga-network-engine/constraints/engine_cdc.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.052 . Memory (MB): peak = 3191.203 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 3191.203 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:00:46 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'sg_transfer'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'capture_dma'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'replay_policy'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'replay_dma'
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'replay_staging'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0100 |                             0000
+                    PLAN |                             0110 |                             0001
+           FETCH_ADDRESS |                             0011 |                             0010
+              FETCH_WAIT |                             0000 |                             0011
+             FETCH_STORE |                             0001 |                             0100
+             ISSUE_WRITE |                             0010 |                             0101
+              WAIT_WRITE |                             1010 |                             0110
+              ISSUE_READ |                             0111 |                             0111
+               WAIT_READ |                             1000 |                             1000
+              STORE_READ |                             1001 |                             1001
+                 ADVANCE |                             0101 |                             1010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'sg_transfer'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                             0001 |                             0000
+            DESC_REQUEST |                             1100 |                             0001
+               DESC_WAIT |                             0111 |                             0010
+                   CHECK |                             0000 |                             0011
+                VALIDATE |                             0010 |                             0100
+                SG_START |                             0100 |                             0101
+                 SG_WAIT |                             1111 |                             0110
+           PAYLOAD_FENCE |                             1101 |                             0111
+            PAYLOAD_WAIT |                             1110 |                             1000
+              CQ_REQUEST |                             0011 |                             1001
+                 CQ_WAIT |                             1011 |                             1010
+                CQ_FENCE |                             1010 |                             1011
+           CQ_FENCE_WAIT |                             1001 |                             1100
+                  FAILED |                             1000 |                             1111
+                 PUBLISH |                             0101 |                             1101
+                COOLDOWN |                             0110 |                             1110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'capture_dma'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              000 |                              000
+                    HASH |                              001 |                              001
+                MULTIPLY |                              010 |                              010
+                 SHIFT13 |                              011 |                              011
+                 SHIFT17 |                              100 |                              100
+                  SHIFT5 |                              101 |                              101
+                  FINISH |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'replay_policy'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                  000000000000010 |                             0000
+            DESC_REQUEST |                  000100000000000 |                             0001
+               DESC_WAIT |                  000000001000000 |                             0010
+                   CHECK |                  000000000000001 |                             0011
+                VALIDATE |                  000000000000100 |                             0100
+             POLICY_WAIT |                  000000000010000 |                             0101
+                SG_START |                  100000000000000 |                             0110
+                 SG_WAIT |                  001000000000000 |                             0111
+              CQ_REQUEST |                  000000000001000 |                             1001
+                 CQ_WAIT |                  000010000000000 |                             1010
+                CQ_FENCE |                  000001000000000 |                             1011
+           CQ_FENCE_WAIT |                  000000100000000 |                             1100
+                  FAILED |                  000000010000000 |                             1110
+                 PUBLISH |                  000000000100000 |                             1101
+                   STAGE |                  010000000000000 |                             1000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'replay_dma'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    IDLE |                              001 |                               00
+                 ADDRESS |                              010 |                               01
+                    SEND |                              100 |                               10
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'replay_staging'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:07 ; elapsed = 00:01:12 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   96 Bit       Adders := 1     
+	   2 Input   65 Bit       Adders := 1     
+	   3 Input   64 Bit       Adders := 5     
+	   2 Input   64 Bit       Adders := 2     
+	   2 Input   33 Bit       Adders := 8     
+	   2 Input   32 Bit       Adders := 23    
+	   3 Input   32 Bit       Adders := 4     
+	   4 Input   32 Bit       Adders := 8     
+	   4 Input   18 Bit       Adders := 2     
+	   2 Input   17 Bit       Adders := 3     
+	   3 Input   17 Bit       Adders := 1     
+	   3 Input   16 Bit       Adders := 4     
+	   2 Input   16 Bit       Adders := 10    
+	   5 Input   16 Bit       Adders := 1     
+	   2 Input   13 Bit       Adders := 2     
+	   2 Input   10 Bit       Adders := 1     
+	   2 Input    9 Bit       Adders := 5     
+	   2 Input    8 Bit       Adders := 2     
+	   2 Input    6 Bit       Adders := 3     
+	   2 Input    5 Bit       Adders := 8     
+	   2 Input    4 Bit       Adders := 1     
+	   2 Input    3 Bit       Adders := 13    
+	   2 Input    2 Bit       Adders := 22    
++---XORs : 
+	   3 Input     32 Bit         XORs := 1     
+	   2 Input     32 Bit         XORs := 3     
+	   2 Input      5 Bit         XORs := 2     
++---Registers : 
+	             1024 Bit    Registers := 6     
+	              512 Bit    Registers := 3     
+	               96 Bit    Registers := 2     
+	               64 Bit    Registers := 61    
+	               33 Bit    Registers := 2     
+	               32 Bit    Registers := 130   
+	               16 Bit    Registers := 46    
+	               10 Bit    Registers := 1     
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 8206  
+	                6 Bit    Registers := 7     
+	                5 Bit    Registers := 42    
+	                4 Bit    Registers := 16    
+	                3 Bit    Registers := 17    
+	                2 Bit    Registers := 44    
+	                1 Bit    Registers := 85    
++---Multipliers : 
+	              32x32  Multipliers := 1     
+	               2x32  Multipliers := 1     
++---RAMs : 
+	              64K Bit	(2048 X 32 bit)          RAMs := 4     
+	              592 Bit	(16 X 37 bit)          RAMs := 1     
++---Muxes : 
+	  11 Input 1024 Bit        Muxes := 4     
+	   2 Input 1024 Bit        Muxes := 4     
+	   2 Input  512 Bit        Muxes := 7     
+	   7 Input   96 Bit        Muxes := 2     
+	   4 Input   64 Bit        Muxes := 9     
+	   2 Input   64 Bit        Muxes := 14    
+	  15 Input   64 Bit        Muxes := 1     
+	   3 Input   64 Bit        Muxes := 1     
+	   4 Input   32 Bit        Muxes := 12    
+	   2 Input   32 Bit        Muxes := 40    
+	   7 Input   32 Bit        Muxes := 1     
+	   3 Input   32 Bit        Muxes := 1     
+	   2 Input   20 Bit        Muxes := 2     
+	   4 Input   16 Bit        Muxes := 11    
+	   2 Input   16 Bit        Muxes := 37    
+	  11 Input   16 Bit        Muxes := 6     
+	  15 Input   16 Bit        Muxes := 1     
+	  15 Input   15 Bit        Muxes := 1     
+	   2 Input   15 Bit        Muxes := 16    
+	   2 Input   12 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 4     
+	   2 Input   10 Bit        Muxes := 3     
+	   2 Input    9 Bit        Muxes := 1     
+	   3 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 7     
+	  16 Input    8 Bit        Muxes := 1     
+	   3 Input    8 Bit        Muxes := 1     
+	  15 Input    8 Bit        Muxes := 1     
+	  31 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	  11 Input    6 Bit        Muxes := 2     
+	   4 Input    6 Bit        Muxes := 3     
+	   7 Input    6 Bit        Muxes := 1     
+	   4 Input    5 Bit        Muxes := 7     
+	   2 Input    5 Bit        Muxes := 8     
+	  11 Input    4 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 66    
+	  16 Input    4 Bit        Muxes := 2     
+	  15 Input    4 Bit        Muxes := 3     
+	   3 Input    4 Bit        Muxes := 2     
+	   5 Input    4 Bit        Muxes := 1     
+	  11 Input    3 Bit        Muxes := 2     
+	   4 Input    3 Bit        Muxes := 9     
+	   7 Input    3 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 7     
+	   3 Input    3 Bit        Muxes := 4     
+	  11 Input    2 Bit        Muxes := 2     
+	   3 Input    2 Bit        Muxes := 3     
+	   2 Input    2 Bit        Muxes := 49    
+	   4 Input    2 Bit        Muxes := 5     
+	   2 Input    1 Bit        Muxes := 323   
+	  11 Input    1 Bit        Muxes := 22    
+	   4 Input    1 Bit        Muxes := 30    
+	  16 Input    1 Bit        Muxes := 6     
+	   7 Input    1 Bit        Muxes := 7     
+	  15 Input    1 Bit        Muxes := 12    
+	   3 Input    1 Bit        Muxes := 15    
+	  31 Input    1 Bit        Muxes := 97    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'local_index_reg[5:0]' into 'local_index_reg[5:0]' [C:/projects/fpga-network-engine/rtl/sg_transfer.sv:47]
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\failure_code_reg[3] )
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[0]' (FDRE) to 'completion_address_reg[1]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[1]' (FDRE) to 'completion_address_reg[2]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[2]' (FDRE) to 'completion_address_reg[3]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[3]' (FDRE) to 'completion_address_reg[4]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[4]' (FDRE) to 'descriptor_address_reg[0]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[0]' (FDRE) to 'descriptor_address_reg[1]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[1]' (FDRE) to 'descriptor_address_reg[2]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[2]' (FDRE) to 'descriptor_address_reg[3]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[3]' (FDRE) to 'descriptor_address_reg[4]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[4]' (FDRE) to 'descriptor_address_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\descriptor_address_reg[5] )
+INFO: [Synth 8-3886] merging instance 'sequence_saved_reg[0]' (FDRE) to 'descriptor_address_reg[6]'
+INFO: [Synth 8-3886] merging instance 'sequence_saved_reg[1]' (FDRE) to 'descriptor_address_reg[7]'
+INFO: [Synth 8-3886] merging instance 'sequence_saved_reg[2]' (FDRE) to 'descriptor_address_reg[8]'
+INFO: [Synth 8-3886] merging instance 'sequence_saved_reg[3]' (FDRE) to 'descriptor_address_reg[9]'
+INFO: [Synth 8-3886] merging instance 'sequence_saved_reg[4]' (FDRE) to 'descriptor_address_reg[10]'
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 4. [C:/projects/fpga-network-engine/rtl/replay_policy.sv:31]
+INFO: [Synth 8-12192] Not enough pipeline registers after wide multiplier. Pipeline registers present is 0. Recommended levels of pipeline registers is 2. [C:/projects/fpga-network-engine/rtl/replay_policy.sv:31]
+DSP Report: Generating DSP x2, operation Mode is: (A:0x179b9)*B.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: Generating DSP x2, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: Generating DSP x2, operation Mode is: A2*(B:0x179b9).
+DSP Report: register x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: Generating DSP x2, operation Mode is: (PCIN>>17)+A2*B.
+DSP Report: register x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+DSP Report: operator x2 is absorbed into DSP x2.
+INFO: [Synth 8-3886] merging instance 'record_status_reg[3]' (FDRE) to 'record_status_reg[7]'
+INFO: [Synth 8-3886] merging instance 'record_status_reg[4]' (FDRE) to 'record_status_reg[7]'
+INFO: [Synth 8-3886] merging instance 'record_status_reg[5]' (FDRE) to 'record_status_reg[7]'
+INFO: [Synth 8-3886] merging instance 'record_status_reg[6]' (FDRE) to 'record_status_reg[7]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\record_status_reg[7] )
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[0]' (FDRE) to 'completion_address_reg[1]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[1]' (FDRE) to 'completion_address_reg[2]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[2]' (FDRE) to 'completion_address_reg[3]'
+INFO: [Synth 8-3886] merging instance 'completion_address_reg[3]' (FDRE) to 'completion_address_reg[4]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\completion_address_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\failure_code_reg[3] )
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[0]' (FDRE) to 'descriptor_address_reg[1]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[1]' (FDRE) to 'descriptor_address_reg[2]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[2]' (FDRE) to 'descriptor_address_reg[3]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[3]' (FDRE) to 'descriptor_address_reg[4]'
+INFO: [Synth 8-3886] merging instance 'descriptor_address_reg[4]' (FDRE) to 'descriptor_address_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\descriptor_address_reg[5] )
+INFO: [Synth 8-4471] merging register 'word_index_reg[8:0]' into 'word_index_reg[8:0]' [C:/projects/fpga-network-engine/rtl/replay_staging.sv:53]
+INFO: [Synth 8-5546] ROM "write_ring0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "write_ring0" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (control/\d_kind_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (control/\s_rresp_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (control/\s_bresp_reg[0] )
+INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[17]' (FDRE) to 'ingress/age_reg[18]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[18]' (FDRE) to 'ingress/age_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[19]' (FDRE) to 'ingress/age_reg[20]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[20]' (FDRE) to 'ingress/age_reg[21]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[21]' (FDRE) to 'ingress/age_reg[22]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[22]' (FDRE) to 'ingress/age_reg[23]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[23]' (FDRE) to 'ingress/age_reg[24]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[24]' (FDRE) to 'ingress/age_reg[25]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[25]' (FDRE) to 'ingress/age_reg[26]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[26]' (FDRE) to 'ingress/age_reg[27]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[27]' (FDRE) to 'ingress/age_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[28]' (FDRE) to 'ingress/age_reg[29]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[29]' (FDRE) to 'ingress/age_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ingress/age_reg[30]' (FDRE) to 'ingress/age_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ingress/\age_reg[31] )
+INFO: [Synth 8-4471] merging register 'r_index_reg[4:0]' into 'r_index_reg[4:0]' [C:/projects/fpga-network-engine/rtl/axi_burst_master.sv:37]
+WARNING: [Synth 8-3917] design axi_burst_master has port m_awsize[2] driven by constant 0
+WARNING: [Synth 8-3917] design axi_burst_master has port m_awsize[1] driven by constant 1
+WARNING: [Synth 8-3917] design axi_burst_master has port m_awsize[0] driven by constant 1
+WARNING: [Synth 8-3917] design axi_burst_master has port m_awburst[1] driven by constant 0
+WARNING: [Synth 8-3917] design axi_burst_master has port m_awburst[0] driven by constant 1
+WARNING: [Synth 8-3917] design axi_burst_master has port m_arsize[2] driven by constant 0
+WARNING: [Synth 8-3917] design axi_burst_master has port m_arsize[1] driven by constant 1
+WARNING: [Synth 8-3917] design axi_burst_master has port m_arsize[0] driven by constant 1
+WARNING: [Synth 8-3917] design axi_burst_master has port m_arburst[1] driven by constant 0
+WARNING: [Synth 8-3917] design axi_burst_master has port m_arburst[0] driven by constant 1
+INFO: [Synth 8-3886] merging instance 'm_arlen_reg[6]' (FDRE) to 'm_arlen_reg[7]'
+INFO: [Synth 8-3886] merging instance 'm_awlen_reg[6]' (FDRE) to 'm_awlen_reg[7]'
+INFO: [Synth 8-3886] merging instance 'm_arlen_reg[5]' (FDRE) to 'm_arlen_reg[7]'
+INFO: [Synth 8-3886] merging instance 'm_awlen_reg[5]' (FDRE) to 'm_awlen_reg[7]'
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:02:56 ; elapsed = 00:03:09 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+ Sort Area is replay_dma__GC0 x2_0 : 0 0 : 2016 4812 : Used 1 time 0
+ Sort Area is replay_dma__GC0 x2_0 : 0 1 : 2796 4812 : Used 1 time 0
+ Sort Area is replay_dma__GC0 x2_3 : 0 0 : 2005 4664 : Used 1 time 0
+ Sort Area is replay_dma__GC0 x2_3 : 0 1 : 2659 4664 : Used 1 time 0
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|ingress     | banks[3].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[2].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[1].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[0].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping Report (see note below)
++-------------------+------------------+-----------+----------------------+-------------+
+|Module Name        | RTL Object       | Inference | Size (Depth x Width) | Primitives  | 
++-------------------+------------------+-----------+----------------------+-------------+
+|engine_axi_cdc_fit | crossing/mem_reg | Implied   | 16 x 37              | RAM32M x 7  | 
++-------------------+------------------+-----------+----------------------+-------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping     | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|replay_policy | (A:0x179b9)*B   | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|replay_policy | (PCIN>>17)+A*B  | 16     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|replay_policy | A2*(B:0x179b9)  | 18     | 18     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
+|replay_policy | (PCIN>>17)+A2*B | 18     | 16     | -      | -      | 48     | 1    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+-----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:03:03 ; elapsed = 00:03:17 . Memory (MB): peak = 3191.203 ; gain = 2459.566
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:03:21 ; elapsed = 00:03:35 . Memory (MB): peak = 3243.867 ; gain = 2512.230
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object       | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|ingress     | banks[3].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[2].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[1].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
+|ingress     | banks[0].mem_reg | 2 K x 32(READ_FIRST)   | W |   | 2 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 2      | 
++------------+------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping Report
++-------------------+------------------+-----------+----------------------+-------------+
+|Module Name        | RTL Object       | Inference | Size (Depth x Width) | Primitives  | 
++-------------------+------------------+-----------+----------------------+-------------+
+|engine_axi_cdc_fit | crossing/mem_reg | Implied   | 16 x 37              | RAM32M x 7  | 
++-------------------+------------------+-----------+----------------------+-------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[3].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[3].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[2].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[2].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[0].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance corei_10/ingress/banks[0].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (corei_9/\engine/core/core/control/sticky_fault_reg[3] )
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:03:40 ; elapsed = 00:03:58 . Memory (MB): peak = 3257.945 ; gain = 2526.309
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[3].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[3].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[2].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[2].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[1].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[1].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[0].mem_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance engine/core/core/ingress/banks[0].mem_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:03:51 ; elapsed = 00:04:09 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:03:52 ; elapsed = 00:04:10 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:04:03 ; elapsed = 00:04:21 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:04:04 ; elapsed = 00:04:23 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:04:06 ; elapsed = 00:04:25 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:04:07 ; elapsed = 00:04:25 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+DSP Final Report (the ' indicates corresponding REG is set)
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name   | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|replay_policy | A*B''          | 17     | 15     | -      | -      | 48     | 0    | 2    | -    | -    | -     | 0    | 0    | 
+|replay_policy | A''*B          | 17     | 17     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
+|replay_policy | PCIN>>17+A''*B | 17     | 15     | -      | -      | 48     | 2    | 0    | -    | -    | -     | 0    | 0    | 
++--------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |CARRY4   |  1138|
+|2     |DSP48E1  |     3|
+|4     |LUT1     |   435|
+|5     |LUT2     |  4650|
+|6     |LUT3     |  5106|
+|7     |LUT4     |  3304|
+|8     |LUT5     |  5080|
+|9     |LUT6     | 26559|
+|10    |MUXF7    |  9115|
+|11    |MUXF8    |  4418|
+|12    |RAM32M   |     6|
+|13    |RAM32X1D |     1|
+|14    |RAMB36E1 |     8|
+|15    |FDRE     | 80732|
+|16    |FDSE     |    52|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:04:07 ; elapsed = 00:04:25 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 110 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:03:29 ; elapsed = 00:04:11 . Memory (MB): peak = 3304.055 ; gain = 2429.156
+Synthesis Optimization Complete : Time (s): cpu = 00:04:07 ; elapsed = 00:04:26 . Memory (MB): peak = 3304.055 ; gain = 2572.418
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.972 . Memory (MB): peak = 3304.055 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 14689 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/projects/fpga-network-engine/constraints/engine_cdc.xdc]
+Finished Parsing XDC File [C:/projects/fpga-network-engine/constraints/engine_cdc.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 3304.055 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 7 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 6 instances
+  RAM32X1D => RAM32X1D (RAMD32(x2)): 1 instance 
+
+Synth Design complete | Checksum: 99c0ddb
+INFO: [Common 17-83] Releasing license: Synthesis
+141 Infos, 111 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:04:27 ; elapsed = 00:04:48 . Memory (MB): peak = 3304.055 ; gain = 2773.504
+# opt_design
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC 23-814] Not all possible (connectivity based) DRCs may have been run because this design is seen as Out of Context.
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.813 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Initialization
+
+Phase 1.1 Core Generation And Design Setup
+Phase 1.1 Core Generation And Design Setup | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Phase 1.2 Setup Constraints And Sort Netlist
+Phase 1.2 Setup Constraints And Sort Netlist | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.100 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Phase 1 Initialization | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.105 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Phase 2 Timer Update And Timing Data Collection
+
+Phase 2.1 Detect if minReqCache needed
+Phase 2.1 Detect if minReqCache needed | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.417 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Phase 2.2 Timer Update
+Phase 2.2 Timer Update | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.494 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Phase 2 Timer Update And Timing Data Collection | Checksum: 1d2ff4458
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.502 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Phase 3 Retarget
+INFO: [Opt 31-1851] Number of loadless carry chains removed were: 0
+INFO: [Opt 31-1834] Total Chains To Be Transformed Were: 0 AND Number of Transformed insts Created are: 0
+INFO: [Opt 31-1566] Pulled 8 inverters resulting in an inversion of 194 pins
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 3 Retarget | Checksum: 2e4d6ffd2
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Retarget | Checksum: 2e4d6ffd2
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 8 cells
+
+Phase 4 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Constant propagation | Checksum: 2b2dadc4d
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Constant propagation | Checksum: 2b2dadc4d
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 5 Sweep
+INFO: [Constraints 18-11670] Building netlist checker database with flags, 0x8
+Done building netlist checker database: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.026 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Phase 5 Sweep | Checksum: 2a10bb4b9
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Sweep | Checksum: 2a10bb4b9
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 6 BUFG optimization
+Phase 6 BUFG optimization | Checksum: 2a10bb4b9
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 3304.055 ; gain = 0.000
+BUFG optimization | Checksum: 2a10bb4b9
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 7 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 7 Shift Register Optimization | Checksum: 2a10bb4b9
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Shift Register Optimization | Checksum: 2a10bb4b9
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 8 Post Processing Netlist
+Phase 8 Post Processing Netlist | Checksum: 2a10bb4b9
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Post Processing Netlist | Checksum: 2a10bb4b9
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+
+Phase 9 Finalization
+
+Phase 9.1 Finalizing Design Cores and Updating Shapes
+Phase 9.1 Finalizing Design Cores and Updating Shapes | Checksum: 2cfccf1c5
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Phase 9.2 Verifying Netlist Connectivity
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.124 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Phase 9.2 Verifying Netlist Connectivity | Checksum: 2cfccf1c5
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Phase 9 Finalization | Checksum: 2cfccf1c5
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3304.055 ; gain = 0.000
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               8  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 2cfccf1c5
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 3304.055 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 8 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 8 newly gated: 0 Total Ports: 16
+Ending PowerOpt Patch Enables Task | Checksum: 2b0e9a07d
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.250 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Ending Power Optimization Task | Checksum: 2b0e9a07d
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:10 . Memory (MB): peak = 3478.031 ; gain = 173.977
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: 2b0e9a07d
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 3478.031 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+26 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:25 . Memory (MB): peak = 3478.031 ; gain = 173.977
+# place_design
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-83] Releasing license: Implementation
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC 23-814] Not all possible (connectivity based) DRCs may have been run because this design is seen as Out of Context.
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 2 threads
+WARNING: [DRC 23-814] Not all possible (connectivity based) DRCs may have been run because this design is seen as Out of Context.
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 2 CPUs
+
+Starting Placer Task
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 28449773a
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.034 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 214ec8bd3
+
+Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 1.3 Build Placer Netlist Model
+WARNING: [Place 30-770] High register utilization is forcing place_design to place up to 8 registers per slice which may impact placement success and/or routing congestion.
+Phase 1.3 Build Placer Netlist Model | Checksum: 26f5ecbfc
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:20 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 26f5ecbfc
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 1 Placer Initialization | Checksum: 26f5ecbfc
+
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:21 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+Phase 2.1 Floorplanning | Checksum: 2f8595578
+
+Time (s): cpu = 00:00:43 ; elapsed = 00:00:28 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 290c2da53
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:35 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 290c2da53
+
+Time (s): cpu = 00:00:56 ; elapsed = 00:00:35 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2.4 Global Place Phase1
+Phase 2.4 Global Place Phase1 | Checksum: 1f4276487
+
+Time (s): cpu = 00:02:20 ; elapsed = 00:01:27 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2.5 Global Place Phase2
+
+Phase 2.5.1 UpdateTiming Before Physical Synthesis
+Phase 2.5.1 UpdateTiming Before Physical Synthesis | Checksum: 18f1a770f
+
+Time (s): cpu = 00:02:30 ; elapsed = 00:01:32 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 2.5.2 Physical Synthesis In Placer
+INFO: [Physopt 32-1035] Found 0 LUTNM shape to break, 429 LUT instances to create LUTNM shape
+INFO: [Physopt 32-1044] Break lutnm for timing: one critical 0, two critical 0, total 0, new lutff created 0
+INFO: [Physopt 32-1138] End 1 Pass. Optimized 167 nets or LUTs. Breaked 0 LUT, combined 167 existing LUTs and moved 0 existing LUT
+INFO: [Physopt 32-65] No nets found for high-fanout optimization.
+INFO: [Physopt 32-232] Optimized 0 net. Created 0 new instance.
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+INFO: [Physopt 32-670] No setup violation found.  DSP Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register to Pipeline Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  Shift Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  BRAM Register Optimization was not performed.
+INFO: [Physopt 32-670] No setup violation found.  URAM Register Optimization was not performed.
+INFO: [Physopt 32-949] No candidate nets found for dynamic/static region interface net replication
+INFO: [Physopt 32-775] End 1 Pass. Optimized 0 net or cell. Created 0 new cell, deleted 0 existing cell and moved 0 existing cell
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Summary of Physical Synthesis Optimizations
+============================================
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  Optimization                                     |  Added Cells  |  Removed Cells  |  Optimized Cells/Nets  |  Dont Touch  |  Iterations  |  Elapsed   |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+|  LUT Combining                                    |            0  |            167  |                   167  |           0  |           1  |  00:00:02  |
+|  Retime                                           |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Very High Fanout                                 |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  DSP Register                                     |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register to Pipeline                       |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Shift Register                                   |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  BRAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  URAM Register                                    |            0  |              0  |                     0  |           0  |           0  |  00:00:00  |
+|  Dynamic/Static Region Interface Net Replication  |            0  |              0  |                     0  |           0  |           1  |  00:00:00  |
+|  Total                                            |            0  |            167  |                   167  |           0  |           4  |  00:00:02  |
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Phase 2.5.2 Physical Synthesis In Placer | Checksum: 178dd16b4
+
+Time (s): cpu = 00:02:42 ; elapsed = 00:01:40 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 2.5 Global Place Phase2 | Checksum: 24b046c9d
+
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:46 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 2 Global Placement | Checksum: 24b046c9d
+
+Time (s): cpu = 00:02:51 ; elapsed = 00:01:46 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 221b2f395
+
+Time (s): cpu = 00:03:01 ; elapsed = 00:01:52 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 2080d2441
+
+Time (s): cpu = 00:03:16 ; elapsed = 00:02:01 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 3.3 Area Swap Optimization
+Phase 3.3 Area Swap Optimization | Checksum: 2618c16ef
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:02:03 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 3.4 Pipeline Register Optimization
+Phase 3.4 Pipeline Register Optimization | Checksum: 21798b798
+
+Time (s): cpu = 00:03:18 ; elapsed = 00:02:03 . Memory (MB): peak = 3478.031 ; gain = 0.000
+
+Phase 3.5 Small Shape Detail Placement
+Phase 3.5 Small Shape Detail Placement | Checksum: 23f84be32
+
+Time (s): cpu = 00:03:41 ; elapsed = 00:02:25 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 3 Detail Placement | Checksum: 23f84be32
+
+Time (s): cpu = 00:03:41 ; elapsed = 00:02:25 . Memory (MB): peak = 3478.031 ; gain = 0.000
+ERROR: [Place 30-487] The packing of instances into the device could not be obeyed. There are a total of 15850 slices in the device, of which 14709 slices are available, however, the unplaced instances require 15596 slices. Please analyze your design to determine if the number of LUTs, FFs, and/or control sets can be reduced.
+
+Number of control sets and instances constrained to the design
+	Control sets: 8448
+	Luts: 40948 (combined) 45184 (total), available capacity: 63400 
+	Flip flops: 80784, available capacity: 126800
+	NOTE: each slice can only accommodate 1 unique control set so FFs cannot be packed to fully fill every slice
+
+
+ERROR: [Place 30-99] Placer failed with error: 'Detail Placement failed please check previous errors for details.'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+
+Phase 4 Add Constraints
+
+Phase 4.1 Add User PBlocks
+Phase 4.1 Add User PBlocks | Checksum: 23f84be32
+
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:26 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Phase 4 Add Constraints | Checksum: 23f84be32
+
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:26 . Memory (MB): peak = 3478.031 ; gain = 0.000
+Ending Placer Task | Checksum: 1fbe0d5db
+
+Time (s): cpu = 00:03:42 ; elapsed = 00:02:26 . Memory (MB): peak = 3478.031 ; gain = 0.000
+23 Infos, 3 Warnings, 0 Critical Warnings and 3 Errors encountered.
+place_design failed
+place_design: Time (s): cpu = 00:03:49 ; elapsed = 00:02:31 . Memory (MB): peak = 3478.031 ; gain = 0.000
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Fri Oct 16 00:52:46 2026...

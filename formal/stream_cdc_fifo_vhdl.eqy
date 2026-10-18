@@ -1,0 +1,23 @@
+# Equivalence of the VHDL stream_cdc_fifo (gate, read with GHDL's Yosys
+# plugin) against the SystemVerilog one (gold, read with yosys-slang), at the
+# default generics (WIDTH=37, ADDR=4). Run by scripts/vhdl-cdc-fifo.sh, which
+# copies it into each work directory as stream_cdc_fifo.eqy.
+# Memories are mapped to registers so EQY can match the 16 entries by name.
+[gold]
+plugin -i slang
+read_slang stream_cdc_fifo.sv --top stream_cdc_fifo
+prep -top stream_cdc_fifo
+memory_map
+opt_clean
+
+[gate]
+plugin -i ghdl
+ghdl --std=08 stream_cdc_fifo.vhd -e stream_cdc_fifo
+prep -top stream_cdc_fifo
+memory_map
+opt_clean
+
+[strategy sby]
+use sby
+depth 5
+engine smtbmc bitwuzla

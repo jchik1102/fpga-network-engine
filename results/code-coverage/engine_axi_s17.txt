@@ -1,0 +1,29 @@
+XSim code coverage (engine_axi_s17): statement, branch and condition, merged over every run
+design under test: instances under engine_axi_tb.dut; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+axi_burst_master                                1     86/86    100.00%     23/26     88.46%     17/22     77.27%
+capture_dma                                     1    136/137    99.27%     52/67     77.61%     61/68     89.71%
+capture_ingress                                 1    124/124   100.00%     40/43     93.02%     89/106    83.96%
+descriptor_validator                            2     23/24     95.83%     12/16     75.00%     29/38     76.32%
+dma_command_arbiter                             1     57/57    100.00%     27/27    100.00%     12/12    100.00%
+engine_axi                                      1      0/0         n/a      0/0         n/a      0/0         n/a
+engine_control                                  1    365/392    93.11%    186/234    79.49%    151/222    68.02%
+engine_core                                     1     26/26    100.00%      4/4     100.00%      4/4     100.00%
+packet_classifier                               1     50/50    100.00%     13/14     92.86%     41/48     85.42%
+replay_dma                                      1    169/173    97.69%     46/69     66.67%     54/66     81.82%
+replay_policy                                   1     55/56     98.21%     14/15     93.33%      6/6     100.00%
+replay_staging                                  1     81/82     98.78%     33/35     94.29%     27/28     96.43%
+sg_transfer                                     2    105/109    96.33%     33/39     84.62%     37/50     74.00%
+TOTAL                                               1277/1316   97.04%    483/589    82.00%    528/670    78.81%
+
+Lines with a statement that never executed:
+capture_dma (rtl/capture_dma.sv): 104
+descriptor_validator (rtl/descriptor_validator.sv): 30
+engine_control (rtl/engine_control.sv): 38, 39, 40, 41, 43, 62, 69, 70, 71, 72, 73, 74, 75, 163, 164, 175, 231
+replay_dma (rtl/replay_dma.sv): 136, 137
+replay_policy (rtl/replay_policy.sv): 49
+replay_staging (rtl/replay_staging.sv): 73
+sg_transfer (rtl/sg_transfer.sv): 91, 97
+
+CODE_COVERAGE engine_axi_s17 statements=1277/1316 (97.04%) branches=483/589 (82.00%) conditions=528/670 (78.81%)

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Oct 15 01:48:16 2026
+Fitter Status : Successful - Sat Oct 17 15:02:30 2026
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : engine_pcie_fit
 Top-level Entity Name : engine_pcie_fit
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 29,551 / 49,760 ( 59 % )
-    Total combinational functions : 25,604 / 49,760 ( 51 % )
+Total logic elements : 29,646 / 49,760 ( 60 % )
+    Total combinational functions : 25,711 / 49,760 ( 52 % )
     Dedicated logic registers : 15,643 / 49,760 ( 31 % )
 Total registers : 15643
 Total pins : 1 / 360 ( < 1 % )

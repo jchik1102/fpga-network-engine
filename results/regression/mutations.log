@@ -7,4 +7,4 @@ WRONG_BE               engine_pcie  exit=1 DETECTED :: @ 97470000: reporter [HOS
 WRONG_TAG              engine_pcie  exit=1 DETECTED :: @ 41270000: uvm_test_top.rc [PCIE_HOST] device reused tag 0 before its completions were delivered
 EARLY_TAG_REUSE        pcie         exit=1 DETECTED :: @ 43011000: uvm_test_top [PCIE_ORACLE] read-after-write byte 8 offset=95738 bytes=13
 PREMATURE_PUBLICATION  engine_pcie  exit=1 DETECTED :: @ 111130000: reporter [HOST_ORACLE] PCIe ring 1 producer covers record 1 before it is host visible
-BYPASS_BYTE_CHECK      engine_axi   exit=1 DETECTED :: @ 7702570000: reporter [HOST_ORACLE] byte checker compared 0 of 62347 captured bytes
+BYPASS_BYTE_CHECK      engine_axi   exit=1 DETECTED :: @ 7732670000: reporter [HOST_ORACLE] byte checker compared 0 of 62585 captured bytes

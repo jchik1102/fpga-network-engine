@@ -1,0 +1,11 @@
+XSim code coverage (axi_s17): statement, branch and condition, merged over every run
+design under test: instances under axi_burst_tb.dut; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+axi_burst_master                                1     86/86    100.00%     25/26     96.15%     20/22     90.91%
+TOTAL                                                 86/86    100.00%     25/26     96.15%     20/22     90.91%
+
+Lines with a statement that never executed:
+(none)
+
+CODE_COVERAGE axi_s17 statements=86/86 (100.00%) branches=25/26 (96.15%) conditions=20/22 (90.91%)

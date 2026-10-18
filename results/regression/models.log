@@ -47,4 +47,4 @@ tests/test_models.py::test_policy_vectors_and_endpoints PASSED           [ 97%]
 tests/test_models.py::test_deadline_wrap_no_drift PASSED                 [100%]
 
 - generated xml file: /mnt/c/projects/fpga-network-engine/build/models/junit.xml -
-============================== 41 passed in 7.11s ==============================
+============================== 41 passed in 5.80s ==============================

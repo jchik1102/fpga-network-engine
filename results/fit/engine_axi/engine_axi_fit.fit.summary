@@ -1,12 +1,12 @@
-Fitter Status : Successful - Thu Oct 15 01:42:59 2026
+Fitter Status : Successful - Sat Oct 17 14:55:05 2026
 Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
 Revision Name : engine_axi_fit
 Top-level Entity Name : engine_axi_fit
 Family : MAX 10
 Device : 10M50DAF484C7G
 Timing Models : Final
-Total logic elements : 28,498 / 49,760 ( 57 % )
-    Total combinational functions : 24,355 / 49,760 ( 49 % )
+Total logic elements : 28,445 / 49,760 ( 57 % )
+    Total combinational functions : 24,374 / 49,760 ( 49 % )
     Dedicated logic registers : 15,036 / 49,760 ( 30 % )
 Total registers : 15036
 Total pins : 1 / 360 ( < 1 % )

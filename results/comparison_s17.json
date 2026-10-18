@@ -9,7 +9,8 @@
    "abort": 55839,
    "fault_recovery": 5310,
    "throughput_capture": 38432,
-   "throughput_replay": 25969
+   "throughput_replay": 25969,
+   "default_queue": 1495
   },
   "throughput": {
    "capture": {
@@ -88,19 +89,19 @@
    "0": 134,
    "3": 2,
    "5": 1,
-   "1": 6,
+   "1": 9,
    "4": 1,
    "2": 13
   },
   "transport": {
-   "write_bursts": 767,
-   "write_beats": 8549,
-   "read_bursts": 827,
-   "read_beats": 6824,
-   "mean_write_burst_beats": 11.15,
-   "mean_read_burst_beats": 8.25,
-   "write_strobed_bytes": 68067,
-   "write_byte_efficiency": 0.9952
+   "write_bursts": 777,
+   "write_beats": 8592,
+   "read_bursts": 836,
+   "read_beats": 6854,
+   "mean_write_burst_beats": 11.06,
+   "mean_read_burst_beats": 8.2,
+   "write_strobed_bytes": 68401,
+   "write_byte_efficiency": 0.9951
   }
  },
  "pcie": [
@@ -114,7 +115,8 @@
     "abort": 56714,
     "fault_recovery": 7400,
     "throughput_capture": 39556,
-    "throughput_replay": 48543
+    "throughput_replay": 48543,
+    "default_queue": 3483
    },
    "throughput": {
     "capture": {
@@ -192,26 +194,26 @@
    "record_status": {
     "0": 138,
     "3": 2,
-    "1": 6,
+    "1": 9,
     "4": 1,
     "2": 13
    },
    "transport": {
-    "mwr": 930,
-    "mrd": 837,
-    "msi": 147,
-    "device_cpl": 1006,
-    "bar_requests": 12865,
-    "bar_cpl": 8533,
-    "header_dw": 30900,
-    "payload_dw": 25976,
+    "mwr": 943,
+    "mrd": 846,
+    "msi": 150,
+    "device_cpl": 1015,
+    "bar_requests": 13017,
+    "bar_cpl": 8624,
+    "header_dw": 31239,
+    "payload_dw": 26154,
     "splits": 169,
     "reordered": 0,
     "max_outstanding_tags": 1,
     "visibility_max": 289,
     "visibility_mean": 148,
     "device_max_tags": 1,
-    "device_to_host_header_overhead": 0.5433
+    "device_to_host_header_overhead": 0.5443
    },
    "run": "build/engine_pcie_s17"
   },
@@ -225,7 +227,8 @@
     "abort": 56990,
     "fault_recovery": 8450,
     "throughput_capture": 39982,
-    "throughput_replay": 54434
+    "throughput_replay": 54434,
+    "default_queue": 3611
    },
    "throughput": {
     "capture": {
@@ -303,26 +306,26 @@
    "record_status": {
     "0": 138,
     "3": 2,
-    "1": 6,
+    "1": 9,
     "4": 1,
     "2": 13
    },
    "transport": {
-    "mwr": 926,
-    "mrd": 1965,
-    "msi": 143,
-    "device_cpl": 2042,
-    "bar_requests": 11680,
-    "bar_cpl": 7744,
-    "header_dw": 34796,
-    "payload_dw": 25183,
+    "mwr": 939,
+    "mrd": 1977,
+    "msi": 146,
+    "device_cpl": 2054,
+    "bar_requests": 11824,
+    "bar_cpl": 7830,
+    "header_dw": 35154,
+    "payload_dw": 25356,
     "splits": 77,
-    "reordered": 594,
+    "reordered": 595,
     "max_outstanding_tags": 4,
     "visibility_max": 292,
     "visibility_mean": 154,
     "device_max_tags": 4,
-    "device_to_host_header_overhead": 0.5801
+    "device_to_host_header_overhead": 0.581
    },
    "run": "build/engine_pcie_stress_s17"
   }

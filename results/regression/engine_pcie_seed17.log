@@ -43,7 +43,7 @@ INFO: [VRFC 10-311] analyzing module engine_pcie_tb
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe engine_pcie_tb -L uvm -s engine_pcie_tb -timescale 1ns/1ps -debug typical -mt off 
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe engine_pcie_tb -L uvm -s engine_pcie_tb -timescale 1ns/1ps -debug typical -mt off -cc_type sbc -cov_db_dir . -cov_db_name code 
 Turned off multi-threading.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -85,7 +85,7 @@ Built simulation snapshot engine_pcie_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Thu Oct 15 01:08:48 2026
+  **** Start of session at: Sat Oct 17 14:21:51 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -116,27 +116,28 @@ UVM-1.2
 UVM_INFO @ 0: reporter [RNTST] Running test engine_pcie_test...
 UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
 WARNING: The value list associated with bin 'write_error' in Coverpoint 'status' of covergroup instance 'host.record_coverage' has converged to empty list. The bin will be taken out of coverage calculation.
-UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(159) @ 3210000: reporter [HOST] PCIe fixture: 96 frames, 91 capture and 81 replay descriptors
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(159) @ 3210000: reporter [HOST] PCIe fixture: 99 frames, 94 capture and 81 replay descriptors
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(386) @ 2253650000: reporter [HOST] PCIe capture phase: 44 records; drops by cause (timeout,mask,oversize,runt,malformed,full)=1,1,1,1,1,0
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(401) @ 3923610000: reporter [HOST] PCIe replay round 0 (original): outputs=29 lost=11 max_lateness=15355
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(401) @ 5695410000: reporter [HOST] PCIe replay round 1 (   fixed): outputs=39 lost=13 max_lateness=15355
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(449) @ 6924690000: reporter [HOST] PCIe abort: 9 records committed during abort phase, 11 invalidated, epoch 1
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(481) @ 7066790000: reporter [HOST] PCIe fault/recovery: halted ring recovered, epoch 2, 3 post-recovery records
-UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(521) @ 8834730000: reporter [HOST] PCIe throughput workload: 16 x 1514-byte capture and replay complete
-UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(108) @ 9500090000: uvm_test_top [PCIE_TEST] MSI directed checks passed: 3 messages, masked/pending/unmask/re-arm/disable cases
-UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(58) @ 9500330000: uvm_test_top [PCIE_TEST] transport sticky flags 008
-UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(63) @ 9500630000: uvm_test_top [RESULT] ENGINE_PCIE_PASS records=160 ok=138 unsupported=6 lost=13 bad_desc=2 read_error=1 write_error=0 outputs=57 checked_bytes=103689 guards=8155 invalidated=11 max_lateness=46011 mean_lateness=9103 checks=146058 coverage=96.875000 aperture=0000000080000000 four_tag=0 rcb=64 device_max_tags=1 mwr=930 mrd=837 msi=147 device_cpl=1006 bar_requests=12865 bar_cpl=8533 header_dw=30900 payload_dw=25976 splits=169 reordered=0 max_outstanding_tags=1 visibility_max=289 visibility_mean=148
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 9500630000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 9500630000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(522) @ 8834730000: reporter [HOST] PCIe throughput workload: 16 x 1514-byte capture and replay complete
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(537) @ 8904310000: reporter [HOST] PCIe default-queue phase: unsupported frames captured on queues 0-2
+UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(108) @ 9571050000: uvm_test_top [PCIE_TEST] MSI directed checks passed: 3 messages, masked/pending/unmask/re-arm/disable cases
+UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(58) @ 9571290000: uvm_test_top [PCIE_TEST] transport sticky flags 008
+UVM_INFO C:/projects/fpga-network-engine/tb/engine_pcie_test.sv(63) @ 9571610000: uvm_test_top [RESULT] ENGINE_PCIE_PASS records=163 ok=138 unsupported=9 lost=13 bad_desc=2 read_error=1 write_error=0 outputs=57 checked_bytes=103927 guards=8217 invalidated=11 max_lateness=46011 mean_lateness=9103 checks=146708 coverage=100.000000 aperture=0000000080000000 four_tag=0 rcb=64 device_max_tags=1 mwr=943 mrd=846 msi=150 device_cpl=1015 bar_requests=13017 bar_cpl=8624 header_dw=31239 payload_dw=26154 splits=169 reordered=0 max_outstanding_tags=1 visibility_max=289 visibility_mean=148
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 9571610000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 9571610000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   14
+UVM_INFO :   15
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
-[HOST]     7
+[HOST]     8
 [PCIE_TEST]     2
 [RESULT]     1
 [RNTST]     1
@@ -144,10 +145,11 @@ UVM_FATAL :    0
 [UVM/COMP/NAMECHECK]     1
 [UVM/RELNOTES]     1
 
-$finish called at time : 9500630 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:08 . Memory (MB): peak = 206.387 ; gain = 0.027
+$finish called at time : 9571610 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:11 . Memory (MB): peak = 208.273 ; gain = 0.000
 exit
-INFO: [Common 17-206] Exiting xsim at Thu Oct 15 01:08:58 2026...
+INFO: xsimkernel Simulation Memory Usage: 78804 KB (Peak: 78804 KB), Simulation CPU Usage: 11452 ms
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:22:06 2026...
 PASS: XSim log checked
 
  Options Set are : 
@@ -177,3 +179,29 @@ PASS: XSim log checked
 
  Creating grp0.html 
 
+
+ Options Set are : 
+
+   Command Line               : xcrg -cov_db_dir . -cov_db_name code -report_format html -report_dir code-coverage17
+   Report Format              : html
+   Log File                   : xcrg.log
+   Code Coverage Dir[s]       : .
+   Code Coverage DB[s]        : code
+
+
+********************************************************
+                  Code Coverage Report 
+********************************************************
+
+ Restoring Code Coverage DB[s] from : 
+  1	./xsim.codeCov/code/xsim.CCInfo
+
+ Created Coverage Report Directory     : code-coverage17/codeCoverageReport
+
+ Code Coverage HTML Report directory              : code-coverage17/codeCoverageReport
+
+ Line Coverage Score 89.5449
+ Branch Coverage Score 67.2553
+ Condition Coverage Score 69.6875
+
+CODE_COVERAGE engine_pcie_s17 statements=1712/1819 (94.12%) branches=647/842 (76.84%) conditions=761/998 (76.25%)

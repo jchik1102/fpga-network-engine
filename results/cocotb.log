@@ -1,0 +1,43 @@
+============================= test session starts ==============================
+platform linux -- Python 3.12.3, pytest-9.1.1, pluggy-1.6.0 -- .venv/bin/python
+cachedir: .pytest_cache
+rootdir: /mnt/c/projects/fpga-network-engine
+collecting ... collected 1 item
+
+tb/cocotb/test_cocotb.py::test_cdc_fifo      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/simulator.cpython-312-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at .venv/bin/python
+     -.--ns ERROR    pygpi                              ..ib/pygpi/embed.cpp:168  in initialize                      Unexpected sys.executable value (expected '.venv/bin/python', got '/home/jonat/oss-cad-suite/bin/tabbypy3')
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792274590
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running cdc_fifo_tests.similar_rates (1/3)
+                                                            10 ns write clock, 13 ns read clock, bursty on both sides.
+ 68110.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=10ns m_clk=13ns words=3000 full_cycles=25 empty_cycles=215
+ 68110.00ns INFO     cocotb.regression                  cdc_fifo_tests.similar_rates passed
+ 68110.00ns INFO     cocotb.regression                  running cdc_fifo_tests.slow_reader (2/3)
+                                                            7 ns write, 31 ns read: the FIFO fills and the writer is held off.
+119288.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=7ns m_clk=31ns words=1500 full_cycles=4032 empty_cycles=0
+119288.00ns INFO     cocotb.regression                  cdc_fifo_tests.slow_reader passed
+119288.00ns INFO     cocotb.regression                  running cdc_fifo_tests.fast_reader (3/3)
+                                                            29 ns write, 6 ns read: the FIFO runs empty between words.
+210362.50ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=29ns m_clk=6ns words=1500 full_cycles=0 empty_cycles=12999
+210362.50ns INFO     cocotb.regression                  cdc_fifo_tests.fast_reader passed
+210362.50ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** cdc_fifo_tests.similar_rates   PASS       68110.00           0.33     203747.32  **
+                                                        ** cdc_fifo_tests.slow_reader     PASS       51178.00           0.23     221432.29  **
+                                                        ** cdc_fifo_tests.fast_reader     PASS       91074.50           0.48     191638.88  **
+                                                        **************************************************************************************
+                                                        ** TESTS=3 PASS=3 FAIL=0 SKIP=0             210362.50           1.04     202014.60  **
+                                                        **************************************************************************************
+PASSED
+
+============================== 1 passed in 4.98s ===============================
+COCOTB_MUTATION_DETECTED full_misses_lap
+COCOTB_MUTATION_DETECTED write_ignores_full
+COCOTB_MUTATION_DETECTED read_ignores_ready
+COCOTB_MUTATION_DETECTED empty_misses_data

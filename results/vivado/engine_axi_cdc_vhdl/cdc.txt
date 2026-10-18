@@ -1,0 +1,72 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 16 23:14:10 2026
+| Host         : Jonathan running 64-bit major release  (build 9200)
+| Command      : report_cdc -details -file C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc_vhdl/cdc.txt
+| Design       : engine_axi_cdc_fit
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+CDC Report
+
+ID      Severity  Count  Description
+------  --------  -----  ----------------------------------------------
+CDC-6   Warning       2  Multi-bit synchronized with ASYNC_REG property
+CDC-26  Warning      37  LUTRAM read/write potential collision
+
+Source Clock: clk_pkt
+Destination Clock: clk
+CDC Type: No Common Primary Clock
+
+Row  ID      Severity  Description                                     Depth  Exception                Source (From)                            Destination (To)
+---  ------  --------  ----------------------------------------------  -----  -----------------------  ---------------------------------------  ---------------------------
+  1  CDC-6   Warning   Multi-bit synchronized with ASYNC_REG property      2  Max Delay Datapath Only  crossing/w_gray_reg[4:0]/C               crossing/w_sync1_reg[4:0]/D
+  2  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMA/CLK       engine/s_data_r_reg[0]/D
+  3  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMA_D1/CLK    engine/s_data_r_reg[1]/D
+  4  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMB/CLK       engine/s_data_r_reg[2]/D
+  5  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMB_D1/CLK    engine/s_data_r_reg[3]/D
+  6  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMC/CLK       engine/s_data_r_reg[4]/D
+  7  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_0_5/RAMC_D1/CLK    engine/s_data_r_reg[5]/D
+  8  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMA/CLK      engine/s_data_r_reg[6]/D
+  9  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMA_D1/CLK   engine/s_data_r_reg[7]/D
+ 10  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMB/CLK      engine/s_data_r_reg[8]/D
+ 11  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMB_D1/CLK   engine/s_data_r_reg[9]/D
+ 12  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMC/CLK      engine/s_data_r_reg[10]/D
+ 13  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_6_11/RAMC_D1/CLK   engine/s_data_r_reg[11]/D
+ 14  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMA/CLK     engine/s_data_r_reg[12]/D
+ 15  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMA_D1/CLK  engine/s_data_r_reg[13]/D
+ 16  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMB/CLK     engine/s_data_r_reg[14]/D
+ 17  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMB_D1/CLK  engine/s_data_r_reg[15]/D
+ 18  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMC/CLK     engine/s_data_r_reg[16]/D
+ 19  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_12_17/RAMC_D1/CLK  engine/s_data_r_reg[17]/D
+ 20  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMA/CLK     engine/s_data_r_reg[18]/D
+ 21  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMA_D1/CLK  engine/s_data_r_reg[19]/D
+ 22  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMB/CLK     engine/s_data_r_reg[20]/D
+ 23  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMB_D1/CLK  engine/s_data_r_reg[21]/D
+ 24  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMC/CLK     engine/s_data_r_reg[22]/D
+ 25  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_18_23/RAMC_D1/CLK  engine/s_data_r_reg[23]/D
+ 26  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMA/CLK     engine/s_data_r_reg[24]/D
+ 27  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMA_D1/CLK  engine/s_data_r_reg[25]/D
+ 28  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMB/CLK     engine/s_data_r_reg[26]/D
+ 29  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMB_D1/CLK  engine/s_data_r_reg[27]/D
+ 30  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMC/CLK     engine/s_data_r_reg[28]/D
+ 31  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_24_29/RAMC_D1/CLK  engine/s_data_r_reg[29]/D
+ 32  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMA/CLK     engine/s_data_r_reg[30]/D
+ 33  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMA_D1/CLK  engine/s_data_r_reg[31]/D
+ 34  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMB/CLK     engine/s_keep_r_reg[0]/D
+ 35  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMB_D1/CLK  engine/s_keep_r_reg[1]/D
+ 36  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMC/CLK     engine/s_keep_r_reg[2]/D
+ 37  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_30_35/RAMC_D1/CLK  engine/s_keep_r_reg[3]/D
+ 38  CDC-26  Warning   LUTRAM read/write potential collision               0  Max Delay Datapath Only  crossing/mem_reg_0_15_36_36/DP/CLK       engine/s_last_r_reg/D
+
+Source Clock: clk
+Destination Clock: clk_pkt
+CDC Type: No Common Primary Clock
+
+Row  ID     Severity  Description                                     Depth  Exception                Source (From)               Destination (To)
+---  -----  --------  ----------------------------------------------  -----  -----------------------  --------------------------  ---------------------------
+  1  CDC-6  Warning   Multi-bit synchronized with ASYNC_REG property      2  Max Delay Datapath Only  crossing/r_gray_reg[4:0]/C  crossing/r_sync1_reg[4:0]/D
+

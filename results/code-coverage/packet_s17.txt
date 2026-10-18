@@ -1,0 +1,12 @@
+XSim code coverage (packet_s17): statement, branch and condition, merged over every run
+design under test: instances under packet_tb.dut; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+capture_ingress                                 1    124/124   100.00%     40/43     93.02%     96/106    90.57%
+packet_classifier                               1     50/50    100.00%     14/14    100.00%     43/48     89.58%
+TOTAL                                                174/174   100.00%     54/57     94.74%    139/154    90.26%
+
+Lines with a statement that never executed:
+(none)
+
+CODE_COVERAGE packet_s17 statements=174/174 (100.00%) branches=54/57 (94.74%) conditions=139/154 (90.26%)

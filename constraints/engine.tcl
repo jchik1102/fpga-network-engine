@@ -6,11 +6,13 @@ set_global_assignment -name FAMILY "MAX 10"
 set_global_assignment -name DEVICE 10M50DAF484C7G
 set_global_assignment -name TOP_LEVEL_ENTITY $top
 foreach source $sources { set_global_assignment -name SYSTEMVERILOG_FILE $source }
-set_global_assignment -name SDC_FILE [file join [file dirname [info script]] engine.sdc]
+# Tops with a separate packet clock (*_cdc_fit) use their own two-clock SDC.
+set sdc [expr {[string match *_cdc_fit $top] ? "engine_cdc.sdc" : "engine.sdc"}]
+set_global_assignment -name SDC_FILE [file join [file dirname [info script]] $sdc]
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name NUM_PARALLEL_PROCESSORS 4
 set_global_assignment -name OPTIMIZATION_MODE "BALANCED"
-foreach port {rst s_* m_* irq quiescent running tick* rx_* tx_* cfg_*} {
+foreach port {rst s_* m_* irq quiescent running tick* rx_* tx_* cfg_* pkt_*} {
   set_instance_assignment -name VIRTUAL_PIN ON -to $port
 }
 export_assignments

@@ -10,8 +10,6 @@ module replay_staging(
  output logic [31:0] m_data,output logic [3:0] m_keep,output logic m_valid,m_last,input logic m_ready,
  output logic busy
 );
- // byte-enable template so quartus infers block ram
- (* ramstyle="M9K" *) logic [3:0][7:0] memory[0:2047];
  logic [31:0] ram_data;logic [8:0] read_word;
  logic [15:0] lengths[0:3];logic [63:0] dues[0:3];logic [3:0] losses;
  logic [1:0] rr,selected,choice;logic choose;
@@ -20,15 +18,19 @@ module replay_staging(
  logic [3:0] eligible_q;
  typedef enum logic [1:0] {IDLE,ADDRESS,SEND} state_t;
  state_t state;
- always_ff @(posedge clk) begin
-   if(write_valid) begin
-     if(write_keep[0]) memory[{write_queue,write_word}][0]<=write_data[7:0];
-     if(write_keep[1]) memory[{write_queue,write_word}][1]<=write_data[15:8];
-     if(write_keep[2]) memory[{write_queue,write_word}][2]<=write_data[23:16];
-     if(write_keep[3]) memory[{write_queue,write_word}][3]<=write_data[31:24];
+ // one 2048x8 ram per byte lane, each the plain simple dual-port template
+ // that quartus (M9K) and vivado (block ram) both infer; write_keep picks the
+ // lanes. vivado turned the earlier packed byte-enable array into registers.
+ genvar b;
+ generate for(b=0;b<4;b=b+1) begin:lane
+   (* ramstyle="M9K" *) logic [7:0] memory[0:2047];
+   logic [7:0] q;
+   always_ff @(posedge clk) begin
+     if(write_valid && write_keep[b]) memory[{write_queue,write_word}]<=write_data[8*b+:8];
+     q<=memory[{selected,read_word}];
    end
-   ram_data<=memory[{selected,read_word}];
- end
+ end endgenerate
+ assign ram_data={lane[3].q,lane[2].q,lane[1].q,lane[0].q};
  always_comb begin
    stage_ready=~occupied;busy=state!=IDLE;
    // look-ahead read: ram output only advances on a handshake

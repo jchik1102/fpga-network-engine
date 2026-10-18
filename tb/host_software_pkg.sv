@@ -500,6 +500,7 @@ package host_software_pkg;
      phase_mark("abort");phase_abort();
      phase_mark("fault_recovery");phase_fault_recovery();
      phase_throughput();
+     phase_mark("default_queue");phase_default_queue();
      phase_mark("end");
      wr('h8,2);wait_quiescent("final");check_quiet_output();
      expect_true(output_frames.used()==0 && input_frames.used()==0,"no unconsumed stream frames");
@@ -519,6 +520,21 @@ package host_software_pkg;
      service_until_done("throughput replay");
      wr('h8,2);wait_quiescent("throughput end");sink_config.full_rate=0;configure_replay(1,0,0,1);
      `uvm_info("HOST",$sformatf("%s throughput workload: 16 x 1514-byte capture and replay complete",platform.name()),UVM_LOW)
+   endtask
+   // Unsupported frames (no header the rules can match) always go to the
+   // default queue, which every other phase leaves at queue 3. Point it at
+   // queues 0, 1 and 2 in turn (fixture phase 7), so every capture ring also
+   // returns an UNSUPPORTED record.
+   task phase_default_queue();
+     foreach(frames[i]) if(frames[i].phase==7) begin
+       wr('h8,2);wait_quiescent("default queue setup");wr('h104,frames[i].queue);
+       foreach(captures[j]) if(captures[j].frame==i) publish_capture(captures[j]);
+       doorbells();wr('h8,1);
+       fork send(frames[i]);service_until_done("default queue");join
+       wait_inputs_observed();
+     end
+     wr('h8,2);wait_quiescent("default queue restore");wr('h104,default_queue);
+     `uvm_info("HOST",$sformatf("%s default-queue phase: unsupported frames captured on queues 0-2",platform.name()),UVM_LOW)
    endtask
    task phase_mark(string name);
      bit [63:0] tick;snapshot(tick);$fdisplay(log_fd,"PHASE %s %0d",name,tick);

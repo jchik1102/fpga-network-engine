@@ -84,7 +84,7 @@ def build_frames(rng):
         return bytes(Ether(src="02:00:00:00:00:01", dst="02:00:00:00:00:02") / IP(src=src, dst=dst) /
                      UDP(sport=sport, dport=dport) / Raw(payload) / Padding(bytes([0x5A]) * pad))
 
-    def add(phase, name, wire, keep_override=None, long_gap=None, gaps_zero=False):
+    def add(phase, name, wire, keep_override=None, long_gap=None, gaps_zero=False, default_queue=DEFAULT_QUEUE):
         channel = list(beats(wire))
         if keep_override:
             index, keep = keep_override
@@ -94,7 +94,7 @@ def build_frames(rng):
         gaps = [0 if gaps_zero else rng.randrange(4) for _ in channel]
         if long_gap:
             gaps[long_gap] = 65540
-        expected = classify(observed, RULES, DEFAULT_QUEUE, bad_mask=bad, watchdog=bool(long_gap))
+        expected = classify(observed, RULES, default_queue, bad_mask=bad, watchdog=bool(long_gap))
         frames.append(dict(phase=phase, name=name, words=channel, gaps=gaps, bytes=observed,
                            drop=int(expected.drop), supported=int(expected.supported),
                            queue=expected.queue, rule=expected.rule))
@@ -139,6 +139,15 @@ def build_frames(rng):
         add(5, f"notify{i}", templates[0](rng.randrange(60, 200), 0))
     for i in range(THROUGHPUT_FRAMES):
         add(6, f"throughput{i}", templates[i % 4](1514, 0), gaps_zero=True)
+    # Phase 7: frames no rule can match (IPv6, ARP, VLAN) only reach a ring
+    # through the default queue, which the other phases leave at queue 3; here
+    # it is pointed at queues 0, 1 and 2 in turn. Zero gaps and fixed payloads,
+    # so these frames draw nothing from rng and the earlier stimulus is the same.
+    unsupported = (bytes(base / IPv6() / UDP() / Raw(bytes(30))), bytes(base / ARP()) + bytes(18),
+                   bytes(base / Dot1Q(vlan=5) / IP(src="1.2.3.4", dst="5.6.7.8") / UDP() / Raw(bytes(40))))
+    for q, wire in enumerate(unsupported):
+        add(7, f"default_queue{q}", wire, gaps_zero=True, default_queue=q)
+        assert (frames[-1]["drop"], frames[-1]["supported"], frames[-1]["queue"]) == (0, 0, q)
     return frames
 
 
@@ -202,6 +211,11 @@ def generate(destination, seed):
         if row["round"] == 0 and row["queue"] == 2 and not row["lost"] and row["segments"][0].length >= 8:
             row["read_error"] = 1
             break
+    # Phase 7 descriptors are laid out last, so earlier layouts and cookies are unchanged.
+    for index, f in enumerate(frames):
+        if f["phase"] == 7:
+            capture.append(dict(phase=7, queue=f["queue"], frame=index, kind=0, cookie=next(cookies),
+                                segments=capture_alloc.layout(len(f["bytes"]) + rng.choice((0, 3, 64)))))
     for row in capture:
         d = Descriptor(row["cookie"], 0, 0, 0, sum(s.length for s in row["segments"]), row["segments"])
         d.validate(replay=False, sequence=0, epoch=0)

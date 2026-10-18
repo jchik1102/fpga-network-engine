@@ -1,0 +1,65 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 16 23:14:10 2026
+| Host         : Jonathan running 64-bit major release  (build 9200)
+| Command      : report_timing -setup -max_paths 1 -path_type full -file C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc_vhdl/worst_setup_path.txt
+| Design       : engine_axi_cdc_fit
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             3.743ns  (required time - arrival time)
+  Source:                 crossing/r_sync2_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_pkt  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Destination:            crossing/mem_reg_0_15_12_17/RAMA/WE
+                            (rising edge-triggered cell RAMD32 clocked by clk_pkt  {rise@0.000ns fall@4.000ns period=8.000ns})
+  Path Group:             clk_pkt
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            8.000ns  (clk_pkt rise@8.000ns - clk_pkt rise@0.000ns)
+  Data Path Delay:        3.640ns  (logic 0.839ns (23.051%)  route 2.801ns (76.949%))
+  Logic Levels:           2  (LUT6=2)
+  Clock Path Skew:        -0.049ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    0.924ns = ( 8.924 - 8.000 ) 
+    Source Clock Delay      (SCD):    0.973ns
+    Clock Pessimism Removal (CPR):    0.000ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pkt rise edge)    0.000     0.000 r  
+                         propagated clock network latency
+                                                      0.973     0.973    
+    SLICE_X5Y41          FDRE                         0.000     0.973 r  crossing/r_sync2_reg[1]/C
+    SLICE_X5Y41          FDRE (Prop_fdre_C_Q)         0.419     1.392 r  crossing/r_sync2_reg[1]/Q
+                         net (fo=1, routed)           0.949     2.341    crossing/r_sync2[1]
+    SLICE_X6Y41          LUT6 (Prop_lut6_I4_O)        0.296     2.637 r  crossing/pkt_ready_i_2/O
+                         net (fo=3, routed)           0.682     3.318    crossing/pkt_ready_i_2_n_0
+    SLICE_X9Y41          LUT6 (Prop_lut6_I1_O)        0.124     3.442 r  crossing/mem_reg_0_15_0_5_i_1/O
+                         net (fo=50, routed)          1.170     4.613    crossing/mem_reg_0_15_12_17/WE
+    SLICE_X2Y44          RAMD32                                       r  crossing/mem_reg_0_15_12_17/RAMA/WE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pkt rise edge)    8.000     8.000 r  
+                         propagated clock network latency
+                                                      0.924     8.924    
+                         clock pessimism              0.000     8.924    
+                         clock uncertainty           -0.035     8.889    
+    SLICE_X2Y44          RAMD32 (Setup_ramd32_CLK_WE)
+                                                     -0.533     8.356    crossing/mem_reg_0_15_12_17/RAMA
+  -------------------------------------------------------------------
+                         required time                          8.356    
+                         arrival time                          -4.613    
+  -------------------------------------------------------------------
+                         slack                                  3.743    
+
+
+
+

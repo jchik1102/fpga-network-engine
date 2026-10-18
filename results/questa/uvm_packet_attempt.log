@@ -1,0 +1,48 @@
+# vsim -c -suppress 12003 -L C:\intelFPGA_lite\24.1std\questa_fse/uvm-1.2 packet_tb -sv_seed 17 "+FIXTURE=packets.txt" -l sim.log -do "run -all; quit -f" 
+# Start time: 15:12:08 on Oct 17,2026
+# Loading C:/Users/jonat/AppData/Local/Temp\jonat@JONATHAN_dpi_25412\win64_gcc-7.4.0\export_tramp.dll
+# ** Note: (vsim-3812) Design is being optimized...
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(7): (vopt-13314) Defaulting port 'rule_control' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(8): (vopt-13314) Defaulting port 'rule_src' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(8): (vopt-13314) Defaulting port 'rule_src_mask' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(9): (vopt-13314) Defaulting port 'rule_dst' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(9): (vopt-13314) Defaulting port 'rule_dst_mask' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\packet_classifier.sv(9): (vopt-13314) Defaulting port 'rule_ports' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(12): (vopt-13314) Defaulting port 'rule_control' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(13): (vopt-13314) Defaulting port 'rule_src' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(13): (vopt-13314) Defaulting port 'rule_src_mask' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(13): (vopt-13314) Defaulting port 'rule_dst' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(13): (vopt-13314) Defaulting port 'rule_dst_mask' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Warning: C:\projects\fpga-network-engine\rtl\capture_ingress.sv(13): (vopt-13314) Defaulting port 'rule_ports' kind to 'var' rather than 'wire' due to default compile option setting of -svinputport=relaxed.
+# ** Note: (vsim-12126) Error and warning message counts have been restored: Errors=0, Warnings=12.
+# //  Questa Intel Starter FPGA Edition-64
+# //  Version 2024.3 win64 Sep 10 2024
+# //
+# // Unpublished work. Copyright 2024 Siemens
+# //
+# // This material contains trade secrets or otherwise confidential information
+# // owned by Siemens Industry Software Inc. or its affiliates (collectively,
+# // "SISW"), or its licensors. Access to and use of this information is strictly
+# // limited as set forth in the Customer's applicable agreements with SISW.
+# //
+# // This material may not be copied, distributed, or otherwise disclosed outside
+# // of the Customer's facilities without the express written permission of SISW,
+# // and may not be used in any way not expressly authorized by SISW.
+# //
+# Loading sv_std.std
+# Loading work.capture_test_if(fast)
+# Loading work.stream_if(fast)
+# Loading C:\intelFPGA_lite\24.1std\questa_fse/uvm-1.2.uvm_pkg(fast)
+# Loading work.stream_agent_pkg(fast)
+# Loading work.packet_test_pkg(fast)
+# Loading C:\intelFPGA_lite\24.1std\questa_fse/uvm-1.2.questa_uvm_pkg(fast)
+# Loading work.packet_tb(fast)
+# Compiling C:/Users/jonat/AppData/Local/Temp\jonat@JONATHAN_dpi_25412\win64_gcc-7.4.0\exportwrapper.c
+# Loading C:/Users/jonat/AppData/Local/Temp\jonat@JONATHAN_dpi_25412\win64_gcc-7.4.0\vsim_auto_compile.dll
+# Loading C:/intelFPGA_lite/24.1std/questa_fse/uvm-1.2\win64\uvm_dpi.dll
+# ** Error: Failure to checkout svverification license feature.
+# ** Error: (vsim-1) Unable to checkout verification license - required for testbench features (randomize, randcase, randsequence, covergroup).
+#    Time: 0 ps  Iteration: 0  Instance: /packet_tb File: C:/projects/fpga-network-engine/tb/packet_test.sv
+# Error loading design
+# End time: 15:12:12 on Oct 17,2026, Elapsed time: 0:00:04
+# Errors: 2, Warnings: 12, Suppressed Errors: 2

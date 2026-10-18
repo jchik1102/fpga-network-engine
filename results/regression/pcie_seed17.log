@@ -12,7 +12,7 @@ INFO: [VRFC 10-311] analyzing module pcie_tb
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe pcie_tb -L uvm -s pcie_tb -timescale 1ns/1ps -debug typical -mt off 
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe pcie_tb -L uvm -s pcie_tb -timescale 1ns/1ps -debug typical -mt off -cc_type sbc -cov_db_dir . -cov_db_name code 
 Turned off multi-threading.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -38,7 +38,7 @@ Built simulation snapshot pcie_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Thu Oct 15 01:05:01 2026
+  **** Start of session at: Sat Oct 17 14:18:41 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -87,7 +87,7 @@ UVM_FATAL :    0
 
 $finish called at time : 10670960 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
 exit
-INFO: [Common 17-206] Exiting xsim at Thu Oct 15 01:05:05 2026...
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:18:45 2026...
 PASS: XSim log checked
 
  Options Set are : 
@@ -119,3 +119,29 @@ PASS: XSim log checked
 
  Creating grp1.html 
 
+
+ Options Set are : 
+
+   Command Line               : xcrg -cov_db_dir . -cov_db_name code -report_format html -report_dir code-coverage17
+   Report Format              : html
+   Log File                   : xcrg.log
+   Code Coverage Dir[s]       : .
+   Code Coverage DB[s]        : code
+
+
+********************************************************
+                  Code Coverage Report 
+********************************************************
+
+ Restoring Code Coverage DB[s] from : 
+  1	./xsim.codeCov/code/xsim.CCInfo
+
+ Created Coverage Report Directory     : code-coverage17/codeCoverageReport
+
+ Code Coverage HTML Report directory              : code-coverage17/codeCoverageReport
+
+ Line Coverage Score 44.6937
+ Branch Coverage Score 39.4973
+ Condition Coverage Score 45.2564
+
+CODE_COVERAGE pcie_s17 statements=290/298 (97.32%) branches=116/128 (90.62%) conditions=177/202 (87.62%)

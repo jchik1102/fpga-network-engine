@@ -43,7 +43,7 @@ def metrics(name, data, manifest):
     frames = manifest["frames"]
     phases = data["phases"]
     order = ["capture", "replay0", "replay1", "drop_on_full", "abort", "fault_recovery", "throughput_capture",
-             "throughput_replay", "end"]
+             "throughput_replay", "default_queue", "end"]
     durations = {order[i]: phases[order[i + 1]] - phases[order[i]] for i in range(len(order) - 1)
                  if order[i] in phases and order[i + 1] in phases}
     capture_in = [i for i, f in enumerate(frames) if f["phase"] == 0 and i in data["inputs"]]
@@ -148,7 +148,8 @@ def export(name, run_dir, manifest):
 
 def compare(axi, pcie):
     problems = []
-    deterministic = {"capture", "replay0", "replay1", "drop_on_full", "fault_recovery", "throughput_capture", "throughput_replay"}
+    deterministic = {"capture", "replay0", "replay1", "drop_on_full", "fault_recovery", "throughput_capture", "throughput_replay",
+                     "default_queue"}
     def replay_key(data):
         return {(o["round"], o["queue"], o["sequence"]): o["frame"] for o in data["outputs"] if o["round"] != 2}
     a, p = replay_key(axi), replay_key(pcie)

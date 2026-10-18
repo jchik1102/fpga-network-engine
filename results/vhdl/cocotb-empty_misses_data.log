@@ -1,0 +1,83 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________________________ test_cdc_fifo_vhdl ______________________________
+
+    def test_cdc_fifo_vhdl():
+        source = ROOT / "rtl/vhdl/stream_cdc_fifo.vhd"
+        mutant = os.environ.get("CDC_MUTANT")
+        build = HERE / "sim_build" / ((f"{SIM}_" if SIM != "ghdl" else "") + ("stream_cdc_fifo_" + mutant if mutant else "stream_cdc_fifo"))
+        if mutant:
+            old, new = MUTANTS[mutant]
+            text = source.read_text()
+            assert text.count(old) == 1, f"mutant {mutant} does not apply"
+            build.mkdir(parents=True, exist_ok=True)
+            source = build / "stream_cdc_fifo_mutant.vhd"
+            source.write_text(text.replace(old, new))
+        runner = get_runner(SIM)
+        runner.build(sources=[source], hdl_toplevel="stream_cdc_fifo", build_dir=build,
+                     build_args=["--std=08"] if SIM == "ghdl" else ["-2008"], always=True)
+        # GHDL's LLVM back end elaborates to an executable in the build directory,
+        # which "ghdl -r" runs from its working directory, so the tests run there.
+>       runner.test(hdl_toplevel="stream_cdc_fifo", test_module="cdc_fifo_tests", test_dir=build,
+                    build_dir=build, test_args=["--std=08"] if SIM == "ghdl" else ["-t", "1ps"])   # the clocks need ps resolution
+E       SystemExit: 1
+
+tb/cocotb_vhdl/test_cocotb_vhdl.py:55: SystemExit
+----------------------------- Captured stdout call -----------------------------
+analyze /mnt/c/projects/fpga-network-engine/tb/cocotb_vhdl/sim_build/stream_cdc_fifo_empty_misses_data/stream_cdc_fifo_mutant.vhd
+elaborate stream_cdc_fifo
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/simulator.cpython-312-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at /mnt/c/projects/fpga-network-engine/.venv/bin/python
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792275059
+     0.00ns WARNING  gpi                                vpi_iterate returned NULL for type vpiInstance for object NULL
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on GHDL version 7.0.0-dev (6.0.0.r537.g1e3c5ab06.dirty) [Dunoon edition]
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running cdc_fifo_tests.similar_rates (1/3)
+                                                            10 ns write clock, 13 ns read clock, bursty on both sides.
+ 68275.00ns WARNING  cocotb.regression                  cdc_fifo_tests.similar_rates failed
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/projects/fpga-network-engine/tb/cocotb/cdc_fifo_tests.py", line 88, in similar_rates
+                                                            await stream(dut, 1, 10, 13, 3000, p_valid=0.8, p_ready=0.6, need=("full", "empty"))
+                                                          File "/mnt/c/projects/fpga-network-engine/tb/cocotb/cdc_fifo_tests.py", line 78, in stream
+                                                            assert have == want, f"word {i}: got {have:#x}, want {want:#x}"
+                                                        AssertionError: word 45: got 0x78d88348a, want 0x1d803468b6
+                                                        assert 32439284874 == 126704969910
+ 68275.00ns INFO     cocotb.regression                  running cdc_fifo_tests.slow_reader (2/3)
+                                                            7 ns write, 31 ns read: the FIFO fills and the writer is held off.
+120476.00ns INFO     cocotb.stream_cdc_fifo             CDC_STREAM_PASS s_clk=7ns m_clk=31ns words=1500 full_cycles=4211 empty_cycles=0
+120476.00ns INFO     cocotb.regression                  cdc_fifo_tests.slow_reader passed
+120476.00ns INFO     cocotb.regression                  running cdc_fifo_tests.fast_reader (3/3)
+                                                            29 ns write, 6 ns read: the FIFO runs empty between words.
+214015.50ns WARNING  cocotb.regression                  cdc_fifo_tests.fast_reader failed
+                                                        Traceback (most recent call last):
+                                                          File "/mnt/c/projects/fpga-network-engine/tb/cocotb/cdc_fifo_tests.py", line 100, in fast_reader
+                                                            await stream(dut, 3, 29, 6, 1500, p_valid=0.9, p_ready=0.7, need=("empty",))
+                                                          File "/mnt/c/projects/fpga-network-engine/tb/cocotb/cdc_fifo_tests.py", line 78, in stream
+                                                            assert have == want, f"word {i}: got {have:#x}, want {want:#x}"
+                                                        AssertionError: word 0: got 0x3eb89569f, want 0x1197b75092
+                                                        assert 16836548255 == 75559817362
+214015.50ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** cdc_fifo_tests.similar_rates   FAIL       68275.00           0.16     414826.32  **
+                                                        ** cdc_fifo_tests.slow_reader     PASS       52201.00           0.12     441420.34  **
+                                                        ** cdc_fifo_tests.fast_reader     FAIL       93539.50           0.10     943537.20  **
+                                                        **************************************************************************************
+                                                        ** TESTS=3 PASS=1 FAIL=2 SKIP=0             214015.50           0.39     546915.52  **
+                                                        **************************************************************************************
+../../src/ieee2008/numeric_std-body.vhdl:1793:7:@0ms:(assertion warning): NUMERIC_STD."=": metavalue detected, returning FALSE
+../../src/ieee2008/numeric_std-body.vhdl:3053:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
+----------------------------- Captured stderr call -----------------------------
+loading VPI module '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/libs/libcocotbvpi_ghdl.so'
+VPI module loaded!
+------------------------------ Captured log call -------------------------------
+INFO     Ghdl:runner.py:734 Running command ghdl -i --work=top --std=08 /mnt/c/projects/fpga-network-engine/tb/cocotb_vhdl/sim_build/stream_cdc_fifo_empty_misses_data/stream_cdc_fifo_mutant.vhd in directory /mnt/c/projects/fpga-network-engine/tb/cocotb_vhdl/sim_build/stream_cdc_fifo_empty_misses_data
+INFO     Ghdl:runner.py:734 Running command ghdl -m --work=top --std=08 stream_cdc_fifo in directory /mnt/c/projects/fpga-network-engine/tb/cocotb_vhdl/sim_build/stream_cdc_fifo_empty_misses_data
+INFO     Ghdl:runner.py:734 Running command ghdl -r --work=top --std=08 stream_cdc_fifo --vpi=/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/libs/libcocotbvpi_ghdl.so in directory /mnt/c/projects/fpga-network-engine/tb/cocotb_vhdl/sim_build/stream_cdc_fifo_empty_misses_data
+ERROR    Ghdl:runner.py:674 ERROR: Failed 2 of 3 tests.
+=========================== short test summary info ============================
+FAILED tb/cocotb_vhdl/test_cocotb_vhdl.py::test_cdc_fifo_vhdl - SystemExit: 1
+1 failed in 5.34s

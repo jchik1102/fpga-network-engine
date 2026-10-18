@@ -165,6 +165,102 @@ loss.
 `LOSS_IGNORES_QUEUE` drops the queue term, and the integrated AXI test's host
 oracle catches it ([mutations.log](results/regression/mutations.log)).
 
+## 6. Packet input on its own clock through an asynchronous FIFO
+
+**What the RTL does.** `rtl/stream_cdc_fifo.sv` carries the 37-bit packet
+stream (`{last, keep, data}`) from a packet clock into the engine clock. Each
+side keeps a binary pointer one bit wider than the address and a Gray-code
+copy; only the Gray pointers cross, each through two flip-flops. The write side
+compares its pointer with the synchronized read pointer to decide full, and the
+read side compares with the synchronized write pointer to decide empty.
+`constraints/engine_cdc_fit.sv` puts it in front of the unchanged engine, with
+the packet clock at 125 MHz.
+
+**Why Gray code?** A binary pointer can change several bits at once (7 to 8
+changes all four low bits), and a receiving flip-flop that samples mid-change
+can capture a value that was never the pointer. A Gray pointer changes one bit
+per increment, so the receiver sees either the old or the new value. Both are
+valid, only late.
+
+**Why is a late pointer safe?** Each side only ever sees the other's pointer
+behind where it really is. The writer may think the FIFO is fuller than it is,
+and the reader may think it is emptier, so full and empty can only be
+pessimistic: a stall, never an overflow or a read of unwritten data. The
+formal proof states this directly (`ap_r_view_lags`, `ap_w_view_lags`) along
+with no overflow, no underflow and data integrity.
+
+**Why one extra pointer bit?** With an address-width pointer, "equal" would mean
+both empty and full. The extra bit counts laps: equal pointers mean empty, and
+pointers equal except for the lap bit mean full. In Gray code that shows up as
+the top two bits differing and the rest equal.
+
+**Why two flip-flops?** The first flop may go metastable when it samples a
+changing input; the second gives it a full clock period to settle. Quartus's
+metastability analysis finds the 10 chains and puts the worst-case MTBF above a
+billion years ([metastability.txt](results/fit/engine_axi_cdc/metastability.txt)).
+
+**Why declare the clocks asynchronous instead of timing the crossing?** There
+is no fixed phase between the clocks, so a setup check between them has no
+meaning. The synchronizers and the Gray-code protocol carry the correctness, and
+`set_clock_groups -asynchronous` tells the timing analyzer not to time those
+paths. The FIFO memory is read across domains too; that is safe because a word
+is written on the same edge that advances the write pointer, and the reader
+only sees that pointer two of its own clock edges later, by which time the word
+has been stable for at least that long.
+
+**What does cutting the paths leave unchecked?** Once the paths are cut, the
+tools no longer limit how long a pointer bit takes to reach its first
+synchronizer flop, or how far apart the bits of one pointer arrive. The Gray
+code argument needs both. If two bits of a pointer arrived more than a
+receiving period apart, the receiver could capture a value with two bits
+changed, which is not a pointer the writer ever had. The Vivado constraints
+([engine_cdc.xdc](constraints/engine_cdc.xdc)) bound the crossing instead of
+cutting it, the way Xilinx constrains its own CDC macros:
+`set_max_delay -datapath_only` of 8 ns (the packet-clock period) on every
+crossing path, and `set_bus_skew` of 8 ns on each Gray pointer. The routed
+Artix-7 design meets them, with 0.709 ns and 0.987 ns of pointer skew
+([bus_skew.txt](results/vivado/engine_axi_cdc/bus_skew.txt)). The synchronizer
+flops carry `ASYNC_REG`, so Vivado keeps each pair together and `report_cdc`
+classifies the pointers as synchronized ([cdc.txt](results/vivado/engine_axi_cdc/cdc.txt)).
+The same bound was tried in the Quartus SDC with `set_max_skew` and
+`set_net_delay`. The Timing Analyzer matched the registers but reported no
+paths for either constraint and ignored them, so the Quartus flow keeps the
+cut, and the bound is checked only in Vivado.
+
+**What the proof cannot show.** The solver samples signals ideally, so it checks
+the pointer protocol, not metastability. Metastability is handled structurally
+(Gray code, two-flop synchronizers) and measured by the Quartus report.
+
+## 7. A VHDL version of the async FIFO, proven equal to the SystemVerilog one
+
+**What was built.** `rtl/vhdl/stream_cdc_fifo.vhd` is `stream_cdc_fifo` in
+VHDL-2008, written to be a drop-in replacement: same entity name, ports,
+generics, and the same registers under the same names. The two-clock top
+builds with either (`make vivado-vhdl`).
+
+**Why keep the same register names?** Equivalence checking by name is then
+direct. EQY (with GHDL's Yosys plugin on the VHDL side and yosys-slang on the
+SystemVerilog side) matches every register bit, including the 16 memory words
+once both memories are mapped to registers, and proves each partition by
+induction. A proof that the two designs are equivalent carries the
+SystemVerilog FIFO's formal proof and its tests over to the VHDL.
+
+**Why still run the cocotb tests on it?** The equivalence check compares the
+designs as Yosys reads them, through two different front ends; simulation
+with GHDL checks the VHDL as a VHDL simulator elaborates it. The same test
+module runs unchanged on both languages, and the VHDL mutants (the same four
+defects as the SystemVerilog mutants) must fail both the tests and the
+equivalence check, so neither can pass vacuously.
+
+**Why does the VHDL write repeat the reset term?** The memory write sits in
+its own process so synthesis sees a plain RAM, enabled by `s_valid and
+s_ready_i`, where `s_ready_i` already includes `not s_rst`. EQY cuts the
+designs at matched signals, so it treated `s_ready` as a free input and found
+a state where the VHDL wrote during reset and the SystemVerilog (whose write
+is in the reset's `else` branch) did not. Repeating `s_rst = '0'` in the VHDL
+write makes the two structurally the same; synthesis removes the redundant
+term.
+
 ## Bugs found by formal verification
 
 Both were found by the SymbiYosys checks in `formal/`, fixed in separate

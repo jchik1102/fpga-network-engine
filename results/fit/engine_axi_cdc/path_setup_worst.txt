@@ -1,0 +1,100 @@
+----------------
+; Command Info ;
+----------------
+Report Timing: Found 1 setup paths (0 violated).  Worst case slack is 1.181 
+
+Tcl Command:
+    report_timing -setup -file path_setup_worst.txt -npaths 1 -detail full_path
+
+Options:
+    -setup 
+    -npaths 1 
+    -detail full_path 
+    -file {path_setup_worst.txt} 
+
+Delay Model:
+    Slow 1200mV 85C Model
+
++----------------------------------------------------------------------------------------------------------+
+; Summary of Paths                                                                                         ;
++-------+----------------+-----------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node      ; To Node   ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+----------------+-----------+--------------+-------------+--------------+------------+------------+
+; 1.181 ; pkt_ready~reg0 ; pkt_ready ; clk_pkt      ; clk_pkt     ; 8.000        ; -3.802     ; 1.397      ;
++-------+----------------+-----------+--------------+-------------+--------------+------------+------------+
+
+Path #1: Setup slack is 1.181 
+===============================================================================
++-------------------------------------+
+; Path Summary                        ;
++--------------------+----------------+
+; Property           ; Value          ;
++--------------------+----------------+
+; From Node          ; pkt_ready~reg0 ;
+; To Node            ; pkt_ready      ;
+; Launch Clock       ; clk_pkt        ;
+; Latch Clock        ; clk_pkt        ;
+; Data Arrival Time  ; 5.199          ;
+; Data Required Time ; 6.380          ;
+; Slack              ; 1.181          ;
++--------------------+----------------+
+
++---------------------------------------------------------------------------------------+
+; Statistics                                                                            ;
++---------------------------+--------+-------+-------------+------------+-------+-------+
+; Property                  ; Value  ; Count ; Total Delay ; % of Total ; Min   ; Max   ;
++---------------------------+--------+-------+-------------+------------+-------+-------+
+; Setup Relationship        ; 8.000  ;       ;             ;            ;       ;       ;
+; Clock Skew                ; -3.802 ;       ;             ;            ;       ;       ;
+; Data Delay                ; 1.397  ;       ;             ;            ;       ;       ;
+; Number of Logic Levels    ;        ; 0     ;             ;            ;       ;       ;
+; Physical Delays           ;        ;       ;             ;            ;       ;       ;
+;  Arrival Path             ;        ;       ;             ;            ;       ;       ;
+;   Clock                   ;        ;       ;             ;            ;       ;       ;
+;    IC                     ;        ; 3     ; 2.557       ; 67         ; 0.000 ; 1.663 ;
+;    Cell                   ;        ; 3     ; 1.245       ; 33         ; 0.000 ; 0.735 ;
+;   Data                    ;        ;       ;             ;            ;       ;       ;
+;    IC                     ;        ; 1     ; 1.190       ; 85         ; 1.190 ; 1.190 ;
+;    Cell                   ;        ; 2     ; 0.000       ; 0          ; 0.000 ; 0.000 ;
+;    uTco                   ;        ; 1     ; 0.207       ; 15         ; 0.207 ; 0.207 ;
+;  Required Path            ;        ;       ;             ;            ;       ;       ;
+;   Clock                   ;        ;       ;             ;            ;       ;       ;
+;    Clock Network (Lumped) ;        ; 1     ; 0.000       ;            ; 0.000 ; 0.000 ;
++---------------------------+--------+-------+-------------+------------+-------+-------+
+Note: Negative delays are omitted from totals when calculating percentages
+
++--------------------------------------------------------------------------------------------+
+; Data Arrival Path                                                                          ;
++---------+---------+----+------+--------+-------------------+-------------------------------+
+; Total   ; Incr    ; RF ; Type ; Fanout ; Location          ; Element                       ;
++---------+---------+----+------+--------+-------------------+-------------------------------+
+; 0.000   ; 0.000   ;    ;      ;        ;                   ; launch edge time              ;
+; 3.802   ; 3.802   ;    ;      ;        ;                   ; clock path                    ;
+;   0.000 ;   0.000 ;    ;      ;        ;                   ; source latency                ;
+;   0.000 ;   0.000 ;    ;      ; 1      ; PIN_M9            ; clk_pkt                       ;
+;   0.000 ;   0.000 ; RR ; IC   ; 1      ; IOIBUF_X0_Y18_N22 ; clk_pkt~input|i               ;
+;   0.735 ;   0.735 ; RR ; CELL ; 1      ; IOIBUF_X0_Y18_N22 ; clk_pkt~input|o               ;
+;   1.629 ;   0.894 ; RR ; IC   ; 1      ; CLKCTRL_G4        ; clk_pkt~inputclkctrl|inclk[0] ;
+;   1.629 ;   0.000 ; RR ; CELL ; 61     ; CLKCTRL_G4        ; clk_pkt~inputclkctrl|outclk   ;
+;   3.292 ;   1.663 ; RR ; IC   ; 1      ; FF_X52_Y12_N25    ; pkt_ready~reg0|clk            ;
+;   3.802 ;   0.510 ; RR ; CELL ; 1      ; FF_X52_Y12_N25    ; pkt_ready~reg0                ;
+; 5.199   ; 1.397   ;    ;      ;        ;                   ; data path                     ;
+;   4.009 ;   0.207 ;    ; uTco ; 1      ; FF_X52_Y12_N25    ; pkt_ready~reg0                ;
+;   4.009 ;   0.000 ; FF ; CELL ; 1      ; FF_X52_Y12_N25    ; pkt_ready~reg0|q              ;
+;   5.199 ;   1.190 ; FF ; IC   ; 1      ; LCCOMB_X54_Y14_N0 ; pkt_ready|datad               ;
+;   5.199 ;   0.000 ; FF ; CELL ; 0      ; LCCOMB_X54_Y14_N0 ; pkt_ready                     ;
++---------+---------+----+------+--------+-------------------+-------------------------------+
+
++----------------------------------------------------------------------------------+
+; Data Required Path                                                               ;
++---------+---------+----+------+--------+-------------------+---------------------+
+; Total   ; Incr    ; RF ; Type ; Fanout ; Location          ; Element             ;
++---------+---------+----+------+--------+-------------------+---------------------+
+; 8.000   ; 8.000   ;    ;      ;        ;                   ; latch edge time     ;
+; 8.000   ; 0.000   ;    ;      ;        ;                   ; clock path          ;
+;   8.000 ;   0.000 ; R  ;      ;        ;                   ; clock network delay ;
+; 7.980   ; -0.020  ;    ;      ;        ;                   ; clock uncertainty   ;
+; 6.380   ; -1.600  ; F  ; oExt ; 0      ; LCCOMB_X54_Y14_N0 ; pkt_ready           ;
++---------+---------+----+------+--------+-------------------+---------------------+
+
+

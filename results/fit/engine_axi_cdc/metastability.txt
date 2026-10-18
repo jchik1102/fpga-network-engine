@@ -1,0 +1,414 @@
+----------------
+; MTBF Summary ;
+----------------
+Worst-Case MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+Typical MTBF of Design is 1e+09 years or 3.15e+16 seconds.
+
+Number of Synchronizer Chains Found: 10
+Shortest Synchronizer Chain: 2 Registers
+Fraction of Chains for which MTBFs Could Not be Calculated: 0.000
+Worst Case Available Settling Time: 11.721 ns
+
+Worst-Case MTBF values are calculated based on the worst-case silicon characteristics, with worst-case operating conditions.
+  - Under worst-case conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 1.8
+Typical MTBF values are calculated based on the nominal silicon characteristics, at nominal operating conditions.
+  - Under typical conditions, an increase of 100ps in available settling time will increase MTBF values by a factor of 3.7
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Synchronizer Summary                                                                                                                                  ;
++------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+; Source Node                        ; Synchronization Node                ; Worst-Case MTBF (Years) ; Typical MTBF (Years)   ; Included in Design MTBF ;
++------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+; stream_cdc_fifo:crossing|r_gray[1] ; stream_cdc_fifo:crossing|r_sync1[1] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|r_bin[4]  ; stream_cdc_fifo:crossing|r_sync1[4] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|r_gray[2] ; stream_cdc_fifo:crossing|r_sync1[2] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|r_gray[3] ; stream_cdc_fifo:crossing|r_sync1[3] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|r_gray[0] ; stream_cdc_fifo:crossing|r_sync1[0] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|w_gray[3] ; stream_cdc_fifo:crossing|w_sync1[3] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|w_gray[4] ; stream_cdc_fifo:crossing|w_sync1[4] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|w_gray[0] ; stream_cdc_fifo:crossing|w_sync1[0] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|w_gray[2] ; stream_cdc_fifo:crossing|w_sync1[2] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
+; stream_cdc_fifo:crossing|w_gray[1] ; stream_cdc_fifo:crossing|w_sync1[1] ; Greater than 1 Billion  ; Greater than 1 Billion ; Yes                     ;
++------------------------------------+-------------------------------------+-------------------------+------------------------+-------------------------+
+
+Synchronizer Chain #1: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|r_gray[1]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|r_sync1[1] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 11.721                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_gray[1]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_sync1[1]                                      ;                        ;              ;                  ; 6.849        ;
+;  stream_cdc_fifo:crossing|r_sync2[1]                                      ;                        ;              ;                  ; 4.872        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #2: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|r_bin[4]   ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|r_sync1[4] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 11.903                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_bin[4]                                        ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_sync1[4]                                      ;                        ;              ;                  ; 6.848        ;
+;  stream_cdc_fifo:crossing|r_sync2[4]                                      ;                        ;              ;                  ; 5.055        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #3: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|r_gray[2]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|r_sync1[2] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 11.953                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_gray[2]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_sync1[2]                                      ;                        ;              ;                  ; 7.175        ;
+;  stream_cdc_fifo:crossing|r_sync2[2]                                      ;                        ;              ;                  ; 4.778        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #4: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|r_gray[3]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|r_sync1[3] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 12.125                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_gray[3]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_sync1[3]                                      ;                        ;              ;                  ; 7.171        ;
+;  stream_cdc_fifo:crossing|r_sync2[3]                                      ;                        ;              ;                  ; 4.954        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #5: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|r_gray[0]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|r_sync1[0] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 12.222                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_gray[0]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|r_sync1[0]                                      ;                        ;              ;                  ; 7.171        ;
+;  stream_cdc_fifo:crossing|r_sync2[0]                                      ;                        ;              ;                  ; 5.051        ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #6: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|w_gray[3]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|w_sync1[3] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 35.428                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_gray[3]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_sync1[3]                                      ;                        ;              ;                  ; 19.169       ;
+;  stream_cdc_fifo:crossing|w_sync2[3]                                      ;                        ;              ;                  ; 16.259       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #7: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|w_gray[4]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|w_sync1[4] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 35.684                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_gray[4]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_sync1[4]                                      ;                        ;              ;                  ; 18.721       ;
+;  stream_cdc_fifo:crossing|w_sync2[4]                                      ;                        ;              ;                  ; 16.963       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #8: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|w_gray[0]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|w_sync1[0] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 35.853                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_gray[0]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_sync1[0]                                      ;                        ;              ;                  ; 18.993       ;
+;  stream_cdc_fifo:crossing|w_sync2[0]                                      ;                        ;              ;                  ; 16.860       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #9: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|w_gray[2]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|w_sync1[2] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 35.854                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_gray[2]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_sync1[2]                                      ;                        ;              ;                  ; 18.986       ;
+;  stream_cdc_fifo:crossing|w_sync2[2]                                      ;                        ;              ;                  ; 16.868       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+
+Synchronizer Chain #10: Worst-Case MTBF is Greater than 1 Billion Years
+===============================================================================
++---------------------------------------------------------------+
+; Chain Summary                                                 ;
++-------------------------+-------------------------------------+
+; Property                ; Value                               ;
++-------------------------+-------------------------------------+
+; Source Node             ; stream_cdc_fifo:crossing|w_gray[1]  ;
+; Synchronization Node    ; stream_cdc_fifo:crossing|w_sync1[1] ;
+; Worst-Case MTBF (years) ; Greater than 1 Billion              ;
+; Typical MTBF (years)    ; Greater than 1 Billion              ;
+; Included in Design MTBF ; Yes                                 ;
++-------------------------+-------------------------------------+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Statistics                                                                                                                                          ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Property                                                                  ; Value                  ; Clock Period ; Active Edge Rate ; Output Slack ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+; Method of Synchronizer Identification                                     ; User Specified         ;              ;                  ;              ;
+; Worst-Case MTBF (years)                                                   ; Greater than 1 Billion ;              ;                  ;              ;
+; Typical MTBF (years)                                                      ; Greater than 1 Billion ;              ;                  ;              ;
+; Number of Synchronization Registers in Chain                              ; 2                      ;              ;                  ;              ;
+; Available Settling Time (ns)                                              ; 36.033                 ;              ;                  ;              ;
+; Data Toggle Rate Used in MTBF Calculation (millions of transitions / sec) ; 15.62                  ;              ;                  ;              ;
+; Source Clock                                                              ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+;  clk_pkt                                                                  ;                        ; 8.000        ; 125.0 MHz        ;              ;
+; Synchronization Clock                                                     ;                        ;              ;                  ;              ;
+;  clk                                                                      ;                        ; 20.000       ; 50.0 MHz         ;              ;
+; Asynchronous Source                                                       ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_gray[1]                                       ;                        ;              ;                  ;              ;
+; Synchronization Registers                                                 ;                        ;              ;                  ;              ;
+;  stream_cdc_fifo:crossing|w_sync1[1]                                      ;                        ;              ;                  ; 19.018       ;
+;  stream_cdc_fifo:crossing|w_sync2[1]                                      ;                        ;              ;                  ; 17.015       ;
++---------------------------------------------------------------------------+------------------------+--------------+------------------+--------------+
+
+

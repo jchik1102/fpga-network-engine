@@ -1,0 +1,42 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 16 23:14:05 2026
+| Host         : Jonathan running 64-bit major release  (build 9200)
+| Command      : report_utilization -hierarchical -hierarchical_depth 4 -file C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc_vhdl/utilization_hierarchy.txt
+| Design       : engine_axi_cdc_fit
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Routed
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------+---------------------+------------+------------+---------+------+-------+--------+--------+------------+
+|        Instance        |        Module       | Total LUTs | Logic LUTs | LUTRAMs | SRLs |  FFs  | RAMB36 | RAMB18 | DSP Blocks |
++------------------------+---------------------+------------+------------+---------+------+-------+--------+--------+------------+
+| engine_axi_cdc_fit     |               (top) |      13905 |      13879 |      26 |    0 | 15114 |      8 |      4 |          3 |
+|   (engine_axi_cdc_fit) |               (top) |          0 |          0 |       0 |    0 |    40 |      0 |      0 |          0 |
+|   engine               |      engine_axi_fit |      13861 |      13861 |       0 |    0 | 15036 |      8 |      4 |          3 |
+|     (engine)           |      engine_axi_fit |          0 |          0 |       0 |    0 |   485 |      0 |      0 |          0 |
+|     core               |          engine_axi |      13861 |      13861 |       0 |    0 | 14551 |      8 |      4 |          3 |
+|       core             |         engine_core |      13025 |      13025 |       0 |    0 | 12384 |      8 |      4 |          3 |
+|         (core)         |         engine_core |          1 |          1 |       0 |    0 |    64 |      0 |      0 |          0 |
+|         arbiter        | dma_command_arbiter |         52 |         52 |       0 |    0 |    10 |      0 |      0 |          0 |
+|         capture        |         capture_dma |       3130 |       3130 |       0 |    0 |  2386 |      0 |      0 |          0 |
+|         control        |      engine_control |       5499 |       5499 |       0 |    0 |  4150 |      0 |      0 |          0 |
+|         ingress        |     capture_ingress |        967 |        967 |       0 |    0 |  2082 |      8 |      0 |          0 |
+|         replay         |          replay_dma |       2761 |       2761 |       0 |    0 |  3083 |      0 |      0 |          3 |
+|         staging        |      replay_staging |        627 |        627 |       0 |    0 |   609 |      0 |      4 |          0 |
+|       master           |    axi_burst_master |        836 |        836 |       0 |    0 |  2167 |      0 |      0 |          0 |
++------------------------+---------------------+------------+------------+---------+------+-------+--------+--------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

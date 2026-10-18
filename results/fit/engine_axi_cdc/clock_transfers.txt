@@ -1,0 +1,24 @@
++---------------------------------------------------------------------+
+; Setup Transfers                                                     ;
++------------+----------+------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+------------+----------+----------+----------+
+; clk        ; clk      ; 870629389  ; 0        ; 0        ; 0        ;
+; clk_pkt    ; clk      ; false path ; 0        ; 0        ; 0        ;
+; clk        ; clk_pkt  ; false path ; 0        ; 0        ; 0        ;
+; clk_pkt    ; clk_pkt  ; 352        ; 0        ; 0        ; 0        ;
++------------+----------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
++---------------------------------------------------------------------+
+; Hold Transfers                                                      ;
++------------+----------+------------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths   ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+------------+----------+----------+----------+
+; clk        ; clk      ; 870629389  ; 0        ; 0        ; 0        ;
+; clk_pkt    ; clk      ; false path ; 0        ; 0        ; 0        ;
+; clk        ; clk_pkt  ; false path ; 0        ; 0        ; 0        ;
+; clk_pkt    ; clk_pkt  ; 352        ; 0        ; 0        ; 0        ;
++------------+----------+------------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+

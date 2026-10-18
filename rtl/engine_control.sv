@@ -22,7 +22,7 @@ module engine_control(
  logic [3:0] sticky_fault;logic [2:0] sticky_ring;logic [31:0] sticky_sequence;
  logic [63:0] snapshot_tick,snapshot_drop[0:5];
  logic [31:0] read_value,old_value,candidate,byte_mask,delta,used;
- logic read_valid,write_ok,config_locked,execute_write,full_strobe;
+ logic read_valid,write_ok,config_locked,execute_write,full_strobe,fault_clear;
  integer write_ring,write_rule,write_queue;
  typedef enum logic [5:0] {INVALID,COMMAND,IRQ_MASK,IRQ_ACK,FAULT_CLEAR,SNAPSHOT,MODE,DEFAULTS,
  START_LO,START_HI,ORIGIN_LO,ORIGIN_HI,INTERVAL_LO,INTERVAL_HI,SEED,THRESHOLD_LO,THRESHOLD_HI,
@@ -142,6 +142,9 @@ module engine_control(
    for(integer b=0;b<4;b++) byte_mask[b*8+:8]={8{write_strobe[b]}};
    candidate=(old_value&~byte_mask)|(write_data&byte_mask);
    full_strobe=write_strobe==4'hf;delta=0;used=0;
+   // an accepted FAULT_CLEAR, the same as write_ok for that kind; computed on
+   // its own so the sticky fault registers do not wait for the ring checks
+   fault_clear=execute_write && d_kind==FAULT_CLEAR && full_strobe && write_data==1 && !config_locked;
    write_ok=d_kind!=INVALID;
    if(write_strobe!=0) begin
      if(d_kind>=MODE && config_locked && d_kind!=SQ_DOORBELL && d_kind!=CQ_ACK) write_ok=0;
@@ -203,6 +206,7 @@ module engine_control(
      for(integer r=0;r<8;r++) claim_eligible[r]<=sq_producer[r]!=sq_consumer[r] && (cq_producer[r]-cq_consumer[r]+reserved[r])<32'd64;
      if(execute_write) begin
        aw_held<=0;w_held<=0;decoded<=0;s_bvalid<=1;s_bresp<=write_ok?0:2;
+       if(fault_clear) begin sticky_fault<=0;sticky_ring<=0;sticky_sequence<=0;end
        if(write_ok && write_strobe!=0) case(d_kind)
          COMMAND:case(write_data)
            1:running<=1;
@@ -212,7 +216,6 @@ module engine_control(
          endcase
          IRQ_MASK:irq_mask<=d_candidate[8:0];
          IRQ_ACK:begin events<=events&~write_data[7:0];notification_rearm<=1;end
-         FAULT_CLEAR:begin sticky_fault<=0;sticky_ring<=0;sticky_sequence<=0;end
          SNAPSHOT:begin snapshot_tick<=tick;for(integer d=0;d<6;d++) snapshot_drop[d]<=drop_count[d];end
          MODE:fixed_mode<=d_candidate[0];
          DEFAULTS:begin default_queue<=d_candidate[1:0];drop_on_full<=d_candidate[2];end
@@ -239,7 +242,7 @@ module engine_control(
        if(commit[r] && reserved[r] && !fault[r]) begin reserved[r]<=0;cq_producer[r]<=cq_producer[r]+1'b1;events[r]<=1;end
        if(fault[r]) begin halted[r]<=1;reserved[r]<=0;end
      end
-     for(integer r=7;r>=0;r--) if(fault[r] && (sticky_fault==0 || (execute_write && write_ok && write_strobe!=0 && d_kind==FAULT_CLEAR))) begin
+     for(integer r=7;r>=0;r--) if(fault[r] && (sticky_fault==0 || fault_clear)) begin
        sticky_fault<=fault_code[r];sticky_ring<=r[2:0];sticky_sequence<=sq_consumer[r]-1'b1;
      end
    end

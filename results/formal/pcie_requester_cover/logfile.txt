@@ -1,61 +1,61 @@
-SBY  2:44:31 [pcie_requester_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_prove'.
-SBY  2:44:31 [pcie_requester_cover] Removing directory '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover'.
-SBY  2:44:31 [pcie_requester_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/pcie_requester.sv' to '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover/src/pcie_requester.sv'.
-SBY  2:44:31 [pcie_requester_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover/src/pcie_requester_formal.sv'.
-SBY  2:44:31 [pcie_requester_cover] engine_0: smtbmc yices
-SBY  2:44:31 [pcie_requester_cover] base: starting process "cd pcie_requester_cover/src; yosys -ql ../model/design.log ../model/design.ys"
-SBY  2:44:32 [pcie_requester_cover] base: finished (returncode=0)
-SBY  2:44:32 [pcie_requester_cover] prep: starting process "cd pcie_requester_cover/model; yosys -ql design_prep.log design_prep.ys"
-SBY  2:44:32 [pcie_requester_cover] prep: finished (returncode=0)
-SBY  2:44:32 [pcie_requester_cover] smt2: starting process "cd pcie_requester_cover/model; yosys -ql design_smt2.log design_smt2.ys"
-SBY  2:44:32 [pcie_requester_cover] smt2: finished (returncode=0)
-SBY  2:44:32 [pcie_requester_cover] engine_0: starting process "cd pcie_requester_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 40  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Solver: yices
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
-SBY  2:44:32 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at pcie_requester_formal: cp_quarantine
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
-SBY  2:44:33 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Reached cover statement in step 7 at pcie_requester_formal: cp_completion_accepted
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace1.vcd
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace1_tb.v
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace1.smtc
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace1.yw
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 7..
-SBY  2:44:34 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 8..
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Reached cover statement in step 8 at pcie_requester_formal: cp_two_tags_open
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace2.vcd
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace2_tb.v
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace2.smtc
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace2.yw
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Checking cover reachability in step 8..
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Checking cover reachability in step 9..
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Reached cover statement in step 9 at pcie_requester_formal: cp_reuse_after_completion
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to VCD file: engine_0/trace3.vcd
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to Verilog testbench: engine_0/trace3_tb.v
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to constraints file: engine_0/trace3.smtc
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Writing trace to Yosys witness file: engine_0/trace3.yw
-SBY  2:44:35 [pcie_requester_cover] engine_0: ##   0:00:02  Status: passed
-SBY  2:44:35 [pcie_requester_cover] engine_0: finished (returncode=0)
-SBY  2:44:35 [pcie_requester_cover] engine_0: Status returned by engine: pass
-SBY  2:44:35 [pcie_requester_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:04 (4)
-SBY  2:44:35 [pcie_requester_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:05 (5)
-SBY  2:44:35 [pcie_requester_cover] summary: engine_0 (smtbmc yices) returned pass
-SBY  2:44:35 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace0.vcd
-SBY  2:44:35 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_quarantine at pcie_requester_formal.sv:128.5-128.45 step 6
-SBY  2:44:35 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace1.vcd
-SBY  2:44:35 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_completion_accepted at pcie_requester_formal.sv:127.5-127.52 step 7
-SBY  2:44:35 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace2.vcd
-SBY  2:44:35 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_two_tags_open at pcie_requester_formal.sv:126.5-126.50 step 8
-SBY  2:44:35 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace3.vcd
-SBY  2:44:35 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_reuse_after_completion at pcie_requester_formal.sv:129.5-129.81 step 9
-SBY  2:44:35 [pcie_requester_cover] DONE (PASS, rc=0)
+SBY 20:05:03 [pcie_requester_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_prove'.
+SBY 20:05:04 [pcie_requester_cover] Removing directory '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover'.
+SBY 20:05:04 [pcie_requester_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/pcie_requester.sv' to '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover/src/pcie_requester.sv'.
+SBY 20:05:04 [pcie_requester_cover] Copy '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/pcie_requester_cover/src/pcie_requester_formal.sv'.
+SBY 20:05:04 [pcie_requester_cover] engine_0: smtbmc yices
+SBY 20:05:04 [pcie_requester_cover] base: starting process "cd pcie_requester_cover/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 20:05:05 [pcie_requester_cover] base: finished (returncode=0)
+SBY 20:05:05 [pcie_requester_cover] prep: starting process "cd pcie_requester_cover/model; yosys -ql design_prep.log design_prep.ys"
+SBY 20:05:05 [pcie_requester_cover] prep: finished (returncode=0)
+SBY 20:05:05 [pcie_requester_cover] smt2: starting process "cd pcie_requester_cover/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY 20:05:05 [pcie_requester_cover] smt2: finished (returncode=0)
+SBY 20:05:05 [pcie_requester_cover] engine_0: starting process "cd pcie_requester_cover; yosys-smtbmc -s yices --presat --unroll -c --noprogress -t 40  --append 0 --dump-vcd engine_0/trace%.vcd --dump-yw engine_0/trace%.yw --dump-vlogtb engine_0/trace%_tb.v --dump-smtc engine_0/trace%.smtc model/design_smt2.smt2"
+SBY 20:05:05 [pcie_requester_cover] engine_0: ##   0:00:00  Solver: yices
+SBY 20:05:05 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 0..
+SBY 20:05:05 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 1..
+SBY 20:05:05 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 2..
+SBY 20:05:05 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 3..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 4..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 5..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Reached cover statement in step 6 at pcie_requester_formal: cp_quarantine
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace0.vcd
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to Verilog testbench: engine_0/trace0_tb.v
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to constraints file: engine_0/trace0.smtc
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to Yosys witness file: engine_0/trace0.yw
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 6..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Checking cover reachability in step 7..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Reached cover statement in step 7 at pcie_requester_formal: cp_completion_accepted
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:00  Writing trace to VCD file: engine_0/trace1.vcd
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace1_tb.v
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace1.smtc
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace1.yw
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 7..
+SBY 20:05:06 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Reached cover statement in step 8 at pcie_requester_formal: cp_two_tags_open
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace2.vcd
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace2_tb.v
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace2.smtc
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace2.yw
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 8..
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Checking cover reachability in step 9..
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Reached cover statement in step 9 at pcie_requester_formal: cp_reuse_after_completion
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to VCD file: engine_0/trace3.vcd
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Verilog testbench: engine_0/trace3_tb.v
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to constraints file: engine_0/trace3.smtc
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Writing trace to Yosys witness file: engine_0/trace3.yw
+SBY 20:05:07 [pcie_requester_cover] engine_0: ##   0:00:01  Status: passed
+SBY 20:05:07 [pcie_requester_cover] engine_0: finished (returncode=0)
+SBY 20:05:07 [pcie_requester_cover] engine_0: Status returned by engine: pass
+SBY 20:05:07 [pcie_requester_cover] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 20:05:07 [pcie_requester_cover] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:03 (3)
+SBY 20:05:07 [pcie_requester_cover] summary: engine_0 (smtbmc yices) returned pass
+SBY 20:05:07 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace0.vcd
+SBY 20:05:07 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_quarantine at pcie_requester_formal.sv:128.5-128.45 step 6
+SBY 20:05:07 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace1.vcd
+SBY 20:05:07 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_completion_accepted at pcie_requester_formal.sv:127.5-127.52 step 7
+SBY 20:05:07 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace2.vcd
+SBY 20:05:07 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_two_tags_open at pcie_requester_formal.sv:126.5-126.50 step 8
+SBY 20:05:07 [pcie_requester_cover] summary: cover trace: pcie_requester_cover/engine_0/trace3.vcd
+SBY 20:05:07 [pcie_requester_cover] summary:   reached cover statement pcie_requester_formal.cp_reuse_after_completion at pcie_requester_formal.sv:129.5-129.81 step 9
+SBY 20:05:07 [pcie_requester_cover] DONE (PASS, rc=0)

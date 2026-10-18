@@ -1,0 +1,191 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
+| Date         : Fri Oct 16 23:00:43 2026
+| Host         : Jonathan running 64-bit major release  (build 9200)
+| Command      : report_bus_skew -file C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc/bus_skew.txt
+| Design       : engine_axi_cdc_fit
+| Device       : 7a100t-csg324
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Bus Skew Report
+
+Table of Contents
+-----------------
+1. Bus Skew Report Summary
+2. Bus Skew Report Per Constraint
+
+1. Bus Skew Report Summary
+--------------------------
+
+Id  Position  From                            To                              Corner  Requirement(ns)  Actual(ns)  Slack(ns)
+--  --------  ------------------------------  ------------------------------  ------  ---------------  ----------  ---------
+1   5         [get_cells crossing/w_gray_reg*]
+                                              [get_cells crossing/w_sync1_reg*]
+                                                                              Slow              8.000       0.709      7.291
+2   6         [get_cells crossing/r_gray_reg*]
+                                              [get_cells crossing/r_sync1_reg*]
+                                                                              Slow              8.000       0.987      7.013
+
+
+2. Bus Skew Report Per Constraint
+---------------------------------
+
+Id: 1
+set_bus_skew -from [get_cells crossing/w_gray_reg*] -to [get_cells crossing/w_sync1_reg*] 8.000
+Requirement: 8.000ns
+Endpoints: 5
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+clk_pkt               clk                   crossing/w_sync1_reg[4]/D       crossing/w_sync1_reg[2]/D       Slow         0.709      7.291
+
+
+Slack (MET) :             7.291ns  (requirement - actual skew)
+  Endpoint Source:        crossing/w_gray_reg[4]/C
+                            (rising edge-triggered cell FDRE clocked by clk_pkt)
+  Endpoint Destination:   crossing/w_sync1_reg[4]/D
+                            (rising edge-triggered cell FDRE clocked by clk)
+  Reference Source:       crossing/w_gray_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk_pkt)
+  Reference Destination:  crossing/w_sync1_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk)
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            8.000ns
+  Endpoint Relative Delay:    1.224ns
+  Reference Relative Delay:   0.516ns
+  Relative CRPR:              0.000ns
+  Actual Bus Skew:            0.709ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pkt rise edge)    0.000     0.000 r  
+                                                      0.000     0.000 r  clk_pkt (IN)
+                         net (fo=108, unset)          0.973     0.973    crossing/clk_pkt
+    SLICE_X49Y58         FDRE                                         r  crossing/w_gray_reg[4]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y58         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  crossing/w_gray_reg[4]/Q
+                         net (fo=5, routed)           0.520     1.912    crossing/w_gray[4]
+    SLICE_X47Y58         FDRE                                         r  crossing/w_sync1_reg[4]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=15081, unset)        0.924     0.924    crossing/clk
+    SLICE_X47Y58         FDRE                                         r  crossing/w_sync1_reg[4]/C
+                         clock pessimism              0.000     0.924    
+    SLICE_X47Y58         FDRE (Setup_fdre_C_D)       -0.236     0.688    crossing/w_sync1_reg[4]
+  -------------------------------------------------------------------
+                         data arrival                           1.912    
+                         clock arrival                          0.688    
+  -------------------------------------------------------------------
+                         relative delay                         1.224    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_pkt rise edge)    0.000     0.000 r  
+                                                      0.000     0.000 r  clk_pkt (IN)
+                         net (fo=108, unset)          0.924     0.924    crossing/clk_pkt
+    SLICE_X49Y56         FDRE                                         r  crossing/w_gray_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y56         FDRE (Prop_fdre_C_Q)         0.337     1.261 r  crossing/w_gray_reg[2]/Q
+                         net (fo=2, routed)           0.257     1.519    crossing/w_gray[2]
+    SLICE_X47Y56         FDRE                                         r  crossing/w_sync1_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=15081, unset)        0.973     0.973    crossing/clk
+    SLICE_X47Y56         FDRE                                         r  crossing/w_sync1_reg[2]/C
+                         clock pessimism              0.000     0.973    
+    SLICE_X47Y56         FDRE (Hold_fdre_C_D)         0.030     1.003    crossing/w_sync1_reg[2]
+  -------------------------------------------------------------------
+                         data arrival                           1.519    
+                         clock arrival                          1.003    
+  -------------------------------------------------------------------
+                         relative delay                         0.516    
+
+
+
+Id: 2
+set_bus_skew -from [get_cells crossing/r_gray_reg*] -to [get_cells crossing/r_sync1_reg*] 8.000
+Requirement: 8.000ns
+Endpoints: 5
+
+From Clock            To Clock              Endpoint Pin                    Reference Pin                   Corner  Actual(ns)  Slack(ns)
+--------------------  --------------------  ------------------------------  ------------------------------  ------  ----------  ---------
+clk                   clk_pkt               crossing/r_sync1_reg[2]/D       crossing/r_sync1_reg[0]/D       Slow         0.987      7.013
+
+
+Slack (MET) :             7.013ns  (requirement - actual skew)
+  Endpoint Source:        crossing/r_gray_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk)
+  Endpoint Destination:   crossing/r_sync1_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_pkt)
+  Reference Source:       crossing/r_gray_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk)
+  Reference Destination:  crossing/r_sync1_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_pkt)
+  Path Type:              Bus Skew (Max at Slow Process Corner)
+  Requirement:            8.000ns
+  Endpoint Relative Delay:    1.393ns
+  Reference Relative Delay:   0.406ns
+  Relative CRPR:              0.000ns
+  Actual Bus Skew:            0.987ns  (Endpoint Relative Delay - Reference Relative Delay - Relative CRPR)
+
+Endpoint path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=15081, unset)        0.973     0.973    crossing/clk
+    SLICE_X48Y57         FDRE                                         r  crossing/r_gray_reg[2]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y57         FDRE (Prop_fdre_C_Q)         0.419     1.392 r  crossing/r_gray_reg[2]/Q
+                         net (fo=2, routed)           0.660     2.052    crossing/r_gray[2]
+    SLICE_X47Y57         FDRE                                         r  crossing/r_sync1_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pkt rise edge)    0.000     0.000 r  
+                                                      0.000     0.000 r  clk_pkt (IN)
+                         net (fo=108, unset)          0.924     0.924    crossing/clk_pkt
+    SLICE_X47Y57         FDRE                                         r  crossing/r_sync1_reg[2]/C
+                         clock pessimism              0.000     0.924    
+    SLICE_X47Y57         FDRE (Setup_fdre_C_D)       -0.265     0.659    crossing/r_sync1_reg[2]
+  -------------------------------------------------------------------
+                         data arrival                           2.052    
+                         clock arrival                          0.659    
+  -------------------------------------------------------------------
+                         relative delay                         1.393    
+
+Reference path:
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+                                                      0.000     0.000 r  clk (IN)
+                         net (fo=15081, unset)        0.924     0.924    crossing/clk
+    SLICE_X48Y57         FDRE                                         r  crossing/r_gray_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X48Y57         FDRE (Prop_fdre_C_Q)         0.367     1.291 r  crossing/r_gray_reg[0]/Q
+                         net (fo=2, routed)           0.257     1.548    crossing/r_gray[0]
+    SLICE_X47Y57         FDRE                                         r  crossing/r_sync1_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_pkt rise edge)    0.000     0.000 r  
+                                                      0.000     0.000 r  clk_pkt (IN)
+                         net (fo=108, unset)          0.973     0.973    crossing/clk_pkt
+    SLICE_X47Y57         FDRE                                         r  crossing/r_sync1_reg[0]/C
+                         clock pessimism              0.000     0.973    
+    SLICE_X47Y57         FDRE (Hold_fdre_C_D)         0.169     1.142    crossing/r_sync1_reg[0]
+  -------------------------------------------------------------------
+                         data arrival                           1.548    
+                         clock arrival                          1.142    
+  -------------------------------------------------------------------
+                         relative delay                         0.406    
+
+
+

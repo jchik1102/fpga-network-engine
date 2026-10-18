@@ -1,0 +1,18 @@
+Fitter Status : Successful - Fri Oct 16 01:37:00 2026
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : engine_axi_cdc_fit
+Top-level Entity Name : engine_axi_cdc_fit
+Family : MAX 10
+Device : 10M50DAF484C7G
+Timing Models : Final
+Total logic elements : 28,555 / 49,760 ( 57 % )
+    Total combinational functions : 24,385 / 49,760 ( 49 % )
+    Dedicated logic registers : 15,077 / 49,760 ( 30 % )
+Total registers : 15077
+Total pins : 2 / 360 ( < 1 % )
+Total virtual pins : 535
+Total memory bits : 328,272 / 1,677,312 ( 20 % )
+Embedded Multiplier 9-bit elements : 10 / 288 ( 3 % )
+Total PLLs : 0 / 4 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 2 ( 0 % )

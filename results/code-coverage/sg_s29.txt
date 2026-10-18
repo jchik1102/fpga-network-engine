@@ -1,0 +1,13 @@
+XSim code coverage (sg_s29): statement, branch and condition, merged over every run
+design under test: instances under sg_tb.validator, sg_tb.transfer, sg_tb.master; testbench modules excluded
+
+module                                       inst          statements            branches          conditions
+axi_burst_master                                1     86/86    100.00%     23/26     88.46%     17/22     77.27%
+descriptor_validator                            1     24/24    100.00%     15/16     93.75%     34/38     89.47%
+sg_transfer                                     1    105/109    96.33%     32/39     82.05%     36/50     72.00%
+TOTAL                                                215/219    98.17%     70/81     86.42%     87/110    79.09%
+
+Lines with a statement that never executed:
+sg_transfer (rtl/sg_transfer.sv): 91, 97
+
+CODE_COVERAGE sg_s29 statements=215/219 (98.17%) branches=70/81 (86.42%) conditions=87/110 (79.09%)

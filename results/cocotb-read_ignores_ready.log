@@ -1,0 +1,62 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+________________________________ test_cdc_fifo _________________________________
+
+    def test_cdc_fifo():
+        source = ROOT / "rtl/stream_cdc_fifo.sv"
+        build = HERE / "sim_build" / ("stream_cdc_fifo" if SIM == "icarus" else f"{SIM}_stream_cdc_fifo")
+        mutant = os.environ.get("CDC_MUTANT")
+        if mutant:
+            old, new = MUTANTS[mutant]
+            text = source.read_text()
+            assert text.count(old) == 1, f"mutant {mutant} does not apply"
+            build.mkdir(parents=True, exist_ok=True)
+            source = build / "stream_cdc_fifo_mutant.sv"
+            source.write_text(text.replace(old, new))
+        runner = get_runner(SIM)
+        runner.build(sources=[source], hdl_toplevel="stream_cdc_fifo", build_dir=build,
+                     build_args=["-g2012"] if SIM == "icarus" else ["-timescale", "1ns/1ps"], timescale=("1ns", "1ps"), always=True)
+        # Questa finds the compiled library in its working directory, so it runs in the build directory.
+>       runner.test(hdl_toplevel="stream_cdc_fifo", test_module="cdc_fifo_tests", test_dir=HERE if SIM == "icarus" else build,
+                    build_dir=build)
+E       SystemExit: 1
+
+tb/cocotb/test_cocotb.py:47: SystemExit
+----------------------------- Captured stdout call -----------------------------
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:242  in gpi_load_users                  Loaded entry library: '/usr/lib/x86_64-linux-gnu/libpython3.12.so.1.0'
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/simulator.cpython-312-x86_64-linux-gnu.so'
+     -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at .venv/bin/python
+     -.--ns ERROR    pygpi                              ..ib/pygpi/embed.cpp:168  in initialize                      Unexpected sys.executable value (expected '.venv/bin/python', got '/home/jonat/oss-cad-suite/bin/tabbypy3')
+     -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792274708
+     0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
+     0.00ns INFO     cocotb.initialize                  Running on Icarus Verilog version 14.0 (devel)
+     0.00ns INFO     cocotb.regression                  Running tests
+     0.00ns INFO     cocotb.regression                  running cdc_fifo_tests.similar_rates (1/3)
+                                                            10 ns write clock, 13 ns read clock, bursty on both sides.
+20000000.00ns WARNING  cocotb.regression                  cdc_fifo_tests.similar_rates failed
+                                                        cocotb.triggers.SimTimeoutError
+20000000.00ns INFO     cocotb.regression                  running cdc_fifo_tests.slow_reader (2/3)
+                                                            7 ns write, 31 ns read: the FIFO fills and the writer is held off.
+40000000.00ns WARNING  cocotb.regression                  cdc_fifo_tests.slow_reader failed
+                                                        cocotb.triggers.SimTimeoutError
+40000000.00ns INFO     cocotb.regression                  running cdc_fifo_tests.fast_reader (3/3)
+                                                            29 ns write, 6 ns read: the FIFO runs empty between words.
+60000000.00ns WARNING  cocotb.regression                  cdc_fifo_tests.fast_reader failed
+                                                        cocotb.triggers.SimTimeoutError
+60000000.00ns INFO     cocotb.regression                  **************************************************************************************
+                                                        ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
+                                                        **************************************************************************************
+                                                        ** cdc_fifo_tests.similar_rates   FAIL    20000000.00          63.71     313931.41  **
+                                                        ** cdc_fifo_tests.slow_reader     FAIL    20000000.00          50.07     399470.54  **
+                                                        ** cdc_fifo_tests.fast_reader     FAIL    20000000.00          96.51     207225.67  **
+                                                        **************************************************************************************
+                                                        ** TESTS=3 PASS=0 FAIL=3 SKIP=0           60000000.00         210.29     285321.52  **
+                                                        **************************************************************************************
+------------------------------ Captured log call -------------------------------
+INFO     Icarus:runner.py:734 Running command iverilog -o /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/sim.vvp -s stream_cdc_fifo -g2012 -g2012 -f /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/cmds.f /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/stream_cdc_fifo_mutant.sv in directory /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo
+INFO     Icarus:runner.py:734 Running command vvp -m /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/libs/libcocotbvpi_icarus.so /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/sim.vvp -none in directory /mnt/c/projects/fpga-network-engine/tb/cocotb
+ERROR    Icarus:runner.py:674 ERROR: Failed 3 of 3 tests.
+=========================== short test summary info ============================
+FAILED tb/cocotb/test_cocotb.py::test_cdc_fifo - SystemExit: 1
+1 failed in 213.53s (0:03:33)

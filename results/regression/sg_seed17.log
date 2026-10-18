@@ -11,7 +11,7 @@ INFO: [VRFC 10-311] analyzing module sg_tb
 Vivado Simulator v2025.2
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
-Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe sg_tb -L uvm -s sg_tb -timescale 1ns/1ps -debug typical -mt off 
+Running: C:/AMDDesignTools/2025.2/Vivado/bin/unwrapped/win64.o/xelab.exe sg_tb -L uvm -s sg_tb -timescale 1ns/1ps -debug typical -mt off -cc_type sbc -cov_db_dir . -cov_db_name code 
 Turned off multi-threading.
 Starting static elaboration
 Pass Through NonSizing Optimizer
@@ -35,7 +35,7 @@ Built simulation snapshot sg_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Thu Oct 15 00:59:11 2026
+  **** Start of session at: Sat Oct 17 14:14:46 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -85,5 +85,31 @@ UVM_FATAL :    0
 WARNING: The Functional Coverage Database has not been updated during simulation. Please recheck testbench to confirm that covergroups are being instantiated correctly and rerun simulation.
 $finish called at time : 430560 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
 exit
-INFO: [Common 17-206] Exiting xsim at Thu Oct 15 00:59:13 2026...
+INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:14:49 2026...
 PASS: XSim log checked
+
+ Options Set are : 
+
+   Command Line               : xcrg -cov_db_dir . -cov_db_name code -report_format html -report_dir code-coverage17
+   Report Format              : html
+   Log File                   : xcrg.log
+   Code Coverage Dir[s]       : .
+   Code Coverage DB[s]        : code
+
+
+********************************************************
+                  Code Coverage Report 
+********************************************************
+
+ Restoring Code Coverage DB[s] from : 
+  1	./xsim.codeCov/code/xsim.CCInfo
+
+ Created Coverage Report Directory     : code-coverage17/codeCoverageReport
+
+ Code Coverage HTML Report directory              : code-coverage17/codeCoverageReport
+
+ Line Coverage Score 92.3077
+ Branch Coverage Score 67.2316
+ Condition Coverage Score 70.8738
+
+CODE_COVERAGE sg_s17 statements=215/219 (98.17%) branches=70/81 (86.42%) conditions=87/110 (79.09%)

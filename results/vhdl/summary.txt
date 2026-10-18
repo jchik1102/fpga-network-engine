@@ -1,0 +1,11 @@
+VHDL_COCOTB_PASS TESTS=3 PASS=3 FAIL=0
+VHDL_COCOTB_MUTATION_DETECTED full_misses_lap FAIL=2
+VHDL_COCOTB_MUTATION_DETECTED write_ignores_full FAIL=2
+VHDL_COCOTB_MUTATION_DETECTED read_ignores_ready FAIL=3
+VHDL_COCOTB_MUTATION_DETECTED empty_misses_data FAIL=2
+VHDL_EQUIV_PASS 31 partitions proved
+VHDL_EQUIV_MUTATION_DETECTED full_misses_lap unproven: stream_cdc_fifo.s_ready stream_cdc_fifo.mem.9 stream_cdc_fifo.mem.8 stream_cdc_fifo.mem.7 stream_cdc_fifo.mem.6 stream_cdc_fifo.mem.5 stream_cdc_fifo.mem.4 stream_cdc_fifo.mem.3 stream_cdc_fifo.mem.2 stream_cdc_fifo.mem.1 stream_cdc_fifo.mem.15 stream_cdc_fifo.mem.14 stream_cdc_fifo.mem.13 stream_cdc_fifo.mem.12 stream_cdc_fifo.mem.11 stream_cdc_fifo.mem.10 stream_cdc_fifo.mem.0 stream_cdc_fifo.full 
+VHDL_EQUIV_MUTATION_DETECTED write_ignores_full unproven: stream_cdc_fifo.s_ready stream_cdc_fifo.mem.9 stream_cdc_fifo.mem.8 stream_cdc_fifo.mem.7 stream_cdc_fifo.mem.6 stream_cdc_fifo.mem.5 stream_cdc_fifo.mem.4 stream_cdc_fifo.mem.3 stream_cdc_fifo.mem.2 stream_cdc_fifo.mem.1 stream_cdc_fifo.mem.15 stream_cdc_fifo.mem.14 stream_cdc_fifo.mem.13 stream_cdc_fifo.mem.12 stream_cdc_fifo.mem.11 stream_cdc_fifo.mem.10 stream_cdc_fifo.mem.0 
+VHDL_EQUIV_MUTATION_DETECTED read_ignores_ready unproven: stream_cdc_fifo.r_gray stream_cdc_fifo.r_bin 
+VHDL_EQUIV_MUTATION_DETECTED empty_misses_data unproven: stream_cdc_fifo.m_valid stream_cdc_fifo.empty 
+VHDL_ALL_PASS

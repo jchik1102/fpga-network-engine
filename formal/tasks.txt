@@ -3,3 +3,5 @@ engine_control.sby prove
 engine_control.sby cover
 pcie_requester.sby prove
 pcie_requester.sby cover
+stream_cdc_fifo.sby prove
+stream_cdc_fifo.sby cover

@@ -14,3 +14,8 @@ xsim.dir/
 
 # SymbiYosys work directories (logs are copied to results/formal/)
 formal/*/
+
+# cocotb build output
+tb/cocotb/sim_build/
+tb/cocotb/*.result.xml
+tb/cocotb_vhdl/sim_build/

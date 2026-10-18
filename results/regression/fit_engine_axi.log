@@ -1,4 +1,4 @@
-[31;1mTBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize[0m
+TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
 Info: *******************************************************************
 Info: Running Quartus Prime Shell
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
@@ -16,16 +16,16 @@ Info: Running Quartus Prime Shell
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Thu Oct 15 01:37:44 2026
+    Info: Processing started: Sat Oct 17 14:51:16 2026
 Info: Command: quartus_sh -t C:\projects\fpga-network-engine/constraints/engine.tcl engine_axi_fit C:/projects/fpga-network-engine/rtl/packet_classifier.sv C:/projects/fpga-network-engine/rtl/capture_ingress.sv C:/projects/fpga-network-engine/rtl/descriptor_validator.sv C:/projects/fpga-network-engine/rtl/sg_transfer.sv C:/projects/fpga-network-engine/rtl/engine_control.sv C:/projects/fpga-network-engine/rtl/replay_policy.sv C:/projects/fpga-network-engine/rtl/replay_staging.sv C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv C:/projects/fpga-network-engine/rtl/capture_dma.sv C:/projects/fpga-network-engine/rtl/replay_dma.sv C:/projects/fpga-network-engine/rtl/engine_core.sv C:/projects/fpga-network-engine/rtl/axi_burst_master.sv C:/projects/fpga-network-engine/constraints/engine_fit.sv
 Info: Quartus(args): engine_axi_fit C:/projects/fpga-network-engine/rtl/packet_classifier.sv C:/projects/fpga-network-engine/rtl/capture_ingress.sv C:/projects/fpga-network-engine/rtl/descriptor_validator.sv C:/projects/fpga-network-engine/rtl/sg_transfer.sv C:/projects/fpga-network-engine/rtl/engine_control.sv C:/projects/fpga-network-engine/rtl/replay_policy.sv C:/projects/fpga-network-engine/rtl/replay_staging.sv C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv C:/projects/fpga-network-engine/rtl/capture_dma.sv C:/projects/fpga-network-engine/rtl/replay_dma.sv C:/projects/fpga-network-engine/rtl/engine_core.sv C:/projects/fpga-network-engine/rtl/axi_burst_master.sv C:/projects/fpga-network-engine/constraints/engine_fit.sv
 Info (23030): Evaluation of Tcl script C:\projects\fpga-network-engine/constraints/engine.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4719 megabytes
-    Info: Processing ended: Thu Oct 15 01:37:48 2026
-    Info: Elapsed time: 00:00:04
+    Info: Processing ended: Sat Oct 17 14:51:17 2026
+    Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
-[31;1mTBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize[0m
+TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
 Info: *******************************************************************
 Info: Running Quartus Prime Shell
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
@@ -43,7 +43,7 @@ Info: Running Quartus Prime Shell
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Thu Oct 15 01:37:48 2026
+    Info: Processing started: Sat Oct 17 14:51:17 2026
 Info: Command: quartus_sh --flow compile engine_axi_fit
 Info: Quartus(args): compile engine_axi_fit
 Info: Project Name = C:/projects/fpga-network-engine/build/fit/engine_axi/engine_axi_fit
@@ -51,7 +51,7 @@ Info: Revision Name = engine_axi_fit
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Oct 15 01:37:49 2026
+    Info: Processing started: Sat Oct 17 14:51:17 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off engine_axi_fit -c engine_axi_fit
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 1 design units, including 1 entities, in source file /projects/fpga-network-engine/rtl/packet_classifier.sv
@@ -91,10 +91,10 @@ Warning (10036): Verilog HDL or VHDL warning at engine_core.sv(22): object "cq_c
 Info (12128): Elaborating entity "engine_control" for hierarchy "engine_axi:core|engine_core:core|engine_control:control" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 69
 Warning (10762): Verilog HDL Case Statement warning at engine_control.sv(57): can't check case statement for completeness because the case expression has too many possible states File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 57
 Warning (10762): Verilog HDL Case Statement warning at engine_control.sv(104): can't check case statement for completeness because the case expression has too many possible states File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 104
-Warning (10230): Verilog HDL assignment warning at engine_control.sv(198): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 198
-Warning (10230): Verilog HDL assignment warning at engine_control.sv(205): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 205
-Warning (10762): Verilog HDL Case Statement warning at engine_control.sv(207): can't check case statement for completeness because the case expression has too many possible states File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 207
-Info (10264): Verilog HDL Case Statement information at engine_control.sv(207): all case item expressions in this case statement are onehot File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 207
+Warning (10230): Verilog HDL assignment warning at engine_control.sv(201): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 201
+Warning (10230): Verilog HDL assignment warning at engine_control.sv(208): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 208
+Warning (10762): Verilog HDL Case Statement warning at engine_control.sv(211): can't check case statement for completeness because the case expression has too many possible states File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 211
+Info (10264): Verilog HDL Case Statement information at engine_control.sv(211): all case item expressions in this case statement are onehot File: C:/projects/fpga-network-engine/rtl/engine_control.sv Line: 211
 Info (12128): Elaborating entity "capture_ingress" for hierarchy "engine_axi:core|engine_core:core|capture_ingress:ingress" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 73
 Info (10264): Verilog HDL Case Statement information at capture_ingress.sv(101): all case item expressions in this case statement are onehot File: C:/projects/fpga-network-engine/rtl/capture_ingress.sv Line: 101
 Info (10008): Verilog HDL or VHDL information: EDA Netlist Writer cannot regroup multidimensional array "slot_length" into its bus
@@ -204,23 +204,16 @@ Warning (10230): Verilog HDL assignment warning at replay_dma.sv(53): truncated 
 Warning (10230): Verilog HDL assignment warning at replay_dma.sv(88): truncated value with size 32 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/replay_dma.sv Line: 88
 Info (12128): Elaborating entity "replay_policy" for hierarchy "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy" File: C:/projects/fpga-network-engine/rtl/replay_dma.sv Line: 40
 Info (12128): Elaborating entity "replay_staging" for hierarchy "engine_axi:core|engine_core:core|replay_staging:staging" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 101
-Warning (10230): Verilog HDL assignment warning at replay_staging.sv(39): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/replay_staging.sv Line: 39
-Info (12128): Elaborating entity "dma_command_arbiter" for hierarchy "engine_axi:core|engine_core:core|dma_command_arbiter:arbiter" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 109
-Info (12128): Elaborating entity "axi_burst_master" for hierarchy "engine_axi:core|axi_burst_master:master" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 143
-Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(47): truncated value with size 9 to match size of target (5) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 47
-Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(47): truncated value with size 9 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 47
-Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(55): truncated value with size 9 to match size of target (5) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 55
-Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(55): truncated value with size 9 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 55
-Info (19000): Inferred 1 megafunctions from design logic
-    Info (276029): Inferred altsyncram megafunction from the following design logic: "engine_axi:core|engine_core:core|replay_staging:staging|memory_rtl_0" 
+Warning (10230): Verilog HDL assignment warning at replay_staging.sv(41): truncated value with size 32 to match size of target (2) File: C:/projects/fpga-network-engine/rtl/replay_staging.sv Line: 41
+Info (19000): Inferred 4 megafunctions from design logic
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[0].memory[0][7]__5" 
         Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
-        Info (286033): Parameter WIDTH_A set to 32
+        Info (286033): Parameter WIDTH_A set to 8
         Info (286033): Parameter WIDTHAD_A set to 11
         Info (286033): Parameter NUMWORDS_A set to 2048
-        Info (286033): Parameter WIDTH_B set to 32
+        Info (286033): Parameter WIDTH_B set to 8
         Info (286033): Parameter WIDTHAD_B set to 11
         Info (286033): Parameter NUMWORDS_B set to 2048
-        Info (286033): Parameter WIDTH_BYTEENA_A set to 4
         Info (286033): Parameter ADDRESS_ACLR_A set to NONE
         Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
         Info (286033): Parameter ADDRESS_ACLR_B set to NONE
@@ -228,21 +221,65 @@ Info (19000): Inferred 1 megafunctions from design logic
         Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
         Info (286033): Parameter INDATA_ACLR_A set to NONE
         Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
-        Info (286033): Parameter RAM_BLOCK_TYPE set to M9K
         Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|Mult0" File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
-    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|Mult1" File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
-Info (12130): Elaborated megafunction instantiation "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:memory_rtl_0"
-Info (12133): Instantiated megafunction "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:memory_rtl_0" with the following parameter:
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[1].memory[0][7]__6" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 2048
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[2].memory[0][7]__7" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 2048
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+    Info (276029): Inferred altsyncram megafunction from the following design logic: "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[3].memory[0][7]__8" 
+        Info (286033): Parameter OPERATION_MODE set to DUAL_PORT
+        Info (286033): Parameter WIDTH_A set to 8
+        Info (286033): Parameter WIDTHAD_A set to 11
+        Info (286033): Parameter NUMWORDS_A set to 2048
+        Info (286033): Parameter WIDTH_B set to 8
+        Info (286033): Parameter WIDTHAD_B set to 11
+        Info (286033): Parameter NUMWORDS_B set to 2048
+        Info (286033): Parameter ADDRESS_ACLR_A set to NONE
+        Info (286033): Parameter OUTDATA_REG_B set to UNREGISTERED
+        Info (286033): Parameter ADDRESS_ACLR_B set to NONE
+        Info (286033): Parameter OUTDATA_ACLR_B set to NONE
+        Info (286033): Parameter ADDRESS_REG_B set to CLOCK0
+        Info (286033): Parameter INDATA_ACLR_A set to NONE
+        Info (286033): Parameter WRCONTROL_ACLR_A set to NONE
+        Info (286033): Parameter READ_DURING_WRITE_MODE_MIXED_PORTS set to OLD_DATA
+Info (12128): Elaborating entity "altsyncram" for hierarchy "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[0].memory[0][7]__5"
+Info (12130): Elaborated megafunction instantiation "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[0].memory[0][7]__5"
+Info (12133): Instantiated megafunction "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[0].memory[0][7]__5" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTH_A" = "8"
     Info (12134): Parameter "WIDTHAD_A" = "11"
     Info (12134): Parameter "NUMWORDS_A" = "2048"
-    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTH_B" = "8"
     Info (12134): Parameter "WIDTHAD_B" = "11"
     Info (12134): Parameter "NUMWORDS_B" = "2048"
-    Info (12134): Parameter "WIDTH_BYTEENA_A" = "4"
     Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
     Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
     Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
@@ -250,10 +287,19 @@ Info (12133): Instantiated megafunction "engine_axi:core|engine_core:core|replay
     Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK0"
     Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
     Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "RAM_BLOCK_TYPE" = "M9K"
     Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "OLD_DATA"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_d0l1.tdf
-    Info (12023): Found entity 1: altsyncram_d0l1 File: C:/projects/fpga-network-engine/build/fit/engine_axi/db/altsyncram_d0l1.tdf Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_mdg1.tdf
+    Info (12023): Found entity 1: altsyncram_mdg1 File: C:/projects/fpga-network-engine/build/fit/engine_axi/db/altsyncram_mdg1.tdf Line: 28
+Info (12128): Elaborating entity "altsyncram_mdg1" for hierarchy "engine_axi:core|engine_core:core|replay_staging:staging|altsyncram:lane[0].memory[0][7]__5|altsyncram_mdg1:auto_generated" File: c:/intelfpga_lite/24.1std/quartus/libraries/megafunctions/altsyncram.tdf Line: 792
+Info (12128): Elaborating entity "dma_command_arbiter" for hierarchy "engine_axi:core|engine_core:core|dma_command_arbiter:arbiter" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 109
+Info (12128): Elaborating entity "axi_burst_master" for hierarchy "engine_axi:core|axi_burst_master:master" File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 143
+Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(47): truncated value with size 9 to match size of target (5) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 47
+Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(47): truncated value with size 9 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 47
+Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(55): truncated value with size 9 to match size of target (5) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 55
+Warning (10230): Verilog HDL assignment warning at axi_burst_master.sv(55): truncated value with size 9 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 55
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|Mult0" File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
+    Info (278003): Inferred multiplier megafunction ("lpm_mult") from the following logic: "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|Mult1" File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
 Info (12130): Elaborated megafunction instantiation "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|lpm_mult:Mult0" File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
 Info (12133): Instantiated megafunction "engine_axi:core|engine_core:core|replay_dma:replay|replay_policy:policy|lpm_mult:Mult0" with the following parameter: File: C:/projects/fpga-network-engine/rtl/replay_policy.sv Line: 31
     Info (12134): Parameter "LPM_WIDTHA" = "32"
@@ -621,9 +667,9 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15719): Pin "tick[61]" is virtual output pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 27
     Info (15719): Pin "tick[62]" is virtual output pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 27
     Info (15719): Pin "tick[63]" is virtual output pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 27
-    Info (15718): Pin "rst" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 3
     Info (15718): Pin "s_valid" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_last" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "rst" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 3
     Info (15718): Pin "m_ready" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 5
     Info (15718): Pin "s_bready" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 8
     Info (15718): Pin "s_awvalid" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
@@ -636,11 +682,6 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15718): Pin "m_rvalid" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_rlast" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_arready" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 16
-    Info (15718): Pin "s_wdata[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_wdata[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_wdata[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_wdata[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_wdata[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[10]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
@@ -661,18 +702,25 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15718): Pin "s_wdata[26]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[25]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[24]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
+    Info (15718): Pin "s_wdata[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[30]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[29]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wdata[28]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_wdata[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wstrb[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wstrb[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wstrb[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
     Info (15718): Pin "s_wstrb[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 7
-    Info (15718): Pin "s_araddr[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[12]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
@@ -695,19 +743,19 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15718): Pin "s_araddr[29]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[30]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
-    Info (15718): Pin "s_araddr[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
-    Info (15718): Pin "s_araddr[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[10]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
-    Info (15718): Pin "s_araddr[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
-    Info (15718): Pin "s_araddr[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "s_araddr[8]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
-    Info (15718): Pin "s_araddr[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
+    Info (15718): Pin "s_araddr[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 9
     Info (15718): Pin "m_rresp[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_rresp[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_bresp[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 14
     Info (15718): Pin "m_bresp[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 14
+    Info (15718): Pin "s_awaddr[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
+    Info (15718): Pin "s_awaddr[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
@@ -732,46 +780,44 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15718): Pin "s_awaddr[30]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
+    Info (15718): Pin "s_awaddr[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
+    Info (15718): Pin "s_awaddr[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
+    Info (15718): Pin "s_awaddr[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
+    Info (15718): Pin "s_awaddr[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[8]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
     Info (15718): Pin "s_awaddr[10]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_awaddr[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 6
-    Info (15718): Pin "s_data[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[10]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[8]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[25]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[24]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[27]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[26]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[29]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[28]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[30]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[17]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[16]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[19]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[18]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[21]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[20]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_data[23]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[22]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[12]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[13]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[14]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[15]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
-    Info (15718): Pin "s_data[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_data[7]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_data[6]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[5]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[4]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[3]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[15]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[14]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[13]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[12]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[11]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[10]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[20]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[21]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[22]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[16]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[17]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[18]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[19]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[27]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[28]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[29]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[30]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[9]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[8]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[24]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[25]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
+    Info (15718): Pin "s_data[26]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_keep[0]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_keep[1]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
     Info (15718): Pin "s_keep[2]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 4
@@ -840,7 +886,7 @@ Info (15717): Design contains 534 virtual pins; timing numbers associated with p
     Info (15718): Pin "m_rdata[62]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_rdata[63]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
     Info (15718): Pin "m_rdata[31]" is virtual input pin File: C:/projects/fpga-network-engine/constraints/engine_fit.sv Line: 17
-Warning (15752): Ignored 520 Virtual Pin logic option assignments
+Warning (15752): Ignored 521 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "s_ready~reg0"
     Warning (15720): Ignored Virtual Pin assignment to node "m_data[0]~reg0"
     Warning (15720): Ignored Virtual Pin assignment to node "m_data[1]~reg0"
@@ -1154,11 +1200,6 @@ Warning (15752): Ignored 520 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "m_rvalid_r"
     Warning (15720): Ignored Virtual Pin assignment to node "m_rlast_r"
     Warning (15720): Ignored Virtual Pin assignment to node "m_arready_r"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[0]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[6]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[5]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[4]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[3]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[11]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[10]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[9]"
@@ -1179,18 +1220,25 @@ Warning (15752): Ignored 520 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[26]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[25]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[24]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[6]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[5]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[4]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[3]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[7]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[0]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[31]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[30]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[29]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[28]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_wdata_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wstrb_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wstrb_r[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wstrb_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_wstrb_r[3]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[9]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[6]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[7]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[3]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[12]"
@@ -1213,19 +1261,19 @@ Warning (15752): Ignored 520 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[29]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[30]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[31]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[4]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[5]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[4]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[10]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[11]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[7]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[3]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[8]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[6]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_araddr_r[9]"
     Warning (15720): Ignored Virtual Pin assignment to node "m_rresp_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "m_rresp_r[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "m_bresp_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "m_bresp_r[1]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[7]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[6]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[2]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[1]"
@@ -1250,46 +1298,44 @@ Warning (15752): Ignored 520 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[30]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[31]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[3]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[5]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[4]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[9]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[11]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[8]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[10]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[11]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[7]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[9]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[4]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[6]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_awaddr_r[5]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[9]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[10]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[11]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[8]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[25]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[24]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[27]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[26]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[29]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[28]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[31]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[30]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[17]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[16]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[19]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[18]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[21]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[20]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[23]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[22]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[12]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[13]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[14]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[15]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[1]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[0]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[3]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[2]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[5]"
-    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[4]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[7]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[6]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[5]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[4]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[3]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[2]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[1]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[0]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[15]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[14]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[13]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[12]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[11]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[10]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[20]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[21]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[22]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[16]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[17]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[18]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[19]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[31]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[27]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[28]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[29]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[30]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[9]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[8]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[24]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[25]"
+    Warning (15720): Ignored Virtual Pin assignment to node "s_data_r[26]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_keep_r[0]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_keep_r[1]"
     Warning (15720): Ignored Virtual Pin assignment to node "s_keep_r[2]"
@@ -1359,23 +1405,24 @@ Warning (15752): Ignored 520 Virtual Pin logic option assignments
     Warning (15720): Ignored Virtual Pin assignment to node "m_rdata_r[63]"
     Warning (15720): Ignored Virtual Pin assignment to node "m_rdata_r[31]"
     Warning (15751): Ignored Virtual Pin assignment to "tx_*".
-    Warning (15751): Ignored Virtual Pin assignment to "rx_*".
+    Warning (15751): Ignored Virtual Pin assignment to "pkt_*".
     Warning (15751): Ignored Virtual Pin assignment to "cfg_*".
-Info (21057): Implemented 32941 device resources after synthesis - the final resource count might be different
+    Warning (15751): Ignored Virtual Pin assignment to "rx_*".
+Info (21057): Implemented 32961 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 1 input pins
     Info (21059): Implemented 0 output pins
-    Info (21061): Implemented 32770 logic cells
+    Info (21061): Implemented 32790 logic cells
     Info (21064): Implemented 160 RAM segments
     Info (21062): Implemented 10 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 563 warnings
-    Info: Peak virtual memory: 6877 megabytes
-    Info: Processing ended: Thu Oct 15 01:40:23 2026
-    Info: Elapsed time: 00:02:34
-    Info: Total CPU time (on all processors): 00:02:12
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 564 warnings
+    Info: Peak virtual memory: 6907 megabytes
+    Info: Processing ended: Sat Oct 17 14:53:22 2026
+    Info: Elapsed time: 00:02:05
+    Info: Total CPU time (on all processors): 00:02:11
 Info: *******************************************************************
 Info: Running Quartus Prime Fitter
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Oct 15 01:40:24 2026
+    Info: Processing started: Sat Oct 17 14:53:23 2026
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off engine_axi_fit -c engine_axi_fit
 Info: qfit2_default_script.tcl version: #1
 Info: Project  = engine_axi_fit
@@ -1431,50 +1478,50 @@ Info (176235): Finished register packing
     Extra Info (176218): Packed 32 registers into blocks of type Block RAM
     Extra Info (176218): Packed 54 registers into blocks of type Embedded multiplier block
     Extra Info (176220): Created 24 register duplicates
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:13
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:10
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:05
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:04
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:01:08
+Info (170192): Fitter placement operations ending: elapsed time is 00:00:34
 Info (170193): Fitter routing operations beginning
-Info (170195): Router estimated average interconnect usage is 25% of the available device resources
-    Info (170196): Router estimated peak interconnect usage is 69% of the available device resources in the region that extends from location X22_Y22 to location X32_Y32
+Info (170195): Router estimated average interconnect usage is 27% of the available device resources
+    Info (170196): Router estimated peak interconnect usage is 80% of the available device resources in the region that extends from location X11_Y11 to location X21_Y21
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:34
-Info (11888): Total time spent on timing analysis during the Fitter is 18.26 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:00:28
+Info (11888): Total time spent on timing analysis during the Fitter is 9.20 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:18
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:15
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/projects/fpga-network-engine/build/fit/engine_axi/output_files/engine_axi_fit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 6105 megabytes
-    Info: Processing ended: Thu Oct 15 01:43:02 2026
-    Info: Elapsed time: 00:02:38
-    Info: Total CPU time (on all processors): 00:05:33
+    Info: Peak virtual memory: 6181 megabytes
+    Info: Processing ended: Sat Oct 17 14:55:08 2026
+    Info: Elapsed time: 00:01:45
+    Info: Total CPU time (on all processors): 00:03:34
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Oct 15 01:43:03 2026
+    Info: Processing started: Sat Oct 17 14:55:09 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off engine_axi_fit -c engine_axi_fit
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4925 megabytes
-    Info: Processing ended: Thu Oct 15 01:43:07 2026
-    Info: Elapsed time: 00:00:04
+    Info: Peak virtual memory: 4926 megabytes
+    Info: Processing ended: Sat Oct 17 14:55:12 2026
+    Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 Info (293026): Skipped module Power Analyzer due to the assignment FLOW_ENABLE_POWER_ANALYZER
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Thu Oct 15 01:43:07 2026
+    Info: Processing started: Sat Oct 17 14:55:12 2026
 Info: Command: quartus_sta engine_axi_fit -c engine_axi_fit
 Info: qsta_default_script.tcl version: #1
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
@@ -1486,48 +1533,48 @@ Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Tim
 Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1200mV 85C Model
 Info: Can't run Report Timing Closure Recommendations. The current device family is not supported.
-Info (332146): Worst-case setup slack is 0.839
+Info (332146): Worst-case setup slack is 1.529
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.839               0.000 clk 
-Info (332146): Worst-case hold slack is 0.255
+    Info (332119):     1.529               0.000 clk 
+Info (332146): Worst-case hold slack is 0.339
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.255               0.000 clk 
+    Info (332119):     0.339               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 9.486
+Info (332146): Worst-case minimum pulse width slack is 9.489
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.486               0.000 clk 
+    Info (332119):     9.489               0.000 clk 
 Info: Analyzing Slow 1200mV 0C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 2.533
+Info (332146): Worst-case setup slack is 3.092
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     2.533               0.000 clk 
-Info (332146): Worst-case hold slack is 0.252
+    Info (332119):     3.092               0.000 clk 
+Info (332146): Worst-case hold slack is 0.303
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.252               0.000 clk 
+    Info (332119):     0.303               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is 9.516
+Info (332146): Worst-case minimum pulse width slack is 9.515
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     9.516               0.000 clk 
+    Info (332119):     9.515               0.000 clk 
 Info: Analyzing Fast 1200mV 0C Model
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Info (332146): Worst-case setup slack is 11.775
+Info (332146): Worst-case setup slack is 11.952
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    11.775               0.000 clk 
-Info (332146): Worst-case hold slack is 0.096
+    Info (332119):    11.952               0.000 clk 
+Info (332146): Worst-case hold slack is 0.147
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):     0.096               0.000 clk 
+    Info (332119):     0.147               0.000 clk 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is 9.406
@@ -1537,14 +1584,14 @@ Info (332146): Worst-case minimum pulse width slack is 9.406
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 5212 megabytes
-    Info: Processing ended: Thu Oct 15 01:43:22 2026
-    Info: Elapsed time: 00:00:15
-    Info: Total CPU time (on all processors): 00:00:33
-Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 567 warnings
+    Info: Peak virtual memory: 5213 megabytes
+    Info: Processing ended: Sat Oct 17 14:55:24 2026
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:26
+Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 568 warnings
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/24.1std/quartus/common/tcl/internal/qsh_flow.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 567 warnings
-    Info: Peak virtual memory: 4703 megabytes
-    Info: Processing ended: Thu Oct 15 01:43:23 2026
-    Info: Elapsed time: 00:05:35
-    Info: Total CPU time (on all processors): 00:11:51
+Info: Quartus Prime Shell was successful. 0 errors, 568 warnings
+    Info: Peak virtual memory: 4674 megabytes
+    Info: Processing ended: Sat Oct 17 14:55:24 2026
+    Info: Elapsed time: 00:04:07
+    Info: Total CPU time (on all processors): 00:09:30
