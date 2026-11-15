@@ -12,7 +12,7 @@ loading VPI module '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/sit
      -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at /mnt/c/projects/fpga-network-engine/.venv/bin/python
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
 VPI module loaded!
-     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792274940
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1794697410
      0.00ns WARNING  gpi                                vpi_iterate returned NULL for type vpiInstance for object NULL
      0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.initialize                  Running on GHDL version 7.0.0-dev (6.0.0.r537.g1e3c5ab06.dirty) [Dunoon edition]
@@ -32,15 +32,15 @@ VPI module loaded!
 210362.50ns INFO     cocotb.regression                  **************************************************************************************
                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                                                         **************************************************************************************
-                                                        ** cdc_fifo_tests.similar_rates   PASS       68110.00           0.17     392266.39  **
-                                                        ** cdc_fifo_tests.slow_reader     PASS       51178.00           0.12     444820.12  **
-                                                        ** cdc_fifo_tests.fast_reader     PASS       91074.50           0.22     410457.80  **
+                                                        ** cdc_fifo_tests.similar_rates   PASS       68110.00           0.17     389279.16  **
+                                                        ** cdc_fifo_tests.slow_reader     PASS       51178.00           0.12     411631.11  **
+                                                        ** cdc_fifo_tests.fast_reader     PASS       91074.50           0.24     373070.16  **
                                                         **************************************************************************************
-                                                        ** TESTS=3 PASS=3 FAIL=0 SKIP=0             210362.50           0.51     408652.15  **
+                                                        ** TESTS=3 PASS=3 FAIL=0 SKIP=0             210362.50           0.55     384334.91  **
                                                         **************************************************************************************
 ../../src/ieee2008/numeric_std-body.vhdl:1793:7:@0ms:(assertion warning): NUMERIC_STD."=": metavalue detected, returning FALSE
 ../../src/ieee2008/numeric_std-body.vhdl:1793:7:@0ms:(assertion warning): NUMERIC_STD."=": metavalue detected, returning FALSE
 ../../src/ieee2008/numeric_std-body.vhdl:3053:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
 PASSED
 
-============================== 1 passed in 9.50s ===============================
+============================== 1 passed in 7.20s ===============================

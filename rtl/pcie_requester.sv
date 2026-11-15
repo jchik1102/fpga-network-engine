@@ -95,7 +95,10 @@ module pcie_requester #(parameter integer TIMEOUT=65536)(
    endcase
  end
  typedef enum logic [2:0] {P_H0,P_H1,P_H2,P_DATA,P_DROP} parse_state_t;
- parse_state_t parse_state;
+ // parse_state selects the write of the 1,024-bit read-data register, so each state bit
+ // drives over a thousand loads. Vivado replicates the register to keep that fan-out,
+ // and the routing it costs, down; Quartus ignores the attribute.
+ (* max_fanout = 64 *) parse_state_t parse_state;
  logic [2:0] fmt;logic [4:0] tlp_type;logic [2:0] tc,cpl_status;logic [2:0] attr;logic ep;logic [9:0] length_dw;logic [11:0] byte_count;
  logic [1:0] tag;logic [5:0] data_beat;logic [4:0] write_index;logic accept_data,poisoned_tag,final_cpl;
  logic [7:0] cpl_bytes;logic [9:0] span;logic header_ok,is_cpl,is_cpld,matched,rcb_ok,length_ok;

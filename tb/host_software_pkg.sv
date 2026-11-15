@@ -501,6 +501,7 @@ package host_software_pkg;
      phase_mark("fault_recovery");phase_fault_recovery();
      phase_throughput();
      phase_mark("default_queue");phase_default_queue();
+     phase_replay_fault();
      phase_mark("end");
      wr('h8,2);wait_quiescent("final");check_quiet_output();
      expect_true(output_frames.used()==0 && input_frames.used()==0,"no unconsumed stream frames");
@@ -525,6 +526,34 @@ package host_software_pkg;
    // default queue, which every other phase leaves at queue 3. Point it at
    // queues 0, 1 and 2 in turn (fixture phase 7), so every capture ring also
    // returns an UNSUPPORTED record.
+   // A replay descriptor that cannot be read from host memory: the replay engine must
+   // halt that ring with fault code 1 (descriptor read), publish no completion record,
+   // and recover through abort and ring recovery like the capture fault above. No
+   // frame is sent and no record is expected, so the earlier phases are unchanged.
+   task phase_replay_fault();
+     bit [31:0] value,conditions,seqno;bit seen;int r=4;
+     wr('h8,2);wait_quiescent("replay fault setup");
+     fault_phase=1;wr('h28,255);wr('h20,'h1ff);
+     seqno=sq_producer[r];
+     platform.set_read_error(1,sq_base[r]+(seqno%32)*64);
+     sq_producer[r]++;doorbells();wr('h8,1);
+     conditions=0;
+     for(int attempt=0;attempt<8 && !conditions[8];attempt++) begin
+       platform.wait_interrupt(200000,seen);expect_true(seen,"replay fault interrupt");rd('h24,conditions);
+       if(!conditions[8]) wr('h28,conditions[7:0]);
+     end
+     expect_true(conditions[8] && conditions[7:0]==0,"replay fault: sticky fault without a ring completion");
+     rd('h30,value);expect_true(value==1,$sformatf("replay fault code %0d, expected 1 (descriptor read)",value));
+     rd('h38,value);expect_true(value==r,"replay fault ring");rd('h3c,value);expect_true(value==seqno,"replay fault seqno");
+     rd(rb(r)+'h18,value);expect_true(value==2,"replay ring halted, reservation invalidated");
+     rd(rb(r)+16,value);expect_true(value==cq_consumed[r],"no completion published for the unreadable descriptor");
+     platform.set_read_error(0,0);
+     wr('h8,4);wait_quiescent("replay fault abort");
+     rd('h10,value);expect_true(value==epoch+1,"replay fault recovery epoch");epoch=value;
+     wr('h34,1);rd('h30,value);expect_true(value==0,"sticky fault cleared");
+     recover_all_rings();wr('h28,255);wr('h20,'hff);fault_phase=0;
+     `uvm_info("HOST",$sformatf("%s replay fault: unreadable descriptor halted ring %0d, recovered at epoch %0d",platform.name(),r,epoch),UVM_LOW)
+   endtask
    task phase_default_queue();
      foreach(frames[i]) if(frames[i].phase==7) begin
        wr('h8,2);wait_quiescent("default queue setup");wr('h104,frames[i].queue);

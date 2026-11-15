@@ -56,7 +56,7 @@ package pcie_host_pkg;
  endfunction
 
  typedef enum {INJ_NONE,INJ_POISON,INJ_BAD_LA,INJ_BAD_BC,INJ_BAD_LENGTH,INJ_EXTRA_DATA,INJ_DROP,INJ_LATE,INJ_DUPLICATE,
-   INJ_UNEXPECTED_TAG,INJ_WRONG_RID,INJ_CA,INJ_UR,INJ_CRS} injection_t;
+   INJ_UNEXPECTED_TAG,INJ_WRONG_RID,INJ_CA,INJ_UR,INJ_CRS,INJ_SHORT_DATA} injection_t;
 
  class scheduled_tlp;tlp_packet packet;longint unsigned release_time;int tag;bit device_completion;bit final_for_tag;endclass
 
@@ -215,6 +215,8 @@ package pcie_host_pkg;
        if(injection==INJ_BAD_BC) begin c.dw[1][11:0]=c.dw[1][11:0]+4;injection=INJ_NONE;end
        if(injection==INJ_BAD_LENGTH) begin c.dw[0][9:0]=c.dw[0][9:0]+1;injection=INJ_NONE;end
        if(injection==INJ_EXTRA_DATA) begin c.dw.push_back(32'hdeadbeef);injection=INJ_NONE;end
+       // One data word fewer than the header's length: the TLP ends early.
+       if(injection==INJ_SHORT_DATA && c.dw.size()>4) begin void'(c.dw.pop_back());injection=INJ_NONE;end
        if(injection==INJ_LATE) when+=late_delay;
        schedule(c,when,tag,1,final_piece);
        if(injection==INJ_DUPLICATE && final_piece) begin schedule(c,when+200+random_below(50),-1,0,0);duplicates_sent++;end

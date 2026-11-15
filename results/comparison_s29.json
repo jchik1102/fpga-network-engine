@@ -10,7 +10,7 @@
    "fault_recovery": 5269,
    "throughput_capture": 38445,
    "throughput_replay": 26626,
-   "default_queue": 1498
+   "default_queue": 2366
   },
   "throughput": {
    "capture": {
@@ -96,8 +96,8 @@
   "transport": {
    "write_bursts": 777,
    "write_beats": 8592,
-   "read_bursts": 836,
-   "read_beats": 6854,
+   "read_bursts": 837,
+   "read_beats": 6862,
    "mean_write_burst_beats": 11.06,
    "mean_read_burst_beats": 8.2,
    "write_strobed_bytes": 68401,
@@ -116,7 +116,7 @@
     "fault_recovery": 7560,
     "throughput_capture": 39131,
     "throughput_replay": 46892,
-    "default_queue": 3514
+    "default_queue": 5319
    },
    "throughput": {
     "capture": {
@@ -199,21 +199,21 @@
     "2": 13
    },
    "transport": {
-    "mwr": 942,
-    "mrd": 846,
-    "msi": 149,
-    "device_cpl": 1001,
-    "bar_requests": 13084,
-    "bar_cpl": 8672,
-    "header_dw": 31380,
-    "payload_dw": 26201,
+    "mwr": 943,
+    "mrd": 847,
+    "msi": 150,
+    "device_cpl": 1002,
+    "bar_requests": 13208,
+    "bar_cpl": 8748,
+    "header_dw": 31614,
+    "payload_dw": 26277,
     "splits": 155,
     "reordered": 0,
     "max_outstanding_tags": 1,
     "visibility_max": 294,
-    "visibility_mean": 152,
+    "visibility_mean": 151,
     "device_max_tags": 1,
-    "device_to_host_header_overhead": 0.545
+    "device_to_host_header_overhead": 0.5461
    },
    "run": "build/engine_pcie_s29"
   },
@@ -228,7 +228,7 @@
     "fault_recovery": 8404,
     "throughput_capture": 41071,
     "throughput_replay": 53956,
-    "default_queue": 3969
+    "default_queue": 6067
    },
    "throughput": {
     "capture": {
@@ -311,21 +311,21 @@
     "2": 13
    },
    "transport": {
-    "mwr": 942,
-    "mrd": 1977,
-    "msi": 149,
-    "device_cpl": 2058,
-    "bar_requests": 11895,
-    "bar_cpl": 7874,
-    "header_dw": 35298,
-    "payload_dw": 25403,
+    "mwr": 943,
+    "mrd": 1979,
+    "msi": 150,
+    "device_cpl": 2060,
+    "bar_requests": 12031,
+    "bar_cpl": 7962,
+    "header_dw": 35574,
+    "payload_dw": 25491,
     "splits": 81,
-    "reordered": 582,
+    "reordered": 583,
     "max_outstanding_tags": 4,
     "visibility_max": 295,
-    "visibility_mean": 154,
+    "visibility_mean": 153,
     "device_max_tags": 4,
-    "device_to_host_header_overhead": 0.5815
+    "device_to_host_header_overhead": 0.5826
    },
    "run": "build/engine_pcie_stress_s29"
   }

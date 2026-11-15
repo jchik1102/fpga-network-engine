@@ -8,11 +8,9 @@ A SystemVerilog packet capture, replay and impairment engine with scatter-gather
 
 The diagram is an SVG with the draw.io model embedded; open `docs/block_diagram.svg` in draw.io to edit it.
 
-**Demo video:** _placeholder — link to be added._
-
 ## Running it
 
-Prerequisites (from the original setup, unchanged):
+Prerequisites:
 
 - Windows with Vivado/XSim 2025.2 at `C:\AMDDesignTools\2025.2\Vivado` (bundled UVM 1.2); `make vivado` also needs Vivado's Artix-7 device support
 - Quartus Prime Lite 24.1std with MAX 10 support at `C:\intelFPGA_lite\24.1std`
@@ -37,6 +35,7 @@ Then:
 | `make test-quick` | `scripts/run-all.ps1 -Seeds 17` |
 | `make fpga` | Quartus fits of `engine_axi_fit` and `engine_pcie_fit` |
 | `make results` | copies the logs and reports that back this README from `build/` into `results/` |
+| `make lint` | Verilator `-Wall` lint of both transport tops and the async FIFO; passes with no warnings outside the reviewed waivers in [`scripts/lint_waivers.vlt`](scripts/lint_waivers.vlt) ([logs](results/lint/)) |
 | `make formal` | SymbiYosys proofs and covers in `formal/` (needs OSS CAD Suite with the yosys-slang plugin on `PATH`), then the async FIFO proof on 4 FIFO mutants, each of which must fail; see "Formal verification" under [Results](#results) |
 | `make cocotb` | cocotb tests of the async FIFO with two unrelated clocks (Icarus Verilog), then the same tests on the 4 mutants, each of which must fail |
 | `make vhdl` | the VHDL-2008 async FIFO: the same cocotb tests with GHDL, its 4 VHDL mutants (each must fail), EQY equivalence against the SystemVerilog FIFO, and the same check on each mutant (each must fail); see "VHDL version of the FIFO" under [Results](#results) |
@@ -62,7 +61,7 @@ Other module tests are `-Test packet|axi|sg|control|replay`. Their fixtures come
 
 ## Continuous integration
 
-[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push and pull request, on GitHub's Ubuntu runners: the Python model tests, `scripts/run-formal.sh` (the SymbiYosys proofs and covers, with the same OSS CAD Suite build as `make formal`) with the async FIFO mutant check, and the cocotb tests with their mutant check. The XSim/UVM regression and the Quartus fits need the Windows vendor tools, so `make test` and `make fpga` run locally and their logs are committed under `results/`.
+[`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs on every push and pull request, on GitHub's Ubuntu runners: the Python model tests, a Verilator lint, a check that every number in this README's tables is in the log its row links ([`scripts/check_readme_numbers.py`](scripts/check_readme_numbers.py)), `scripts/run-formal.sh` (the SymbiYosys proofs and covers, with the same OSS CAD Suite build as `make formal`) with the async FIFO mutant check, and the cocotb tests with their mutant check. The XSim/UVM regression and the Quartus fits need the Windows vendor tools, so `make test` and `make fpga` run locally and their logs are committed under `results/`.
 
 ## Results
 
@@ -76,10 +75,10 @@ Every number below is copied from a log in [`results/`](results/), produced by `
 | Python model tests | 41 passed | [models.log](results/regression/models.log) |
 | Packet parser/classifier | 111 packets, 34,339 bytes checked, coverage 100% | [packet_seed17.log](results/regression/packet_seed17.log) |
 | AXI burst master | 395 transactions, 24,776 byte checks, coverage 100% | [axi_seed17.log](results/regression/axi_seed17.log) |
-| Scatter-gather | 76 cases (20 invalid, 4 bus errors), 23,328 bytes checked | [sg_seed17.log](results/regression/sg_seed17.log) |
-| AXI-Lite control + RAL | 42,627 checks, 595 claims, 584 commits, 68 rejected writes; ring and bus coverage 100% | [control_seed17.log](results/regression/control_seed17.log) |
+| Scatter-gather | 76 cases (20 invalid, 4 bus errors), 23,328 bytes checked; 10 transfers aborted mid-flight end with the cancelled status, and the next transfer completes | [sg_seed17.log](results/regression/sg_seed17.log) |
+| AXI-Lite control + RAL | 43,150 checks, 596 claims, 585 commits, 94 rejected writes; every configuration register written and read back with its value limits; ring and bus coverage 100% | [control_seed17.log](results/regression/control_seed17.log) |
 | Replay policy | 227 policies, 61 frames, 8 lost; coverage and policy coverage 100% | [replay_seed17.log](results/regression/replay_seed17.log) |
-| PCIe requester unit | 4 tags outstanding, 346 cross-tag reorderings, 30 negative cases (6 unexpected, 4 late, 8 malformed, 2 poisoned completions, 4 timeouts), coverage 100% | [pcie_seed17.log](results/regression/pcie_seed17.log) |
+| PCIe requester unit | 4 tags outstanding, 349 cross-tag reorderings, 32 negative cases (6 unexpected, 4 late, 10 malformed, 2 poisoned completions, 4 timeouts), coverage 100% | [pcie_seed17.log](results/regression/pcie_seed17.log) |
 | Integrated AXI | 160 completion records, 57 replay frames, 102,951 payload bytes and 8,099 guard bytes checked; record coverage 100% | [engine_axi_seed17.log](results/regression/engine_axi_seed17.log) |
 | Integrated PCIe, 1 tag | 163 records, 57 replay frames, 103,927 bytes checked; record coverage 100% | [engine_pcie_seed17.log](results/regression/engine_pcie_seed17.log) |
 | Integrated PCIe stress (4 tags, RCB 128, aperture and BAR0/MSI above 4 GiB) | 163 records, 57 replay frames, 103,927 bytes checked | [engine_pcie_stress_seed17.log](results/regression/engine_pcie_stress_seed17.log) |
@@ -88,19 +87,21 @@ Every number below is copied from a log in [`results/`](results/), produced by `
 
 **Code coverage** (XSim statement, branch and condition coverage of each bench's design instances, testbench excluded; seed 17, from [results/code-coverage/](results/code-coverage/)):
 
-| Bench | Statements | Branches | Conditions |
-| --- | ---: | ---: | ---: |
-| Packet parser/classifier | 174/174 (100%) | 54/57 (94.74%) | 139/154 (90.26%) |
-| AXI burst master | 86/86 (100%) | 25/26 (96.15%) | 20/22 (90.91%) |
-| Scatter-gather | 215/219 (98.17%) | 70/81 (86.42%) | 87/110 (79.09%) |
-| AXI-Lite control | 348/392 (88.78%) | 169/234 (72.22%) | 175/222 (78.83%) |
-| Replay policy and staging | 136/138 (98.55%) | 47/50 (94.00%) | 33/34 (97.06%) |
-| PCIe requester unit | 290/298 (97.32%) | 116/128 (90.62%) | 177/202 (87.62%) |
-| Integrated AXI | 1,277/1,316 (97.04%) | 483/589 (82.00%) | 528/670 (78.81%) |
-| Integrated PCIe, 1 tag | 1,712/1,819 (94.12%) | 647/842 (76.84%) | 761/998 (76.25%) |
-| Integrated PCIe stress | 1,713/1,819 (94.17%) | 659/842 (78.27%) | 770/998 (77.15%) |
+| Bench | Statements | Branches | Conditions | Report |
+| --- | ---: | ---: | ---: | --- |
+| Packet parser/classifier | 174/174 (100%) | 54/57 (94.74%) | 139/154 (90.26%) | [packet_s17.txt](results/code-coverage/packet_s17.txt) |
+| AXI burst master | 86/86 (100%) | 25/26 (96.15%) | 20/22 (90.91%) | [axi_s17.txt](results/code-coverage/axi_s17.txt) |
+| Scatter-gather | 218/219 (99.54%) | 72/81 (88.89%) | 95/110 (86.36%) | [sg_s17.txt](results/code-coverage/sg_s17.txt) |
+| AXI-Lite control | 392/392 (100%) | 225/234 (96.15%) | 202/222 (90.99%) | [control_s17.txt](results/code-coverage/control_s17.txt) |
+| Replay policy and staging | 136/138 (98.55%) | 47/50 (94.00%) | 33/34 (97.06%) | [replay_s17.txt](results/code-coverage/replay_s17.txt) |
+| PCIe requester unit | 295/298 (98.99%) | 117/128 (91.41%) | 178/202 (88.12%) | [pcie_s17.txt](results/code-coverage/pcie_s17.txt) |
+| Integrated AXI | 1,280/1,316 (97.26%) | 487/589 (82.68%) | 531/670 (79.25%) | [engine_axi_s17.txt](results/code-coverage/engine_axi_s17.txt) |
+| Integrated PCIe, 1 tag | 1,730/1,819 (95.11%) | 664/842 (78.86%) | 777/998 (77.86%) | [engine_pcie_s17.txt](results/code-coverage/engine_pcie_s17.txt) |
+| Integrated PCIe stress | 1,731/1,819 (95.16%) | 676/842 (80.29%) | 784/998 (78.56%) | [engine_pcie_stress_s17.txt](results/code-coverage/engine_pcie_stress_s17.txt) |
 
-Each file lists the lines that never executed. Seed 29 gives the same statement counts. The integrated PCIe runs cover only 85.20% of `pcie_requester`'s statements because they never produce its error paths (address-translation failures, timeouts, and late, malformed or unexpected completions); the requester's unit bench injects them and covers 97.11%. The coverage is per bench, not merged across benches, since each bench elaborates its own top. Toggle coverage is not collected: Vivado 2025.2's report tool crashed on it (seen on the riscv-soc core).
+Each file lists the lines that never executed. Seed 29 gives the same statement counts. The coverage is per bench, not merged across benches, since each bench elaborates its own top; a module that an integrated run covers only partly is covered by its own bench (the integrated PCIe runs reach 85.20% of `pcie_requester`'s statements because they never produce its error paths, and the requester's unit bench reaches 98.92%). Toggle coverage is not collected: Vivado 2025.2's report tool crashed on it (seen on the riscv-soc core).
+
+**Across all benches, 9 lines are never executed, and all 9 are `default` arms of state machines** (in `capture_dma`, `pcie_completer`, `pcie_requester` (3), `replay_dma`, `replay_policy`, `replay_staging` and `sg_transfer`), found by intersecting the never-executed lists of every bench and both seeds ([`scripts/never_executed.py`](scripts/never_executed.py), [never_executed.txt](results/code-coverage/never_executed.txt)). Getting there took five additions, each appended after the existing stimulus so earlier results did not change: a register phase in the control bench (every configuration register written, read back and checked against its limits; that bench went from 88.78% / 72.22% / 78.83% to the figures above); a last step in the integrated PCIe test that reads the completer's four counters, sends a two-word write and a two-word read (both unsupported) and exercises the drain-reset register; a truncated completion in the requester's unit bench; aborts at ten points of a scatter-gather transfer; and a replay descriptor that cannot be read, which halts its ring with fault code 1 and recovers through abort. Branch and condition coverage of the integrated runs is still around 80%, mostly conditions inside those same modules that only their unit benches exercise.
 
 **AXI vs PCIe:** no differences in either PCIe variant for either seed ([compare_seed17.log](results/regression/compare_seed17.log), [compare_seed29.log](results/regression/compare_seed29.log)). Replay output (57 frames), per-queue order, the 13 seeded-loss decisions and the completion records are identical. The comparison excludes the abort phase, the AXI WRITE_ERROR row and the PCIe MSI phase ([comparison_s17.json](results/comparison_s17.json)). Only timing differs, in ticks of 20 ns:
 
@@ -188,10 +189,10 @@ Both margins were under 1 ns until the fault-clear change below, and the PCIe fi
 | Top | Slice LUTs | Registers | Block RAM tiles | DSPs | Setup slack | Hold slack | Reports |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | `engine_axi_fit` | 13,280 / 63,400 (21%) | 15,030 | 10 | 3 | +4.101 ns | +0.096 ns | [result](results/vivado/engine_axi/result.txt), [utilization](results/vivado/engine_axi/utilization.txt), [timing](results/vivado/engine_axi/timing_summary.txt), [log](results/vivado-engine_axi.log) |
-| `engine_pcie_fit` | 15,051 / 63,400 (24%) | 15,653 | 10 | 3 | +0.456 ns | +0.096 ns | [result](results/vivado/engine_pcie/result.txt), [utilization](results/vivado/engine_pcie/utilization.txt), [timing](results/vivado/engine_pcie/timing_summary.txt), [log](results/vivado-engine_pcie.log) |
+| `engine_pcie_fit` | 14,994 / 63,400 (24%) | 15,665 | 10 | 3 | +4.449 ns | +0.096 ns | [result](results/vivado/engine_pcie/result.txt), [utilization](results/vivado/engine_pcie/utilization.txt), [timing](results/vivado/engine_pcie/timing_summary.txt), [log](results/vivado-engine_pcie.log) |
 | `engine_axi_cdc_fit` | 13,904 / 63,400 (22%) | 15,114 | 10 | 3 | +3.527 ns (engine), +4.349 ns (packet) | +0.096 ns (engine), +0.028 ns (packet) | [result](results/vivado/engine_axi_cdc/result.txt), [utilization](results/vivado/engine_axi_cdc/utilization.txt), [timing](results/vivado/engine_axi_cdc/timing_summary.txt), [log](results/vivado-engine_axi_cdc.log) |
 
-The PCIe top's worst path is a single LUT after the PCIe requester's parse-state register, with 19.0 ns of routing to a far endpoint of its 1,024-bit read-data register ([worst path](results/vivado/engine_pcie/worst_setup_path.txt)); a run before the fault-clear change below had +1.791 ns there, so this margin moves with placement. The replay buffer is four RAMB18s, one per byte lane, and all 3 DSPs are in the replay loss policy (`replay_policy`) ([hierarchy](results/vivado/engine_pcie/utilization_hierarchy.txt)).
+The PCIe top had only +0.456 ns before a fan-out limit was added. Its worst path was a single LUT after the PCIe requester's parse-state register, with 19.0 ns of routing: one state bit drove 1,121 loads, because that state selects the write of the 1,024-bit read-data register ([path before](results/vivado/engine_pcie-before-fanout-limit/worst_setup_path.txt)). The state register now carries `max_fanout = 64`, so Vivado replicates it (12 more registers); setup slack rose to +4.449 ns and the worst path moved to the control block's register-write check ([worst path](results/vivado/engine_pcie/worst_setup_path.txt)). The attribute changes no logic, and Quartus ignores it. The replay buffer is four RAMB18s, one per byte lane, and all 3 DSPs are in the replay loss policy (`replay_policy`) ([hierarchy](results/vivado/engine_pcie/utilization_hierarchy.txt)).
 
 **Board programming isn't set up.** The fit wrappers (`constraints/engine_fit.sv`) register every port, and `constraints/engine.tcl` turns all of them except `clk` into virtual pins. There is no DE10-Lite board top and no pin assignments, so the results show that the design fits and closes timing, but there's no `.sof` to program. Running on hardware would need a board top that wires the engine to an on-chip memory or the SDRAM, a packet source and sink, and the DE10-Lite pin file.
 
@@ -285,9 +286,10 @@ Design decisions and the reasoning behind them are in [DESIGN.md](DESIGN.md).
 
 - **XSim ignored `$fatal` in its exit code.** The simulator returned exit 0 even after an HDL `$fatal`, so a failing test looked like a pass. `scripts/check-xsim-log.ps1` now scans each log for errors, fatals and watchdogs, and requires a per-test success marker.
 - **Replay buffer built from flip-flops.** The first full-engine fit inferred the four byte-enabled replay head arrays as flip-flops and LUTs, several times the MAX 10's capacity. Rewriting them as a single 2048×32 RAM in Quartus's byte-enable template moved them into block RAM, and the engine dropped to 57–59% of the device. Vivado did not recognize that packed byte-enable array as a RAM (a "3D-RAM" warning) and built it from 65,536 registers, so placement failed for lack of slices ([log](results/vivado/engine_axi_cdc-packed-ram-failed.log)). The buffer is now four 2048×8 RAMs, one per byte lane, each the plain simple dual-port template that both tools infer as block RAM (four RAMB18s in Vivado, the same 327,680 memory bits in Quartus).
-- **A 50 MHz path with under 1 ns of margin.** After the RAM change, the first Quartus fit of the two-clock top missed 50 MHz by 0.068 ns at slow 85 °C ([worst path](results/fit/engine_axi_cdc-before-fault-clear/path_setup_worst.txt)). The path had been the worst in every fit, at +0.84 to +0.98 ns: the register-write check (`write_ok`: an 8-to-1 ring mux, 32-bit subtracts and a compare) gated the sticky fault registers, although a FAULT_CLEAR write never depends on the ring. `engine_control` now computes that write's acceptance on its own (`fault_clear`). A yosys sequential equivalence check proves the new module equivalent to the old one ([`scripts/equiv-engine-control.sh`](scripts/equiv-engine-control.sh), [log](results/formal/engine_control_equiv.log)), and the same check fails when a condition is dropped from `fault_clear`. Setup slack rose to +1.529 ns (`engine_axi_fit`), +2.201 ns (`engine_pcie_fit`) and +1.400 ns (two-clock top, engine clock).
+- **A 50 MHz path with under 1 ns of margin.** After the RAM change, the first Quartus fit of the two-clock top missed 50 MHz by 0.068 ns at slow 85 °C ([worst path](results/fit/engine_axi_cdc-before-fault-clear/path_setup_worst.txt)). The same path was the worst one in the earlier fits, at +0.839 ns (`engine_axi_fit`) and +0.911 ns (`engine_pcie_fit`) in the reports committed at `219866b`: the register-write check (`write_ok`: an 8-to-1 ring mux, 32-bit subtracts and a compare) gated the sticky fault registers, although a FAULT_CLEAR write never depends on the ring. `engine_control` now computes that write's acceptance on its own (`fault_clear`). A yosys sequential equivalence check proves the new module equivalent to the old one ([`scripts/equiv-engine-control.sh`](scripts/equiv-engine-control.sh), [log](results/formal/engine_control_equiv.log)), and the same check fails when a condition is dropped from `fault_clear`. Setup slack rose to +1.529 ns (`engine_axi_fit`), +2.201 ns (`engine_pcie_fit`) and +1.400 ns (two-clock top, engine clock).
 - **TLP header silently truncated.** Every TLP's DW0 was built from a concatenation that was 36 bits wide, which shifted out the Fmt field. A CplD left the BAR completer looking like an MRd, and XSim gave no width warning. The independent host-side TLP decoder caught it, and all four encoders now use `{fmt,type,14'b0,length}`.
 - **Record coverage stuck at 96.875%.** Unsupported frames (IPv6, ARP, VLAN) reach a capture ring only through the default queue, and every test phase left it at queue 3, so rings 0 to 2 never returned an UNSUPPORTED completion record. A final phase (`phase_default_queue` in [`tb/host_software_pkg.sv`](tb/host_software_pkg.sv)) points the default queue at each of those rings in turn and sends one such frame. Its frames and descriptors are appended to the fixture after the existing ones, so the earlier stimulus is unchanged, and record coverage is now 100% in all six integrated runs.
+- **A four-entry array read with a 3-bit index.** Lint (`make lint`) flagged that `sg_transfer` reads its segment address and length arrays with an index that can count to 4. It is safe only because the descriptor validator guarantees a packet ends inside its listed segments, and nothing checked that. The scatter-gather bench and both integrated benches now fail if a chunk is ever planned with the index past the last segment; it has not fired. The other truncation warnings were each read and are listed with their reasons in [`scripts/lint_waivers.vlt`](scripts/lint_waivers.vlt).
 - **Coverage bins named with reserved words.** Bins called `small`, `medium` and `large` (plus identifiers `sequence` and `before`) are SystemVerilog keywords and broke compilation, so they were renamed.
 - **Replay monitor sampled too early.** The replay monitor read metadata on the same edge as TLAST, before the DUT's nonblocking update had landed. It now samples on the following falling edge.
 - The bundled UVM had no usable default timescale at elaboration, fixed with `xelab -timescale 1ns/1ps`.

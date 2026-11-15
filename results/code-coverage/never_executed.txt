@@ -1,0 +1,11 @@
+RTL lines that no bench executes (in the never-executed list of every one of the 18 reports whose design contains the module):
+rtl/capture_dma.sv:104: default:state<=IDLE;
+rtl/pcie_completer.sv:156: default:state<=S_H0;
+rtl/pcie_requester.sv:67: default:write_state<=W_IDLE;
+rtl/pcie_requester.sv:162: default:read_state<=R_IDLE;
+rtl/pcie_requester.sv:225: default:parse_state<=P_H0;
+rtl/replay_dma.sv:137: default:state<=IDLE;
+rtl/replay_policy.sv:49: default:state<=IDLE;
+rtl/replay_staging.sv:73: default:state<=IDLE;
+rtl/sg_transfer.sv:91: default: state<=IDLE;
+NEVER_EXECUTED lines=9

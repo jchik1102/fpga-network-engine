@@ -35,7 +35,7 @@ Built simulation snapshot sg_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Sat Oct 17 14:14:46 2026
+  **** Start of session at: Sat Nov 14 13:26:15 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -65,9 +65,9 @@ UVM-1.2
 
 UVM_INFO @ 0: reporter [RNTST] Running test sg_test...
 UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
-UVM_INFO C:/projects/fpga-network-engine/tb/sg_test.sv(88) @ 430560000: uvm_test_top [RESULT] SG_PASS cases=76 invalid=20 errors=4 checked_bytes=23328
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 430560000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 430560000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO C:/projects/fpga-network-engine/tb/sg_test.sv(114) @ 477160000: uvm_test_top [RESULT] SG_PASS cases=76 invalid=20 errors=4 checked_bytes=23328 aborted=10
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 477160000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 477160000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
@@ -83,9 +83,9 @@ UVM_FATAL :    0
 [UVM/RELNOTES]     1
 
 WARNING: The Functional Coverage Database has not been updated during simulation. Please recheck testbench to confirm that covergroups are being instantiated correctly and rerun simulation.
-$finish called at time : 430560 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+$finish called at time : 477160 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
 exit
-INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:14:49 2026...
+INFO: [Common 17-206] Exiting xsim at Sat Nov 14 13:26:18 2026...
 PASS: XSim log checked
 
  Options Set are : 
@@ -108,8 +108,8 @@ PASS: XSim log checked
 
  Code Coverage HTML Report directory              : code-coverage17/codeCoverageReport
 
- Line Coverage Score 92.3077
- Branch Coverage Score 67.2316
- Condition Coverage Score 70.8738
+ Line Coverage Score 93.3586
+ Branch Coverage Score 68.1319
+ Condition Coverage Score 74.7788
 
-CODE_COVERAGE sg_s17 statements=215/219 (98.17%) branches=70/81 (86.42%) conditions=87/110 (79.09%)
+CODE_COVERAGE sg_s17 statements=218/219 (99.54%) branches=72/81 (88.89%) conditions=95/110 (86.36%)

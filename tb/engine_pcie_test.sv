@@ -31,6 +31,40 @@ package engine_pcie_test_pkg;
      bit [1:0] response;port.write(address,value,15,response);
      if(response!=0) `uvm_fatal("PCIE_TEST",$sformatf("transport write %04x rejected",address))
    endtask
+   // Transport registers and unsupported requests that the traffic phases never
+   // touch. Runs last, after every other check, so nothing earlier changes.
+   task transport_corner_cases();
+     bit [31:0] v,sticky;bit [1:0] response;bit [31:0] none[$];bit [31:0] two[$];bit [7:0] tag;tlp_packet c;int waits=0;
+     // Counters: no late or unexpected completions in this run, one count per MSI the root complex saw.
+     port.read('h1020,v,response);if(response!=0 || v!=0) `uvm_fatal("PCIE_TEST",$sformatf("late/unexpected counters %08x",v))
+     port.read('h1024,v,response);if(response!=0 || v!=rc.msi) `uvm_fatal("PCIE_TEST",$sformatf("MSI counter %0d, root complex saw %0d",v,rc.msi))
+     port.read('h1028,v,response);if(response!=0 || v==0) `uvm_fatal("PCIE_TEST","request counter is zero")
+     port.read('h102c,v,response);if(response!=0 || v==0) `uvm_fatal("PCIE_TEST","accepted-completion counter is zero")
+     port.read('h1014,sticky,response);
+     if(sticky[7]) `uvm_fatal("PCIE_TEST","unsupported-request flag set before the unsupported requests")
+     // A write with two data words: the completer drains it, flags it and sends nothing back.
+     two.push_back(32'h11112222);two.push_back(32'h33334444);
+     rc.to_device.put(make_request(1,rc.bar0_base+'h1004,2,4'hf,4'hf,rc.root_id,8'h00,two));rc.bar_requests++;
+     port.read('h1014,sticky,response);
+     if(!sticky[7]) `uvm_fatal("PCIE_TEST","two-word write not flagged as unsupported")
+     port.read('h1004,v,response);if(v!={31'b0,four_tag}) `uvm_fatal("PCIE_TEST","unsupported write changed the four-tag register")
+     transport_write('h1018,32'h80);
+     port.read('h1014,sticky,response);if(sticky[7]) `uvm_fatal("PCIE_TEST","unsupported-request flag did not clear")
+     // A two-word read: answered with an Unsupported Request completion and no data.
+     tag=port.next_tag;port.next_tag=port.next_tag+1;
+     rc.to_device.put(make_request(0,rc.bar0_base+'h1000,2,4'hf,4'hf,rc.root_id,tag,none));rc.bar_requests++;
+     while(!rc.bar_completion.exists(tag)) begin @(posedge rc.tx.clk);waits++;if(waits>100000) `uvm_fatal("PCIE_TEST","no completion for the unsupported read") end
+     c=rc.bar_completion[tag];rc.bar_completion.delete(tag);
+     if(c.cpl_status()!=3'b001 || c.with_data()) `uvm_fatal("PCIE_TEST",{"unsupported read completion: ",c.describe()})
+     port.read('h1014,sticky,response);if(!sticky[7]) `uvm_fatal("PCIE_TEST","two-word read not flagged as unsupported")
+     transport_write('h1018,32'h80);
+     // Drain reset: refused unless the value is 1, accepted once the engine is stopped and idle.
+     port.write('h8,2,15,response);
+     while(side.quiescent!==1'b1) @(negedge side.clk);
+     port.write('h101c,2,15,response);if(response!=2) `uvm_fatal("PCIE_TEST","drain reset accepted a value other than 1")
+     transport_write('h101c,1);
+     port.read('h1000,v,response);if(response!=0 || v!='h50434931) `uvm_fatal("PCIE_TEST","transport ID after drain reset")
+   endtask
    task run_phase(uvm_phase phase);
      string fixture;bit [31:0] value;bit [1:0] response;
      phase.raise_objection(this);
@@ -60,6 +94,7 @@ package engine_pcie_test_pkg;
      port.read('h1030,value,response);
      if(four_tag && value<2) `uvm_fatal("PCIE_TEST","four-tag mode never overlapped requests")
      if(four_tag && rc.reordered==0) `uvm_fatal("PCIE_TEST","no cross-tag completion reordering observed")
+     begin bit [31:0] max_tags=value;transport_corner_cases();value=max_tags;end
      `uvm_info("RESULT",{"ENGINE_PCIE_PASS ",host.summary(),$sformatf(" aperture=%016x four_tag=%0d rcb=%0d device_max_tags=%0d ",rc.aperture_base,four_tag,rcb128?128:64,value),rc.summary()},UVM_LOW)
      phase.drop_objection(this);
    endtask
@@ -141,6 +176,13 @@ module engine_pcie_tb;
    run_test("engine_pcie_test");
  end
  initial begin #2000000000;$fatal(1,"WATCHDOG engine_pcie");end
+ // sg_transfer reads its four-entry segment arrays with a 3-bit index. The descriptor
+ // validator guarantees a packet ends within its listed segments, so the index must
+ // never be 4 while a chunk is being planned (state PLAN = 1).
+ always @(posedge clk) if(!rst) begin
+   if(dut.core.capture.scatter.state==4'd1 && dut.core.capture.scatter.index>3'd3) $fatal(1,"capture sg_transfer planned past its last segment");
+   if(dut.core.replay.gather.state==4'd1 && dut.core.replay.gather.index>3'd3) $fatal(1,"replay sg_transfer planned past its last segment");
+ end
  bit trace;initial trace=$test$plusargs("TLP_TRACE");
  always @(posedge clk) if(trace && !rst) begin
    if(rx.valid && rx.ready) $display("%0t RX %08x sop=%0d eop=%0d",$time,rx.data,rx.sop,rx.eop);

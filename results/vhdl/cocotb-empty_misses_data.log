@@ -30,7 +30,7 @@ elaborate stream_cdc_fifo
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:233  in gpi_load_users                  Running entry func 'initialize' from loaded library '/mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb/simulator.cpython-312-x86_64-linux-gnu.so'
      -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at /mnt/c/projects/fpga-network-engine/.venv/bin/python
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
-     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792275059
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1794697537
      0.00ns WARNING  gpi                                vpi_iterate returned NULL for type vpiInstance for object NULL
      0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.initialize                  Running on GHDL version 7.0.0-dev (6.0.0.r537.g1e3c5ab06.dirty) [Dunoon edition]
@@ -62,11 +62,11 @@ elaborate stream_cdc_fifo
 214015.50ns INFO     cocotb.regression                  **************************************************************************************
                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                                                         **************************************************************************************
-                                                        ** cdc_fifo_tests.similar_rates   FAIL       68275.00           0.16     414826.32  **
-                                                        ** cdc_fifo_tests.slow_reader     PASS       52201.00           0.12     441420.34  **
-                                                        ** cdc_fifo_tests.fast_reader     FAIL       93539.50           0.10     943537.20  **
+                                                        ** cdc_fifo_tests.similar_rates   FAIL       68275.00           0.19     363083.11  **
+                                                        ** cdc_fifo_tests.slow_reader     PASS       52201.00           0.13     398902.00  **
+                                                        ** cdc_fifo_tests.fast_reader     FAIL       93539.50           0.11     859826.93  **
                                                         **************************************************************************************
-                                                        ** TESTS=3 PASS=1 FAIL=2 SKIP=0             214015.50           0.39     546915.52  **
+                                                        ** TESTS=3 PASS=1 FAIL=2 SKIP=0             214015.50           0.45     472987.03  **
                                                         **************************************************************************************
 ../../src/ieee2008/numeric_std-body.vhdl:1793:7:@0ms:(assertion warning): NUMERIC_STD."=": metavalue detected, returning FALSE
 ../../src/ieee2008/numeric_std-body.vhdl:3053:7:@0ms:(assertion warning): NUMERIC_STD.TO_INTEGER: metavalue detected, returning 0
@@ -80,4 +80,4 @@ INFO     Ghdl:runner.py:734 Running command ghdl -r --work=top --std=08 stream_c
 ERROR    Ghdl:runner.py:674 ERROR: Failed 2 of 3 tests.
 =========================== short test summary info ============================
 FAILED tb/cocotb_vhdl/test_cocotb_vhdl.py::test_cdc_fifo_vhdl - SystemExit: 1
-1 failed in 5.34s
+1 failed in 8.84s

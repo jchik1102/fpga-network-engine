@@ -1,0 +1,54 @@
+// Lint waivers for rtl/ (read by scripts/lint.sh). Each entry was checked against the code; the
+// reason is given. scripts/lint.sh fails on any warning that is not listed here.
+`verilator_config
+
+// Zero-extension of a narrower operand in an add or compare. Widening cannot
+// lose bits.
+lint_off -rule WIDTHEXPAND -file "*rtl/capture_dma.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/capture_ingress.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/descriptor_validator.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/engine_control.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/packet_classifier.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/pcie_completer.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/pcie_requester.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/replay_dma.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/replay_staging.sv"
+lint_off -rule WIDTHEXPAND -file "*rtl/sg_transfer.sv"
+
+// Round-robin choice (rr+k)%4 assigned to a 2-bit register: the value is 0..3.
+lint_off -rule WIDTHTRUNC -file "*rtl/capture_dma.sv" -lines 34
+lint_off -rule WIDTHTRUNC -file "*rtl/replay_dma.sv" -lines 51
+lint_off -rule WIDTHTRUNC -file "*rtl/replay_dma.sv" -lines 53
+lint_off -rule WIDTHTRUNC -file "*rtl/replay_staging.sv" -lines 41
+
+// Beat counts from (bytes+7)>>3 with bytes <= 128 (bad_command rejects more):
+// at most 16, which fits the counters and AxLEN.
+lint_off -rule WIDTHTRUNC -file "*rtl/axi_burst_master.sv" -lines 47
+lint_off -rule WIDTHTRUNC -file "*rtl/axi_burst_master.sv" -lines 55
+
+// sg_transfer: lengths[index] and address[index] are four-entry arrays read with
+// a 3-bit index. The index is below 4 whenever a chunk is planned, because the
+// descriptor validator guarantees a packet ends within its listed segments; the
+// benches check this every cycle (the PLAN/index check in sg_tb, engine_axi_tb
+// and engine_pcie_tb).
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 29
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 31-32
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 86
+// Local word index (packet_offset>>2)+local_index: a packet fits the 512-word
+// local buffer. chunk_words = (amount+3)>>2 with amount <= 128 is at most 32.
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 37
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 40
+lint_off -rule WIDTHTRUNC -file "*rtl/sg_transfer.sv" -lines 59
+
+// pcie_requester. 39: write_beat minus the header length is a payload word
+// index below 32. 51, 82: (bytes+3)>>2 with bytes <= 128 is at most 32. 81: a
+// 64-bit host address plus a tag offset, carry out dropped as for any address.
+// 113: span is only used when length_ok (length_dw <= 32), where it fits 10
+// bits. 141, 143: a read of at most 128 bytes is at most 4 requests of at
+// most 32 bytes.
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 39
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 51
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 81-82
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 113
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 141
+lint_off -rule WIDTHTRUNC -file "*rtl/pcie_requester.sv" -lines 143

@@ -16,13 +16,13 @@ Info: Running Quartus Prime Shell
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Sat Oct 17 14:55:30 2026
+    Info: Processing started: Sat Nov 14 14:44:21 2026
 Info: Command: quartus_sh -t C:\projects\fpga-network-engine/constraints/engine.tcl engine_pcie_fit C:/projects/fpga-network-engine/rtl/packet_classifier.sv C:/projects/fpga-network-engine/rtl/capture_ingress.sv C:/projects/fpga-network-engine/rtl/descriptor_validator.sv C:/projects/fpga-network-engine/rtl/sg_transfer.sv C:/projects/fpga-network-engine/rtl/engine_control.sv C:/projects/fpga-network-engine/rtl/replay_policy.sv C:/projects/fpga-network-engine/rtl/replay_staging.sv C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv C:/projects/fpga-network-engine/rtl/capture_dma.sv C:/projects/fpga-network-engine/rtl/replay_dma.sv C:/projects/fpga-network-engine/rtl/engine_core.sv C:/projects/fpga-network-engine/rtl/axi_burst_master.sv C:/projects/fpga-network-engine/rtl/pcie_requester.sv C:/projects/fpga-network-engine/rtl/pcie_completer.sv C:/projects/fpga-network-engine/rtl/pcie_msi.sv C:/projects/fpga-network-engine/rtl/pcie_tx_arbiter.sv C:/projects/fpga-network-engine/rtl/engine_pcie.sv C:/projects/fpga-network-engine/constraints/engine_fit.sv
 Info: Quartus(args): engine_pcie_fit C:/projects/fpga-network-engine/rtl/packet_classifier.sv C:/projects/fpga-network-engine/rtl/capture_ingress.sv C:/projects/fpga-network-engine/rtl/descriptor_validator.sv C:/projects/fpga-network-engine/rtl/sg_transfer.sv C:/projects/fpga-network-engine/rtl/engine_control.sv C:/projects/fpga-network-engine/rtl/replay_policy.sv C:/projects/fpga-network-engine/rtl/replay_staging.sv C:/projects/fpga-network-engine/rtl/dma_command_arbiter.sv C:/projects/fpga-network-engine/rtl/capture_dma.sv C:/projects/fpga-network-engine/rtl/replay_dma.sv C:/projects/fpga-network-engine/rtl/engine_core.sv C:/projects/fpga-network-engine/rtl/axi_burst_master.sv C:/projects/fpga-network-engine/rtl/pcie_requester.sv C:/projects/fpga-network-engine/rtl/pcie_completer.sv C:/projects/fpga-network-engine/rtl/pcie_msi.sv C:/projects/fpga-network-engine/rtl/pcie_tx_arbiter.sv C:/projects/fpga-network-engine/rtl/engine_pcie.sv C:/projects/fpga-network-engine/constraints/engine_fit.sv
 Info (23030): Evaluation of Tcl script C:\projects\fpga-network-engine/constraints/engine.tcl was successful
 Info: Quartus Prime Shell was successful. 0 errors, 0 warnings
     Info: Peak virtual memory: 4719 megabytes
-    Info: Processing ended: Sat Oct 17 14:55:30 2026
+    Info: Processing ended: Sat Nov 14 14:44:21 2026
     Info: Elapsed time: 00:00:00
     Info: Total CPU time (on all processors): 00:00:00
 TBBmalloc: skip allocation functions replacement in ucrtbase.dll: unknown prologue for function _msize
@@ -43,7 +43,7 @@ Info: Running Quartus Prime Shell
     Info: Altera and sold by Altera or its authorized distributors.  Please
     Info: refer to the Altera Software License Subscription Agreements 
     Info: on the Quartus Prime software download page.
-    Info: Processing started: Sat Oct 17 14:55:31 2026
+    Info: Processing started: Sat Nov 14 14:44:21 2026
 Info: Command: quartus_sh --flow compile engine_pcie_fit
 Info: Quartus(args): compile engine_pcie_fit
 Info: Project Name = C:/projects/fpga-network-engine/build/fit/engine_pcie/engine_pcie_fit
@@ -51,7 +51,7 @@ Info: Revision Name = engine_pcie_fit
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Oct 17 14:55:31 2026
+    Info: Processing started: Sat Nov 14 14:44:22 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off engine_pcie_fit -c engine_pcie_fit
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
 Info (12021): Found 1 design units, including 1 entities, in source file /projects/fpga-network-engine/rtl/packet_classifier.sv
@@ -79,6 +79,7 @@ Info (12021): Found 2 design units, including 2 entities, in source file /projec
     Info (12023): Found entity 2: engine_axi File: C:/projects/fpga-network-engine/rtl/engine_core.sv Line: 112
 Info (12021): Found 1 design units, including 1 entities, in source file /projects/fpga-network-engine/rtl/axi_burst_master.sv
     Info (12023): Found entity 1: axi_burst_master File: C:/projects/fpga-network-engine/rtl/axi_burst_master.sv Line: 1
+Warning (10335): Unrecognized synthesis attribute "max_fanout" at ../../../rtl/pcie_requester.sv(101) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 101
 Info (12021): Found 1 design units, including 1 entities, in source file /projects/fpga-network-engine/rtl/pcie_requester.sv
     Info (12023): Found entity 1: pcie_requester File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file /projects/fpga-network-engine/rtl/pcie_completer.sv
@@ -305,15 +306,15 @@ Info (12128): Elaborating entity "dma_command_arbiter" for hierarchy "engine_pci
 Info (12128): Elaborating entity "pcie_requester" for hierarchy "engine_pcie:core|pcie_requester:requester" File: C:/projects/fpga-network-engine/rtl/engine_pcie.sv Line: 58
 Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(18): object "write_length_bytes" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 18
 Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(73): object "read_total" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 73
-Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(100): object "accept_data" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 100
-Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(101): object "is_cpl" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 101
-Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(101): object "is_cpld" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 101
+Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(103): object "accept_data" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 103
+Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(104): object "is_cpl" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 104
+Warning (10036): Verilog HDL or VHDL warning at pcie_requester.sv(104): object "is_cpld" assigned a value but never read File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 104
 Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(51): truncated value with size 9 to match size of target (6) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 51
 Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(81): truncated value with size 65 to match size of target (64) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 81
 Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(82): truncated value with size 9 to match size of target (6) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 82
-Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(110): truncated value with size 12 to match size of target (10) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 110
-Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(138): truncated value with size 9 to match size of target (3) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 138
-Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(140): truncated value with size 32 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 140
+Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(113): truncated value with size 12 to match size of target (10) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 113
+Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(141): truncated value with size 9 to match size of target (3) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 141
+Warning (10230): Verilog HDL assignment warning at pcie_requester.sv(143): truncated value with size 32 to match size of target (8) File: C:/projects/fpga-network-engine/rtl/pcie_requester.sv Line: 143
 Info (12128): Elaborating entity "pcie_msi" for hierarchy "engine_pcie:core|pcie_msi:msi" File: C:/projects/fpga-network-engine/rtl/engine_pcie.sv Line: 62
 Info (12128): Elaborating entity "pcie_completer" for hierarchy "engine_pcie:core|pcie_completer:completer" File: C:/projects/fpga-network-engine/rtl/engine_pcie.sv Line: 76
 Info (12128): Elaborating entity "pcie_tx_arbiter" for hierarchy "engine_pcie:core|pcie_tx_arbiter:arbiter" File: C:/projects/fpga-network-engine/rtl/engine_pcie.sv Line: 78
@@ -1159,15 +1160,15 @@ Info (21057): Implemented 34312 device resources after synthesis - the final res
     Info (21061): Implemented 34141 logic cells
     Info (21064): Implemented 160 RAM segments
     Info (21062): Implemented 10 DSP elements
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 448 warnings
-    Info: Peak virtual memory: 6931 megabytes
-    Info: Processing ended: Sat Oct 17 14:57:32 2026
-    Info: Elapsed time: 00:02:01
-    Info: Total CPU time (on all processors): 00:02:07
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 449 warnings
+    Info: Peak virtual memory: 6989 megabytes
+    Info: Processing ended: Sat Nov 14 14:49:42 2026
+    Info: Elapsed time: 00:05:20
+    Info: Total CPU time (on all processors): 00:05:05
 Info: *******************************************************************
 Info: Running Quartus Prime Fitter
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Oct 17 14:57:33 2026
+    Info: Processing started: Sat Nov 14 14:49:43 2026
 Info: Command: quartus_fit --read_settings_files=off --write_settings_files=off engine_pcie_fit -c engine_pcie_fit
 Info: qfit2_default_script.tcl version: #1
 Info: Project  = engine_pcie_fit
@@ -1223,13 +1224,13 @@ Info (176235): Finished register packing
     Extra Info (176218): Packed 32 registers into blocks of type Block RAM
     Extra Info (176218): Packed 54 registers into blocks of type Embedded multiplier block
     Extra Info (176220): Created 24 register duplicates
-Info (171121): Fitter preparation operations ending: elapsed time is 00:00:10
+Info (171121): Fitter preparation operations ending: elapsed time is 00:00:31
 Info (14896): Fitter has disabled Advanced Physical Optimization because it is not supported for the current family.
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:04
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:11
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:00:29
+Info (170192): Fitter placement operations ending: elapsed time is 00:01:41
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 30% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 96% of the available device resources in the region that extends from location X11_Y11 to location X21_Y21
@@ -1244,49 +1245,49 @@ Info (170134): Cannot fit design in device -- retrying with increased optimizati
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170201): Optimizations that may affect the design's routability were skipped
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:31
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:28
 Info (170197): The Fitter will not skip routability optimizations in all subsequent fit attempts
 Info (170189): Fitter placement preparation operations beginning
-Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:04
+Info (170190): Fitter placement preparation operations ending: elapsed time is 00:00:10
 Info (170191): Fitter placement operations beginning
 Info (170137): Fitter placement was successful
-Info (170192): Fitter placement operations ending: elapsed time is 00:02:34
+Info (170192): Fitter placement operations ending: elapsed time is 00:07:25
 Info (170193): Fitter routing operations beginning
 Info (170195): Router estimated average interconnect usage is 24% of the available device resources
     Info (170196): Router estimated peak interconnect usage is 78% of the available device resources in the region that extends from location X11_Y11 to location X21_Y21
 Info (170199): The Fitter performed an Auto Fit compilation.  Optimizations were skipped to reduce compilation time.
     Info (170200): Optimizations that may affect the design's timing were skipped
-Info (170194): Fitter routing operations ending: elapsed time is 00:00:35
-Info (11888): Total time spent on timing analysis during the Fitter is 20.68 seconds.
+Info (170194): Fitter routing operations ending: elapsed time is 00:01:40
+Info (11888): Total time spent on timing analysis during the Fitter is 69.14 seconds.
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
-Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:15
+Info (11218): Fitter post-fit operations ending: elapsed time is 00:00:35
 Warning (171167): Found invalid Fitter assignments. See the Ignored Assignments panel in the Fitter Compilation Report for more information.
 Info (144001): Generated suppressed messages file C:/projects/fpga-network-engine/build/fit/engine_pcie/output_files/engine_pcie_fit.fit.smsg
 Info: Quartus Prime Fitter was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 6203 megabytes
-    Info: Processing ended: Sat Oct 17 15:02:33 2026
-    Info: Elapsed time: 00:05:00
-    Info: Total CPU time (on all processors): 00:12:42
+    Info: Peak virtual memory: 6223 megabytes
+    Info: Processing ended: Sat Nov 14 15:04:12 2026
+    Info: Elapsed time: 00:14:29
+    Info: Total CPU time (on all processors): 00:31:11
 Info: *******************************************************************
 Info: Running Quartus Prime Assembler
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Oct 17 15:02:34 2026
+    Info: Processing started: Sat Nov 14 15:04:13 2026
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off engine_pcie_fit -c engine_pcie_fit
 Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Info: Quartus Prime Assembler was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4925 megabytes
-    Info: Processing ended: Sat Oct 17 15:02:37 2026
+    Info: Peak virtual memory: 4926 megabytes
+    Info: Processing ended: Sat Nov 14 15:04:16 2026
     Info: Elapsed time: 00:00:03
     Info: Total CPU time (on all processors): 00:00:03
 Info (293026): Skipped module Power Analyzer due to the assignment FLOW_ENABLE_POWER_ANALYZER
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
-    Info: Processing started: Sat Oct 17 15:02:37 2026
+    Info: Processing started: Sat Nov 14 15:04:17 2026
 Info: Command: quartus_sta engine_pcie_fit -c engine_pcie_fit
 Info: qsta_default_script.tcl version: #1
 Info (20032): Parallel compilation is enabled and will use up to 4 processors
@@ -1349,14 +1350,14 @@ Info (332146): Worst-case minimum pulse width slack is 9.406
 Info (332101): Design is fully constrained for setup requirements
 Info (332101): Design is fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 5212 megabytes
-    Info: Processing ended: Sat Oct 17 15:02:49 2026
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:27
-Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 454 warnings
+    Info: Peak virtual memory: 5215 megabytes
+    Info: Processing ended: Sat Nov 14 15:04:40 2026
+    Info: Elapsed time: 00:00:23
+    Info: Total CPU time (on all processors): 00:00:54
+Info (293000): Quartus Prime Full Compilation was successful. 0 errors, 455 warnings
 Info (23030): Evaluation of Tcl script c:/intelfpga_lite/24.1std/quartus/common/tcl/internal/qsh_flow.tcl was successful
-Info: Quartus Prime Shell was successful. 0 errors, 454 warnings
+Info: Quartus Prime Shell was successful. 0 errors, 455 warnings
     Info: Peak virtual memory: 4673 megabytes
-    Info: Processing ended: Sat Oct 17 15:02:49 2026
-    Info: Elapsed time: 00:07:18
-    Info: Total CPU time (on all processors): 00:22:04
+    Info: Processing ended: Sat Nov 14 15:04:40 2026
+    Info: Elapsed time: 00:20:19
+    Info: Total CPU time (on all processors): 00:00:01

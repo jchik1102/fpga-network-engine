@@ -9,8 +9,7 @@
 SHELL := /bin/bash
 .SHELLFLAGS := -o pipefail -c
 
-PWSH_FALLBACK := /mnt/c/Users/jonat/.cache/codex-runtimes/codex-primary-runtime/dependencies/native/powershell/pwsh.exe
-PWSH ?= $(or $(shell command -v pwsh.exe 2>/dev/null),$(PWSH_FALLBACK))
+PWSH ?= $(or $(shell command -v pwsh.exe 2>/dev/null),pwsh.exe)
 PS := "$(PWSH)" -NoProfile -File
 SEEDS ?= 17,29
 RESULTS := results
@@ -20,7 +19,7 @@ RESULTS := results
 require = grep -qE '$(1)' $(2) || { echo "FAIL: '$(1)' not found in $(2)"; exit 1; }
 LOG = 2>&1 | tee $(RESULTS)/$@.log
 
-.PHONY: help models test test-quick fpga fpga-cdc vivado vivado-vhdl results formal cocotb vhdl questa results-dir
+.PHONY: help models test test-quick fpga fpga-cdc vivado vivado-vhdl results formal lint cocotb vhdl questa results-dir
 
 help:
 	@echo "make models      Python model tests (WSL only, seconds)"
@@ -95,6 +94,11 @@ results:
 # stream_cdc_fifo proof on 4 FIFO mutants (each must fail), then the
 # equivalence check of engine_control against its pre-timing-fix version.
 # Needs OSS CAD Suite on PATH (yosys with the slang plugin, sby, solvers).
+# Verilator lint of the RTL; every accepted warning is listed with its reason in
+# scripts/lint_waivers.vlt.
+lint:
+	bash scripts/lint.sh
+
 formal: | results-dir
 	bash scripts/run-formal.sh
 	bash scripts/formal-cdc-mutants.sh

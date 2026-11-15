@@ -83,6 +83,42 @@ package control_test_pkg;
      expect_true(bus.bvalid && bus.bresp==0 && waits==1,"racing write accepted at the documented latency");
      @(negedge bus.clk);bus.bready=0;
    endtask
+   // Configuration registers: every one is written and read back, and the value
+   // limits are checked. Runs after the ring tests with the engine stopped and
+   // quiescent, so nothing earlier in the test changes.
+   task config_registers();
+     bit [31:0] v;
+     read_word('h4,1);read_word('h20,511);write_word('h20,'h155);read_word('h20,'h155);write_word('h20,511);
+     write_word('h100,1);read_word('h100,1);write_word('h100,0);read_word('h100,0);
+     for(int d=0;d<8;d++) begin write_word('h104,d);read_word('h104,d);end
+     write_word('h104,3);
+     for(int i=0;i<6;i++) begin v=32'ha5a50000+32'(i)*32'h01010101;write_word('h108+i*4,v);read_word('h108+i*4,v);end
+     for(int i=0;i<6;i++) begin v=~(32'ha5a50000+32'(i)*32'h01010101);write_word('h108+i*4,v);read_word('h108+i*4,v);end
+     // Loss threshold is 33 bits and may not exceed 2^32.
+     write_word('h128,0);write_word('h124,32'hdeadbeef);read_word('h124,32'hdeadbeef);read_word('h128,0);
+     write_word('h128,1,15,2);write_word('h128,2,15,2);write_word('h124,0);write_word('h128,1);read_word('h128,1);
+     write_word('h124,1,15,2);read_word('h124,0);write_word('h128,0);write_word('h124,123);read_word('h124,123);
+     for(int q=0;q<4;q++) begin
+       v=32'h0d000000+32'(q);write_word('h140+q*8,v);write_word('h144+q*8,~v);read_word('h140+q*8,v);read_word('h144+q*8,~v);
+     end
+     for(int r=0;r<8;r++) begin
+       write_word('h200+r*32,(r*5+3)%32);read_word('h200+r*32,(r*5+3)%32);write_word('h200+r*32,32+r,15,2);read_word('h200+r*32,(r*5+3)%32);
+       for(int f=1;f<6;f++) begin v=32'hc0000000+32'(r)*32'h10000+32'(f)*32'h101;write_word('h200+r*32+f*4,v);read_word('h200+r*32+f*4,v);end
+     end
+     // Completion-ring base: the reset value is legal on an empty ring, and an
+     // unaligned or out-of-window base is rejected.
+     for(int r=3;r<8;r++) begin
+       write_word(rb(r)+4,'h14000+r*2048);read_word(rb(r)+4,'h14000+r*2048);
+       write_word(rb(r)+4,'h14001+r*2048,15,2);write_word(rb(r)+4,'h40000,15,2);read_word(rb(r)+4,'h14000+r*2048);
+     end
+     // Neither base nor the counter origin may change while a ring holds descriptors.
+     publish(4,1);
+     write_word(rb(4),'h10000+4*2048,15,2);write_word(rb(4)+4,'h14000+4*2048,15,2);write_word(rb(4)+32,8,15,2);
+     write_word(rb(4)+32,8,3,2);ledger_check();
+     claim_one(4);complete_one(4);
+     write_word(rb(4)+32,8,15,2);
+     acknowledge(4,1);write_word(rb(4)+32,0);published[4]=0;consumed[4]=0;completed[4]=0;acknowledged[4]=0;ledger_check();
+   endtask
    task run_phase(uvm_phase phase);
      uvm_status_e status;uvm_reg_data_t value;bit [31:0] merged;
      phase.raise_objection(this);wait(!control.rst);
@@ -140,6 +176,7 @@ package control_test_pkg;
      control.abort_done=1;repeat(3) @(negedge control.clk);expect_true(control.epoch==0 && control.aborting,"no epoch advance before quiescence");
      control.quiescent=1;@(negedge control.clk);control.abort_done=0;active[2]=0;
      read_word('h10,1);read_word('hc,2);ledger_check();recover(1);recover(2);
+     config_registers();
      `uvm_info("RESULT",$sformatf("CONTROL_PASS checks=%0d claims=%0d commits=%0d rejected=%0d ring_coverage=%0f bus_coverage=%0f",checks,claims,commits,rejected,ring_coverage.get_inst_coverage(),host.monitor.bus_coverage.get_inst_coverage()),UVM_LOW)
      phase.drop_objection(this);
    endtask

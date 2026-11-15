@@ -28,7 +28,7 @@ tb/cocotb/test_cocotb.py:47: SystemExit
      -.--ns INFO     pygpi                              ..ib/pygpi/embed.cpp:114  in initialize                      Using Python 3.12.12 interpreter at .venv/bin/python
      -.--ns ERROR    pygpi                              ..ib/pygpi/embed.cpp:168  in initialize                      Unexpected sys.executable value (expected '.venv/bin/python', got '/home/jonat/oss-cad-suite/bin/tabbypy3')
      -.--ns INFO     gpi                                ../gpi/GpiCommon.cpp:74   in gpi_print_registered_impl       GPI: VPI support registered
-     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1792274708
+     0.00ns INFO     cocotb.initialize                  Seeding Python random module with 1794694037
      0.00ns INFO     cocotb.initialize                  Initialized cocotb v2.1.0 from /mnt/c/projects/fpga-network-engine/.venv/lib/python3.12/site-packages/cocotb
      0.00ns INFO     cocotb.initialize                  Running on Icarus Verilog version 14.0 (devel)
      0.00ns INFO     cocotb.regression                  Running tests
@@ -47,11 +47,11 @@ tb/cocotb/test_cocotb.py:47: SystemExit
 60000000.00ns INFO     cocotb.regression                  **************************************************************************************
                                                         ** TEST                          STATUS  SIM TIME (ns)  REAL TIME (s)  RATIO (ns/s) **
                                                         **************************************************************************************
-                                                        ** cdc_fifo_tests.similar_rates   FAIL    20000000.00          63.71     313931.41  **
-                                                        ** cdc_fifo_tests.slow_reader     FAIL    20000000.00          50.07     399470.54  **
-                                                        ** cdc_fifo_tests.fast_reader     FAIL    20000000.00          96.51     207225.67  **
+                                                        ** cdc_fifo_tests.similar_rates   FAIL    20000000.00          72.90     274359.28  **
+                                                        ** cdc_fifo_tests.slow_reader     FAIL    20000000.00          57.52     347680.77  **
+                                                        ** cdc_fifo_tests.fast_reader     FAIL    20000000.00         107.77     185579.20  **
                                                         **************************************************************************************
-                                                        ** TESTS=3 PASS=0 FAIL=3 SKIP=0           60000000.00         210.29     285321.52  **
+                                                        ** TESTS=3 PASS=0 FAIL=3 SKIP=0           60000000.00         238.19     251895.68  **
                                                         **************************************************************************************
 ------------------------------ Captured log call -------------------------------
 INFO     Icarus:runner.py:734 Running command iverilog -o /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/sim.vvp -s stream_cdc_fifo -g2012 -g2012 -f /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/cmds.f /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo/stream_cdc_fifo_mutant.sv in directory /mnt/c/projects/fpga-network-engine/tb/cocotb/sim_build/stream_cdc_fifo
@@ -59,4 +59,4 @@ INFO     Icarus:runner.py:734 Running command vvp -m /mnt/c/projects/fpga-networ
 ERROR    Icarus:runner.py:674 ERROR: Failed 3 of 3 tests.
 =========================== short test summary info ============================
 FAILED tb/cocotb/test_cocotb.py::test_cdc_fifo - SystemExit: 1
-1 failed in 213.53s (0:03:33)
+1 failed in 243.39s (0:04:03)

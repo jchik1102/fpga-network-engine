@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 interface sg_test_if(input logic clk);
- logic rst=1,start=0,to_host=0,ready,done;
+ logic rst=1,start=0,to_host=0,abort=0,ready,done;
  logic [1:0] status;
  logic [511:0] descriptor=0;
  logic replay=0,descriptor_valid;
@@ -24,7 +24,7 @@ package sg_test_pkg;
    `uvm_component_utils(sg_test)
    virtual sg_test_if command;
    memory_state memory;axi_memory_agent host;
-   int cases_checked=0,bytes_checked=0,invalid_cases=0,error_cases=0;
+   int cases_checked=0,bytes_checked=0,invalid_cases=0,error_cases=0,aborted=0;
    function new(string name,uvm_component parent);super.new(name,parent);endfunction
    function void build_phase(uvm_phase phase);
      if(!uvm_config_db#(virtual sg_test_if)::get(this,"","command",command)) `uvm_fatal("CONFIG","sg control")
@@ -36,6 +36,7 @@ package sg_test_pkg;
    task run_phase(uvm_phase phase);
      int fd,count,rc,replay,length,expected_valid,error,n,offset,total;
      int expected_address[0:3],expected_length[0:3];bit [7:0] raw[0:63];
+     bit [7:0] last_raw[0:63];int last_replay,last_length,waited;bit have_last=0;
      phase.raise_objection(this);wait(!command.rst);
      fd=$fopen("dma.txt","r");if(!fd) `uvm_fatal("FIXTURE","dma file")
      rc=$fscanf(fd,"%d",count);expect_true(rc==1,"case count");
@@ -65,6 +66,7 @@ package sg_test_pkg;
          expect_true(command.status==error,"SG error status");
          if(error) error_cases++;
          else begin
+           last_raw=raw;last_replay=replay;last_length=length;have_last=1;
            if(replay) begin
              for(int b=0;b<length;b++) begin expect_true(command.local_mem[b/4][(b%4)*8 +:8]==pattern(b,c),$sformatf("gathered byte case=%0d byte=%0d",c,b));bytes_checked++;end
              expect_true(command.local_mem[length/4][(length%4)*8 +:8]==8'ha5,"local guard");
@@ -85,7 +87,31 @@ package sg_test_pkg;
        cases_checked++;
      end
      $fclose(fd);
-     `uvm_info("RESULT",$sformatf("SG_PASS cases=%0d invalid=%0d errors=%0d checked_bytes=%0d",cases_checked,invalid_cases,error_cases,bytes_checked),UVM_LOW)
+     // Abort during a transfer, at a range of delays after the start: the transfer must
+     // end with status 1 and return to idle. Then the same transfer, not aborted, must
+     // complete normally. Uses the last error-free case of the fixture.
+     expect_true(have_last,"no error-free case to abort");
+     memory.read_error_enable=0;memory.write_error_enable=0;
+     for(int d=1;d<=41;d+=4) begin
+       @(negedge command.clk);command.replay=last_replay;command.to_host=!last_replay;command.packet_length=last_length;
+       for(int b=0;b<64;b++) command.descriptor[b*8 +:8]=last_raw[b];
+       @(negedge command.clk);expect_true(command.descriptor_valid && command.ready,"abort case ready");
+       command.start=(d!=41);@(negedge command.clk);command.start=0;
+       if(d==41) begin
+         @(negedge command.clk);command.start=1;@(negedge command.clk);command.start=0;
+         while(!command.done) @(negedge command.clk);
+         expect_true(command.status==0,"transfer after aborts completes");
+       end else begin
+         waited=0;while(!command.done && waited<d) begin @(negedge command.clk);waited++;end
+         if(!command.done) begin
+           command.abort=1;@(negedge command.clk);command.abort=0;
+           while(!command.done) @(negedge command.clk);
+           expect_true(command.status==1,"aborted transfer status");aborted++;
+         end
+       end
+     end
+     expect_true(aborted>0,"no transfer was aborted");
+     `uvm_info("RESULT",$sformatf("SG_PASS cases=%0d invalid=%0d errors=%0d checked_bytes=%0d aborted=%0d",cases_checked,invalid_cases,error_cases,bytes_checked,aborted),UVM_LOW)
      phase.drop_objection(this);
    endtask
  endclass
@@ -104,7 +130,7 @@ module sg_tb;
  sg_transfer transfer(clk,command.rst,command.start,command.ready,command.to_host,command.packet_length,command.segment_count,command.addresses,command.lengths,
    command.done,command.status,command.local_read_word,command.local_read_data,
    command.local_write_valid,command.local_write_word,command.local_write_data,command.local_write_keep,
-   rd_valid,rd_ready,rd_address,rd_bytes,rd_done,rd_status,rd_data,wr_valid,wr_ready,wr_address,wr_bytes,wr_data,wr_done,wr_status,1'b0);
+   rd_valid,rd_ready,rd_address,rd_bytes,rd_done,rd_status,rd_data,wr_valid,wr_ready,wr_address,wr_bytes,wr_data,wr_done,wr_status,command.abort);
  axi_burst_master master(clk,command.rst,rd_valid,rd_ready,rd_address,rd_bytes,rd_done,rd_status,rd_data,
    wr_valid,wr_ready,wr_address,wr_bytes,wr_data,wr_done,wr_status,
    bus.awaddr,bus.awlen,bus.awsize,bus.awburst,bus.awvalid,bus.awready,bus.wdata,bus.wstrb,bus.wlast,bus.wvalid,bus.wready,bus.bresp,bus.bvalid,bus.bready,
@@ -116,4 +142,8 @@ module sg_tb;
    run_test("sg_test");
  end
  initial begin #20000000;$fatal(1,"WATCHDOG SG");end
+ // sg_transfer reads its four-entry segment arrays with a 3-bit index. The descriptor
+ // validator guarantees a packet ends within its listed segments, so the index must
+ // never be 4 while a chunk is being planned (state PLAN = 1).
+ always @(posedge clk) if(!command.rst && transfer.state==4'd1 && transfer.index>3'd3) $fatal(1,"sg_transfer planned past its last segment");
 endmodule

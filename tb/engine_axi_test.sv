@@ -95,6 +95,13 @@ module engine_axi_tb;
    run_test("engine_axi_test");
  end
  initial begin #1000000000;$fatal(1,"WATCHDOG engine_axi");end
+ // sg_transfer reads its four-entry segment arrays with a 3-bit index. The descriptor
+ // validator guarantees a packet ends within its listed segments, so the index must
+ // never be 4 while a chunk is being planned (state PLAN = 1).
+ always @(posedge clk) if(!rst) begin
+   if(dut.core.capture.scatter.state==4'd1 && dut.core.capture.scatter.index>3'd3) $fatal(1,"capture sg_transfer planned past its last segment");
+   if(dut.core.replay.gather.state==4'd1 && dut.core.replay.gather.index>3'd3) $fatal(1,"replay sg_transfer planned past its last segment");
+ end
  assert property(@(posedge clk) disable iff(rst) mem.awvalid && !mem.awready |=> mem.awvalid && $stable({mem.awaddr,mem.awlen})) else $fatal(1,"AW stability");
  assert property(@(posedge clk) disable iff(rst) mem.wvalid && !mem.wready |=> mem.wvalid && $stable({mem.wdata,mem.wstrb,mem.wlast})) else $fatal(1,"W stability");
  assert property(@(posedge clk) disable iff(rst) mem.arvalid && !mem.arready |=> mem.arvalid && $stable({mem.araddr,mem.arlen})) else $fatal(1,"AR stability");

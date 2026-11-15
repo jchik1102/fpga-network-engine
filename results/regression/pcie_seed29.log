@@ -38,7 +38,7 @@ Built simulation snapshot pcie_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Sat Oct 17 14:31:29 2026
+  **** Start of session at: Sat Nov 14 13:48:12 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -68,9 +68,9 @@ UVM-1.2
 
 UVM_INFO @ 0: reporter [RNTST] Running test pcie_test...
 UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(20867) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled
-UVM_INFO C:/projects/fpga-network-engine/tb/pcie_test.sv(170) @ 12074980000: uvm_test_top [RESULT] PCIE_REQUESTER_PASS reads=783 writes=723 bytes_checked=90208 negative=30 checks=246859 unexpected=6 late=5 malformed=8 poisoned=2 timeouts=4 coverage=100.000000 mwr=720 mrd=1372 msi=0 device_cpl=1529 bar_requests=0 bar_cpl=0 header_dw=7271 payload_dw=12492 splits=159 reordered=358 max_outstanding_tags=4 visibility_max=290 visibility_mean=149
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 12074980000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 12074980000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO C:/projects/fpga-network-engine/tb/pcie_test.sv(171) @ 13490380000: uvm_test_top [RESULT] PCIE_REQUESTER_PASS reads=789 writes=723 bytes_checked=90208 negative=32 checks=317024 unexpected=6 late=7 malformed=10 poisoned=2 timeouts=4 coverage=100.000000 mwr=720 mrd=1380 msi=0 device_cpl=1540 bar_requests=0 bar_cpl=0 header_dw=7295 payload_dw=12492 splits=162 reordered=357 max_outstanding_tags=4 visibility_max=290 visibility_mean=149
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 13490380000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 13490380000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
@@ -85,9 +85,9 @@ UVM_FATAL :    0
 [UVM/COMP/NAMECHECK]     1
 [UVM/RELNOTES]     1
 
-$finish called at time : 12074980 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+$finish called at time : 13490380 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
 exit
-INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:31:34 2026...
+INFO: [Common 17-206] Exiting xsim at Sat Nov 14 13:48:19 2026...
 PASS: XSim log checked
 
  Options Set are : 
@@ -140,8 +140,8 @@ PASS: XSim log checked
 
  Code Coverage HTML Report directory              : code-coverage29/codeCoverageReport
 
- Line Coverage Score 44.6937
- Branch Coverage Score 39.4973
- Condition Coverage Score 45.2564
+ Line Coverage Score 44.1129
+ Branch Coverage Score 39.6092
+ Condition Coverage Score 44.5274
 
-CODE_COVERAGE pcie_s29 statements=290/298 (97.32%) branches=116/128 (90.62%) conditions=177/202 (87.62%)
+CODE_COVERAGE pcie_s29 statements=295/298 (98.99%) branches=117/128 (91.41%) conditions=178/202 (88.12%)

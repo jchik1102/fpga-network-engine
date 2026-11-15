@@ -72,7 +72,7 @@ Built simulation snapshot engine_axi_tb
   **** SW Build 6299465 on Fri Nov 14 19:35:11 GMT 2025
   **** IP Build 6300035 on Fri Nov 14 10:48:45 MST 2025
   **** SharedData Build 6298862 on Thu Nov 13 04:50:51 MST 2025
-  **** Start of session at: Sat Oct 17 14:32:58 2026
+  **** Start of session at: Sat Nov 14 13:51:31 2026
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
@@ -108,31 +108,32 @@ UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(401) @ 33124800
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(401) @ 5078920000: reporter [HOST] AXI replay round 1 (   fixed): outputs=39 lost=13 max_lateness=8707
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(449) @ 6248620000: reporter [HOST] AXI abort: 9 records committed during abort phase, 11 invalidated, epoch 1
 UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(481) @ 6351440000: reporter [HOST] AXI fault/recovery: halted ring recovered, epoch 2, 3 post-recovery records
-UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(522) @ 7655500000: reporter [HOST] AXI throughput workload: 16 x 1514-byte capture and replay complete
-UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(537) @ 7685380000: reporter [HOST] AXI default-queue phase: unsupported frames captured on queues 0-2
-UVM_INFO C:/projects/fpga-network-engine/tb/engine_axi_test.sv(62) @ 7746570000: uvm_test_top [RESULT] ENGINE_AXI_PASS records=160 ok=134 unsupported=9 lost=13 bad_desc=2 read_error=1 write_error=1 outputs=57 checked_bytes=102951 guards=8099 invalidated=11 max_lateness=24225 mean_lateness=4241 checks=151880 coverage=100.000000 read_beats=6854 write_beats=8592 useful_write_bytes=68401
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 7746570000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 7746570000: reporter [UVM/REPORT/SERVER] 
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(523) @ 7655500000: reporter [HOST] AXI throughput workload: 16 x 1514-byte capture and replay complete
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(566) @ 7685380000: reporter [HOST] AXI default-queue phase: unsupported frames captured on queues 0-2
+UVM_INFO C:/projects/fpga-network-engine/tb/host_software_pkg.sv(555) @ 7702740000: reporter [HOST] AXI replay fault: unreadable descriptor halted ring 4, recovered at epoch 3
+UVM_INFO C:/projects/fpga-network-engine/tb/engine_axi_test.sv(62) @ 7764170000: uvm_test_top [RESULT] ENGINE_AXI_PASS records=160 ok=134 unsupported=9 lost=13 bad_desc=2 read_error=1 write_error=1 outputs=57 checked_bytes=102951 guards=8099 invalidated=11 max_lateness=24225 mean_lateness=4241 checks=151971 coverage=100.000000 read_beats=6862 write_beats=8592 useful_write_bytes=68401
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(19968) @ 7764170000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO C:AMDDesignToo  é5.2Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv(13673) @ 7764170000: reporter [UVM/REPORT/SERVER] 
 --- UVM Report Summary ---
 
 ** Report counts by severity
-UVM_INFO :   13
+UVM_INFO :   14
 UVM_WARNING :    0
 UVM_ERROR :    0
 UVM_FATAL :    0
 ** Report counts by id
-[HOST]     8
+[HOST]     9
 [RESULT]     1
 [RNTST]     1
 [TEST_DONE]     1
 [UVM/COMP/NAMECHECK]     1
 [UVM/RELNOTES]     1
 
-$finish called at time : 7746570 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
-run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:16 . Memory (MB): peak = 208.031 ; gain = 0.000
+$finish called at time : 7764170 ns : File "C:\AMDDesignTools\2025.2\Vivado/data/system_verilog/uvm_1.2/xlnx_uvm_package.sv" Line 18699
+run: Time (s): cpu = 00:00:00 ; elapsed = 00:00:37 . Memory (MB): peak = 208.910 ; gain = 0.000
 exit
-INFO: xsimkernel Simulation Memory Usage: 227840 KB (Peak: 227840 KB), Simulation CPU Usage: 15781 ms
-INFO: [Common 17-206] Exiting xsim at Sat Oct 17 14:33:16 2026...
+INFO: xsimkernel Simulation Memory Usage: 228152 KB (Peak: 228152 KB), Simulation CPU Usage: 34109 ms
+INFO: [Common 17-206] Exiting xsim at Sat Nov 14 13:52:10 2026...
 PASS: XSim log checked
 
  Options Set are : 
@@ -185,8 +186,8 @@ PASS: XSim log checked
 
  Code Coverage HTML Report directory              : code-coverage29/codeCoverageReport
 
- Line Coverage Score 92.4847
- Branch Coverage Score 69.3079
- Condition Coverage Score 72.5455
+ Line Coverage Score 92.7208
+ Branch Coverage Score 69.5825
+ Condition Coverage Score 72.5177
 
-CODE_COVERAGE engine_axi_s29 statements=1277/1316 (97.04%) branches=484/589 (82.17%) conditions=528/670 (78.81%)
+CODE_COVERAGE engine_axi_s29 statements=1280/1316 (97.26%) branches=488/589 (82.85%) conditions=531/670 (79.25%)

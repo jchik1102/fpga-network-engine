@@ -135,6 +135,7 @@ package pcie_test_pkg;
      expect_true(status==3 && cmd.timeouts==u+1 && cmd.quarantined!=0,"late completion read times out first");
      wait_host_idle();expect_true(cmd.late>l,"late completion after timeout counted");
      sample(128,4);drain_reset();
+     u=cmd.malformed;injected_read(INJ_SHORT_DATA,2,3,1);expect_true(cmd.malformed>u,"truncated payload malformed");
    endtask
    task translation_cases();
      byte unsigned data[],d8[];bit [1:0] status;int prior;

@@ -1,118 +1,129 @@
-SBY 20:06:13 [stream_cdc_fifo_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove'.
-SBY 20:06:13 [stream_cdc_fifo_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/stream_cdc_fifo.sv' to '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove/src/stream_cdc_fifo.sv'.
-SBY 20:06:13 [stream_cdc_fifo_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove/src/stream_cdc_fifo_formal.sv'.
-SBY 20:06:13 [stream_cdc_fifo_prove] engine_0: abc pdr
-SBY 20:06:14 [stream_cdc_fifo_prove] base: starting process "cd stream_cdc_fifo_prove/src; yosys -ql ../model/design.log ../model/design.ys"
-SBY 20:06:14 [stream_cdc_fifo_prove] base: finished (returncode=0)
-SBY 20:06:14 [stream_cdc_fifo_prove] prep: starting process "cd stream_cdc_fifo_prove/model; yosys -ql design_prep.log design_prep.ys"
-SBY 20:06:14 [stream_cdc_fifo_prove] prep: finished (returncode=0)
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: starting process "cd stream_cdc_fifo_prove/model; yosys -ql design_aiger.log design_aiger.ys"
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_valid like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_rst like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [0] like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [1] like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [2] like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [3] like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_clk like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_rst like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_ready like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_clk like $anyseq.
-SBY 20:06:14 [stream_cdc_fifo_prove] aig: Warning: Treating a total of 10 undriven bits in stream_cdc_fifo_formal like $anyseq.
-SBY 20:06:15 [stream_cdc_fifo_prove] aig: finished (returncode=0)
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: starting process "cd stream_cdc_fifo_prove; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: Warning: The last 6 outputs are interpreted as constraints.
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 319. MonoCNF = no. SkipGen = no. SolveAll = no.
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: Frame Clauses                                                     Max Queue Flops Time
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 1 : 0 45                                                                1    46      0.01 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 2 : 0 25 74 ~12                                                          1    74      0.02 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 3 : 0 27 62 246 ~14                                                      5    99      0.09 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 4 : 0 27 33 200 151 ~21                                                  2    99      0.14 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 5 : 0 27 33 200 95 185 ~25                                               3    99      0.19 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 6 : 0 27 33 200 91 115 145 ~43                                           3    99      0.24 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 7 : 0 27 33 200 91 92 46 181 ~49                                         1    99      0.30 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 8 : 0 27 33 200 91 90 46 79 198 ~49                                      1   100      0.35 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 9 : 0 27 33 200 91 90 46 77 70 236 ~56                                   2   101      0.42 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 10 : 0 27 33 200 91 90 46 77 70 123 286 ~60                               3   101      0.51 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 11 : 0 27 33 200 91 90 46 77 70 117 82 319 ~86                            3   101      0.61 sec  T/O =  0  PRV =  0
-SBY 20:06:15 [stream_cdc_fifo_prove] engine_0: 12 : 0 27 33 200 91 89 46 77 70 117 79 40 323 ~92                         1   101      0.67 sec  T/O =  0  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 46 77 70 117 79 40 48 360 ~94                      1   101      0.75 sec  T/O =  0  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 14 : 0 27 33 200 91 89 46 77 70 117 79 40 48 103 363 ~106                 1   101      0.84 sec  T/O =  0  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 15 : 0 27 33 200 91 89 46 77 70 117 79 40 48 103 69 442 ~108              2   101      0.96 sec  T/O =  0  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 16 : 0 27 33 200 91 89 46 77 70 117 79 40 48 103 63 111 328 ~117          1   101      1.03 sec  T/O =  0  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: Timing out on output  0 in frame 16 (retrying in next anytime pass).
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 16 : 0 27 33 200 91 89 46 77 70 117 79 40 48 103 63 111 439 ~117          1   101      1.08 sec  T/O =  1  PRV =  0
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: Proved output 8 in frame 16.
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 17 : ... 33 200 91 89 46 77 70 117 79 40 48 103 63 111 69 441 ~129        1   101      1.18 sec  T/O =  1  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: Timing out on output  6 in frame 17 (retrying in next anytime pass).
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 17 : ... 33 200 91 89 46 77 70 117 79 40 48 103 63 111 69 454 ~129        1   101      1.19 sec  T/O =  2  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 18 : ... 200 91 89 46 77 70 117 79 40 48 103 63 111 69 148 362 ~129       1   101      1.28 sec  T/O =  2  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 19 : ... 91 89 46 77 70 117 79 40 48 103 63 111 69 148 87 368 ~133        1   101      1.39 sec  T/O =  2  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 20 : ... 89 46 77 70 117 79 40 48 103 63 111 69 148 87 67 411 ~137        2   101      1.50 sec  T/O =  2  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: 21 : ... 46 77 70 117 79 40 48 103 63 111 69 148 87 61 48 425 ~142        1   101      1.61 sec  T/O =  2  PRV =  1
-SBY 20:06:16 [stream_cdc_fifo_prove] engine_0: Proved output 3 in frame 21.
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 22 : ... 77 70 117 79 40 48 103 63 111 69 148 87 61 48 87 416 ~151        2   101      1.73 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 23 : ... 70 117 79 40 48 103 63 111 69 148 87 61 48 61 46 451 ~154        2   101      1.86 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 24 : ... 117 79 40 48 103 63 111 69 148 87 61 48 61 45 97 479 ~158        2   101      2.02 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 25 : ... 79 40 48 103 63 111 69 148 87 61 48 61 45 74 86 508 ~162         2   101      2.16 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 26 : ... 79 40 48 103 63 111 69 148 87 61 48 61 45 74 70 68 498 ~171      1   101      2.31 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 27 : ... 40 48 103 63 111 69 148 87 61 48 61 45 74 70 68 23 506 ~171      1   101      2.44 sec  T/O =  2  PRV =  2
-SBY 20:06:17 [stream_cdc_fifo_prove] engine_0: 28 : ... 48 103 63 111 69 148 87 61 48 61 45 74 70 68 23 17 524 ~171      1   101      2.58 sec  T/O =  2  PRV =  2
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 29 : ... 103 63 111 69 148 87 61 48 61 45 74 70 68 23 17 5 531 ~171       1   101      2.72 sec  T/O =  2  PRV =  2
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 1 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 2 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 4 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 5 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 9 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 10 in frame 29.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 30 : ... 103 63 111 69 148 87 61 48 61 45 74 70 68 23 17 5 2 26 ~678      1   101      2.85 sec  T/O =  2  PRV =  8
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Proved output 7 in frame 30.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 31 : ... 69 148 87 61 48 61 45 74 70 68 23 17 5 2 0 -4 ~665       0   101      2.93 sec  T/O =  2  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Starting new anytime pass, reusing clauses.
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: Frame Clauses                                                     Max Queue Flops Time
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 1 : 0 1967 ~664                                                          0     0      0.20 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 2 : 0 27 1940 ~664                                                       0     0      0.20 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 3 : 0 27 33 1907 ~664                                                    0     0      0.21 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 4 : 0 27 33 200 1707 ~664                                                0     0      0.23 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 5 : 0 27 33 200 91 1616 ~664                                             0     0      0.24 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 6 : 0 27 33 200 91 89 1527 ~664                                          0     0      0.26 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 7 : 0 27 33 200 91 89 45 1482 ~664                                       0     0      0.28 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 8 : 0 27 33 200 91 89 45 77 1405 ~664                                    0     0      0.31 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 9 : 0 27 33 200 91 89 45 77 70 1335 ~664                                 0     0      0.33 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 10 : 0 27 33 200 91 89 45 77 70 117 1218 ~664                             0     0      0.36 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 11 : 0 27 33 200 91 89 45 77 70 117 79 1139 ~664                          0     0      0.40 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 12 : 0 27 33 200 91 89 45 77 70 117 79 40 1099 ~664                       0     0      0.43 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 45 77 70 117 79 40 48 1051 ~664                    0     0      0.46 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 14 : 0 27 33 200 91 89 45 77 70 117 79 40 48 103 948 ~664                 0     0      0.50 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 15 : 0 27 33 200 91 89 45 77 70 117 79 40 48 103 63 885 ~664              0     0      0.54 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 16 : 0 27 33 200 91 89 45 77 70 117 79 40 48 103 63 111 774 ~664          0     0      0.58 sec  T/O =  0  PRV =  9
-SBY 20:06:18 [stream_cdc_fifo_prove] engine_0: 17 : ... 33 200 91 89 45 77 70 117 79 40 48 103 63 111 69 721 ~664        1    15      0.64 sec  T/O =  0  PRV =  9
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 18 : ... 200 91 89 45 77 70 117 79 40 48 103 63 111 69 93 279 ~730        1    33      0.81 sec  T/O =  0  PRV =  9
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 19 : ... 91 89 45 77 70 117 79 40 48 103 63 111 69 93 46 322 ~730         1    34      0.93 sec  T/O =  0  PRV =  9
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 20 : ... 91 89 45 77 70 117 79 40 48 103 63 111 69 93 46 43 231 ~827      1    38      1.06 sec  T/O =  0  PRV =  9
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 21 : ... 89 45 77 70 117 79 40 48 103 63 111 69 93 46 43 35 236 ~827      1    38      1.16 sec  T/O =  0  PRV =  9
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Proved output 0 in frame 21.
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Proved output 6 in frame 21.
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 22 : ... 45 77 70 117 79 40 48 103 63 111 69 93 46 43 35 15 151 ~897      0    38      1.26 sec  T/O =  0  PRV = 11
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: 23 : ... 77 70 117 79 40 48 103 63 111 69 93 46 43 35 15 15 136 ~897      0    38      1.31 sec  T/O =  0  PRV = 11
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: All outputs solved or timed out in frame 23.
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Block = 2923  Oblig =  3157  Clause =  3043  Call = 94059 (sat=81.2%)  Cex =   0  Start = 278
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: SAT solving =     2.75 sec ( 64.63 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: unsat     =     0.27 sec (  6.27 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: sat       =     2.48 sec ( 58.36 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Generalize  =     0.80 sec ( 18.72 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Push clause =     1.91 sec ( 44.92 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Ternary sim =     0.06 sec (  1.45 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Containment =     0.00 sec (  0.07 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: CNF compute =     0.06 sec (  1.40 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Refinement  =     0.00 sec (  0.00 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: TOTAL       =     4.25 sec (100.00 %)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Property proved.  Time =     4.25 sec
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Counter-example is not available.
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: finished (returncode=0)
-SBY 20:06:19 [stream_cdc_fifo_prove] engine_0: Status returned by engine: PASS
-SBY 20:06:19 [stream_cdc_fifo_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:06 (6)
-SBY 20:06:19 [stream_cdc_fifo_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:04 (4)
-SBY 20:06:19 [stream_cdc_fifo_prove] summary: engine_0 (abc pdr) returned PASS
-SBY 20:06:19 [stream_cdc_fifo_prove] summary: engine_0 did not produce any traces
-SBY 20:06:19 [stream_cdc_fifo_prove] DONE (PASS, rc=0)
+SBY 12:20:15 [stream_cdc_fifo_prove] Removing directory '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove'.
+SBY 12:20:15 [stream_cdc_fifo_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/../rtl/stream_cdc_fifo.sv' to '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove/src/stream_cdc_fifo.sv'.
+SBY 12:20:16 [stream_cdc_fifo_prove] Copy '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_formal.sv' to '/mnt/c/projects/fpga-network-engine/formal/stream_cdc_fifo_prove/src/stream_cdc_fifo_formal.sv'.
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: abc pdr
+SBY 12:20:16 [stream_cdc_fifo_prove] base: starting process "cd stream_cdc_fifo_prove/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY 12:20:16 [stream_cdc_fifo_prove] base: finished (returncode=0)
+SBY 12:20:16 [stream_cdc_fifo_prove] prep: starting process "cd stream_cdc_fifo_prove/model; yosys -ql design_prep.log design_prep.ys"
+SBY 12:20:16 [stream_cdc_fifo_prove] prep: finished (returncode=0)
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: starting process "cd stream_cdc_fifo_prove/model; yosys -ql design_aiger.log design_aiger.ys"
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_valid like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_rst like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [0] like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [1] like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [2] like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_data [3] like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\s_clk like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_rst like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_ready like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating undriven bit stream_cdc_fifo_formal.\m_clk like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: Warning: Treating a total of 10 undriven bits in stream_cdc_fifo_formal like $anyseq.
+SBY 12:20:16 [stream_cdc_fifo_prove] aig: finished (returncode=0)
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: starting process "cd stream_cdc_fifo_prove; yosys-abc -c 'read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw'"
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: ======== ABC command line "read_aiger model/design_aiger.aig; fold; strash; pdr -v -l; write_cex -a engine_0/trace.aiw"
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: Warning: The last 6 outputs are interpreted as constraints.
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: VarMax = 300. FrameMax = 10000. QueMax = 0. TimeMax = 319. MonoCNF = no. SkipGen = no. SolveAll = no.
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: 1 : 0 45                                                                1    46      0.01 sec  T/O =  0  PRV =  0
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: 2 : 0 25 74 ~12                                                          1    74      0.04 sec  T/O =  0  PRV =  0
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: 3 : 0 27 62 246 ~14                                                      5    99      0.13 sec  T/O =  0  PRV =  0
+SBY 12:20:16 [stream_cdc_fifo_prove] engine_0: 4 : 0 27 33 200 151 ~21                                                  2    99      0.20 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 5 : 0 27 33 200 95 185 ~25                                               3    99      0.27 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 6 : 0 27 33 200 91 115 145 ~43                                           3    99      0.34 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 7 : 0 27 33 200 91 92 46 181 ~49                                         1    99      0.42 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 8 : 0 27 33 200 91 90 46 79 198 ~49                                      1   100      0.50 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 9 : 0 27 33 200 91 90 46 77 70 236 ~56                                   2   101      0.60 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 10 : 0 27 33 200 91 90 46 77 70 123 286 ~60                               3   101      0.72 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 11 : 0 27 33 200 91 90 46 77 70 117 82 319 ~86                            3   101      0.86 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 12 : 0 27 33 200 91 89 46 77 70 117 79 40 323 ~92                         1   101      0.95 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 46 77 70 117 79 40 48 280 ~94                      1   101      1.02 sec  T/O =  0  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: Timing out on output  0 in frame 13 (retrying in next anytime pass).
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 46 77 70 117 79 40 48 314 ~94                      1   101      1.04 sec  T/O =  1  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: Timing out on output  6 in frame 13 (retrying in next anytime pass).
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 46 77 70 117 79 40 48 349 ~94                      1   101      1.06 sec  T/O =  2  PRV =  0
+SBY 12:20:17 [stream_cdc_fifo_prove] engine_0: 14 : 0 27 33 200 91 89 46 77 70 117 79 40 48 100 313 ~104                 1   101      1.17 sec  T/O =  2  PRV =  0
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 15 : 0 27 33 200 91 89 46 77 70 117 79 40 48 100 80 290 ~107              2   101      1.26 sec  T/O =  2  PRV =  0
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 16 : 0 27 33 200 91 89 46 77 70 117 79 40 48 100 74 63 278 ~117           1   101      1.37 sec  T/O =  2  PRV =  0
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: Proved output 8 in frame 16.
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 17 : ... 27 33 200 91 89 46 77 70 117 79 40 48 100 74 63 93 201 ~133      1   101      1.48 sec  T/O =  2  PRV =  1
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 18 : ... 33 200 91 89 46 77 70 117 79 40 48 100 74 63 93 47 216 ~133      1   101      1.57 sec  T/O =  2  PRV =  1
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 19 : ... 200 91 89 46 77 70 117 79 40 48 100 74 63 93 47 58 245 ~138      1   101      1.69 sec  T/O =  2  PRV =  1
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 20 : ... 91 89 46 77 70 117 79 40 48 100 74 63 93 47 58 66 295 ~143       2   101      1.83 sec  T/O =  2  PRV =  1
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 21 : ... 89 46 77 70 117 79 40 48 100 74 63 93 47 58 60 48 313 ~149       1   101      1.96 sec  T/O =  2  PRV =  1
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: Proved output 3 in frame 21.
+SBY 12:20:18 [stream_cdc_fifo_prove] engine_0: 22 : ... 46 77 70 117 79 40 48 100 74 63 93 47 58 60 47 60 317 ~158       1   101      2.11 sec  T/O =  2  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 23 : ... 77 70 117 79 40 48 100 74 63 93 47 58 60 47 60 61 334 ~161       2   101      2.27 sec  T/O =  2  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 24 : ... 70 117 79 40 48 100 74 63 93 47 58 60 41 57 48 79 384 ~165       1   101      2.48 sec  T/O =  2  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 25 : ... 117 79 40 48 100 74 63 93 47 58 60 41 56 48 79 81 392 ~166       2   101      2.67 sec  T/O =  2  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: Timing out on output  7 in frame 25 (retrying in next anytime pass).
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 25 : ... 117 79 40 48 100 74 63 93 47 58 60 41 56 48 79 81 398 ~166       1   101      2.68 sec  T/O =  3  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 26 : ... 79 40 48 100 74 63 93 47 58 60 41 56 48 79 61 99 347 ~175        1   101      2.86 sec  T/O =  3  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 27 : ... 40 48 100 74 63 93 47 58 60 41 56 48 79 61 99 70 287 ~176        1   101      3.02 sec  T/O =  3  PRV =  2
+SBY 12:20:19 [stream_cdc_fifo_prove] engine_0: 28 : ... 48 100 74 63 93 47 58 60 41 56 48 79 61 99 70 21 272 ~176        1   101      3.15 sec  T/O =  3  PRV =  2
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 29 : ... 48 100 74 63 93 47 58 60 41 56 48 79 61 99 70 21 3 270 ~176      1   101      3.29 sec  T/O =  3  PRV =  2
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 30 : ... 100 74 63 93 47 58 60 41 56 48 79 61 99 70 21 3 1 271 ~176       1   101      3.42 sec  T/O =  3  PRV =  2
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 1 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 2 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 4 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 5 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 9 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Proved output 10 in frame 30.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 31 : ... 93 47 58 60 41 56 48 79 61 99 70 21 3 1 0 -3 ~450        0   101      3.52 sec  T/O =  3  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Starting new anytime pass, reusing clauses.
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: Frame Clauses                                                     Max Queue Flops Time
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 1 : 0 1887 ~415                                                          0     0      0.29 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 2 : 0 27 1860 ~415                                                       0     0      0.30 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 3 : 0 27 33 1827 ~415                                                    0     0      0.31 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 4 : 0 27 33 200 1627 ~415                                                0     0      0.33 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 5 : 0 27 33 200 91 1536 ~415                                             0     0      0.35 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 6 : 0 27 33 200 91 89 1447 ~415                                          0     0      0.37 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 7 : 0 27 33 200 91 89 45 1402 ~415                                       0     0      0.39 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 8 : 0 27 33 200 91 89 45 77 1325 ~415                                    0     0      0.42 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 9 : 0 27 33 200 91 89 45 77 70 1255 ~415                                 0     0      0.45 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 10 : 0 27 33 200 91 89 45 77 70 117 1138 ~415                             0     0      0.49 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 11 : 0 27 33 200 91 89 45 77 70 117 79 1059 ~415                          0     0      0.53 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 12 : 0 27 33 200 91 89 45 77 70 117 79 40 1019 ~415                       0     0      0.57 sec  T/O =  0  PRV =  8
+SBY 12:20:20 [stream_cdc_fifo_prove] engine_0: 13 : 0 27 33 200 91 89 45 77 70 117 79 40 48 986 ~415                     1    19      0.63 sec  T/O =  0  PRV =  8
+SBY 12:20:21 [stream_cdc_fifo_prove] engine_0: 14 : 0 27 33 200 91 89 45 77 70 117 79 40 48 100 949 ~415                 1    31      0.86 sec  T/O =  0  PRV =  8
+SBY 12:20:21 [stream_cdc_fifo_prove] engine_0: 15 : 0 27 33 200 91 89 45 77 70 117 79 40 48 100 78 929 ~415              1    31      1.09 sec  T/O =  0  PRV =  8
+SBY 12:20:21 [stream_cdc_fifo_prove] engine_0: 16 : 0 27 33 200 91 89 45 77 70 117 79 40 48 100 78 99 891 ~415           1    36      1.35 sec  T/O =  0  PRV =  8
+SBY 12:20:21 [stream_cdc_fifo_prove] engine_0: 17 : ... 27 33 200 91 89 45 77 70 117 79 40 48 100 78 99 62 905 ~415      1    38      1.64 sec  T/O =  0  PRV =  8
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: 18 : ... 33 200 91 89 45 77 70 117 79 40 48 100 78 99 62 92 865 ~415      1    42      1.86 sec  T/O =  0  PRV =  8
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: 19 : ... 200 91 89 45 77 70 117 79 40 48 100 78 99 62 92 92 791 ~415      1    42      2.07 sec  T/O =  0  PRV =  8
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: Timing out on output  0 in frame 19 (retrying in next anytime pass).
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: 19 : ... 200 91 89 45 77 70 117 79 40 48 100 78 99 62 92 92 853 ~415      1    42      2.12 sec  T/O =  1  PRV =  8
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: 20 : ... 91 89 45 77 70 117 79 40 48 100 78 99 62 92 92 95 803 ~415       1    46      2.36 sec  T/O =  1  PRV =  8
+SBY 12:20:22 [stream_cdc_fifo_prove] engine_0: 21 : ... 89 45 77 70 117 79 40 48 100 78 99 62 92 92 95 66 799 ~415       1    46      2.59 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 22 : ... 45 77 70 117 79 40 48 100 78 99 62 92 92 95 66 56 743 ~415       0    46      2.78 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 23 : ... 77 70 117 79 40 48 100 78 99 62 92 92 95 66 56 48 695 ~415       0    46      2.85 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 24 : ... 70 117 79 40 48 100 78 99 62 92 92 95 66 56 48 83 612 ~415       0    46      2.95 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 25 : ... 117 79 40 48 100 78 99 62 92 92 95 66 56 48 83 61 559 ~415       1    54      3.04 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 26 : ... 79 40 48 100 78 99 62 92 92 95 66 56 48 83 61 69 513 ~415        1    56      3.19 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 27 : ... 40 48 100 78 99 62 92 92 95 66 56 48 83 61 69 18 509 ~415        1    57      3.35 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 28 : ... 48 100 78 99 62 92 92 95 66 56 48 83 61 69 18 11 505 ~415        1    57      3.49 sec  T/O =  1  PRV =  8
+SBY 12:20:23 [stream_cdc_fifo_prove] engine_0: 29 : ... 48 100 78 99 62 92 92 95 66 56 48 83 61 69 18 11 3 506 ~415      1    57      3.64 sec  T/O =  1  PRV =  8
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: 30 : ... 100 78 99 62 92 92 95 66 56 48 83 61 69 18 11 3 2 506 ~415       1    57      3.80 sec  T/O =  1  PRV =  8
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Proved output 0 in frame 30.
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Proved output 6 in frame 30.
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Proved output 7 in frame 30.
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: 31 : ... 62 92 92 95 66 56 48 83 61 69 18 11 3 2 0 -3 ~924        0    57      3.93 sec  T/O =  0  PRV = 11
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Block = 2901  Oblig =  3131  Clause =  3020  Call =111116 (sat=81.3%)  Cex =   0  Start = 330
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: SAT solving =     4.32 sec ( 57.72 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: unsat     =     0.41 sec (  5.51 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: sat       =     3.90 sec ( 52.20 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Generalize  =     1.07 sec ( 14.27 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Push clause =     3.23 sec ( 43.16 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Ternary sim =     0.09 sec (  1.18 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Containment =     0.01 sec (  0.11 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: CNF compute =     0.13 sec (  1.79 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Refinement  =     0.00 sec (  0.00 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: TOTAL       =     7.48 sec (100.00 %)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Property proved.  Time =     7.48 sec
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Counter-example is not available.
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: finished (returncode=0)
+SBY 12:20:24 [stream_cdc_fifo_prove] engine_0: Status returned by engine: PASS
+SBY 12:20:24 [stream_cdc_fifo_prove] summary: Elapsed clock time [H:MM:SS (secs)]: 0:00:08 (8)
+SBY 12:20:24 [stream_cdc_fifo_prove] summary: Elapsed process time [H:MM:SS (secs)]: 0:00:07 (7)
+SBY 12:20:24 [stream_cdc_fifo_prove] summary: engine_0 (abc pdr) returned PASS
+SBY 12:20:24 [stream_cdc_fifo_prove] summary: engine_0 did not produce any traces
+SBY 12:20:24 [stream_cdc_fifo_prove] DONE (PASS, rc=0)

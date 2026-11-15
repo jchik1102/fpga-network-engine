@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2025.2 (win64) Build 6299465 Fri Nov 14 19:35:11 GMT 2025
-| Date         : Fri Oct 16 23:00:19 2026
+| Date         : Sat Nov 14 12:18:42 2026
 | Host         : Jonathan running 64-bit major release  (build 9200)
 | Command      : report_utilization -file C:/projects/fpga-network-engine/build/vivado/engine_axi_cdc/utilization.txt
 | Design       : engine_axi_cdc_fit
